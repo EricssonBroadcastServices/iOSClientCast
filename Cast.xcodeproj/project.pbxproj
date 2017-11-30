@@ -24,6 +24,8 @@
 		7628090E1FD0161D005610DF /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809111FD0161D005610DF /* Nimble.framework */; };
 		7628090F1FD0161D005610DF /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809121FD0161D005610DF /* Quick.framework */; };
 		762809141FD01797005610DF /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 762809131FD01797005610DF /* CHANGELOG.md */; };
+		762809171FD01966005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
+		762809181FD01994005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 		762809111FD0161D005610DF /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762809121FD0161D005610DF /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762809131FD01797005610DF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
+		762809161FD01966005610DF /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				762809171FD01966005610DF /* GoogleCast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +78,7 @@
 				7628090D1FD0161D005610DF /* Mockingjay.framework in Frameworks */,
 				7628090E1FD0161D005610DF /* Nimble.framework in Frameworks */,
 				7628090F1FD0161D005610DF /* Quick.framework in Frameworks */,
+				762809181FD01994005610DF /* GoogleCast.framework in Frameworks */,
 				762808E61FD01426005610DF /* Cast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				762808DE1FD01426005610DF /* Cast */,
+				762809151FD0194F005610DF /* GoogleCast */,
 				762808E91FD01426005610DF /* CastTests */,
 				762808DD1FD01426005610DF /* Products */,
 				7628090C1FD0161D005610DF /* Frameworks */,
@@ -153,6 +159,14 @@
 				762809121FD0161D005610DF /* Quick.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		762809151FD0194F005610DF /* GoogleCast */ = {
+			isa = PBXGroup;
+			children = (
+				762809161FD01966005610DF /* GoogleCast.framework */,
+			);
+			path = GoogleCast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +435,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleCast",
+				);
 				INFOPLIST_FILE = Cast/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -443,6 +461,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleCast",
+				);
 				INFOPLIST_FILE = Cast/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -460,6 +482,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JCUPRVKEC5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleCast",
+				);
 				INFOPLIST_FILE = CastTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.CastTests;
@@ -474,6 +500,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JCUPRVKEC5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoogleCast",
+				);
 				INFOPLIST_FILE = CastTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.CastTests;
