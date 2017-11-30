@@ -57,14 +57,14 @@ extension CastChannel {
                 let rawEvent = try decoder.decode(RawSingleValueEvent<Int64>.self, from: data)
                 onStartTimeLive(rawEvent.value)
             case .programChanged:
-                let rawEvent = try decoder.decode(RawSingleValueEvent<String>.self, from: data)
-                onProgramChanged(rawEvent.value)
+                let event = try decoder.decode(ProgramChanged.self, from: data)
+                onProgramChanged(event.programId)
             case .segmentMissing:
                 let rawEvent = try decoder.decode(RawSingleValueEvent<Int64>.self, from: data)
                 onSegmentMissing(rawEvent.value)
             case .error:
-                let event = try decoder.decode(CastError.self, from: data)
-                onError(event)
+                let event = try decoder.decode(CastError.ReceiverError.self, from: data)
+                onError(.receiver(reason: event))
             }
         }
         catch {
@@ -188,41 +188,181 @@ extension CastChannel {
 
 
 extension CastChannel {
-    /// After joining a session, it might be necessary to request the constrols' status (volume level, timeshift enabled, tracks, startTimeLive). By sending this message to the receiver, it will then answer with updated controls.
-    public func refreshControls() {
-        
+    fileprivate func send(message: String) {
+        var gckError: GCKError?
+        sendTextMessage(message, error: &gckError)
+        if let error = gckError {
+            onError(.googleCast(error: error))
+        }
     }
 }
+
+extension CastChannel {
+    /// After joining a session, it might be necessary to request the constrols' status (volume level, timeshift enabled, tracks, startTimeLive). By sending this message to the receiver, it will then answer with updated controls.
+    public func refreshControls() {
+        do {
+            let data = try JSONEncoder().encode(RefreshControls())
+            guard let message = String(data: data, encoding: .utf8) else { return }
+            send(message: message)
+        }
+        catch {
+            onError(.sender(reason: .failedToSerializeMessage(error: error, type: "RefreshControls")))
+        }
+    }
+    
+    internal struct RefreshControls: Encodable {
+        internal func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: BaseKeys.self)
+            try container.encode("refreshcontrols", forKey: .type)
+        }
+        
+        internal enum BaseKeys: CodingKey {
+            case type
+        }
+    }
+}
+
+
+
+//- (void)refreshControls {
+//    NSDictionary *messageDictionary = @{@"type":@"refreshcontrols"};
+//    NSString *message = [self convertDictionaryToString:messageDictionary];
+//    [self sendTextMessage:message error:nil];
+//    NSLog(@"sendTextMessage: %@", message.description);
+//    }
+//
+//    - (void)showTextTrack:(NSString *)language {
+//        NSMutableDictionary *messageDictionary = [NSMutableDictionary new];
+//        [messageDictionary setObject:@"showtexttrack" forKey:@"type"];
+//
+//        NSMutableDictionary *dataDictionary = [NSMutableDictionary new];
+//        [dataDictionary setObject:language forKey:@"language"];
+//
+//        [messageDictionary setObject:dataDictionary forKey:@"data"];
+//
+//        NSString *message = [self convertDictionaryToString:messageDictionary];
+//        [self sendTextMessage:message error:nil];
+//        NSLog(@"sendTextMessage: %@", message.description);
+//        }
+//
+//        - (void)hideTextTrack {
+//            NSMutableDictionary *messageDictionary = [NSMutableDictionary new];
+//            [messageDictionary setObject:@"hidetexttrack" forKey:@"type"];
+//            NSString *message = [self convertDictionaryToString:messageDictionary];
+//            [self sendTextMessage:message error:nil];
+//            NSLog(@"sendTextMessage: %@", message.description);
+//}
 extension CastChannel {
     /// Updates the currently displayed text track on the receiver
     ///
     /// - parameter textTrack: The track to display
     public func use(textTrack: Track) {
+        use(subtitle: textTrack.language)
     }
     
     /// Updates the currently displayed text track on the receiver
     ///
     /// - parameter subtitle: The language code to display
     public func use(subtitle: String) {
-        
+        do {
+            let event = ShowTextTrack(language: subtitle)
+            let data = try JSONEncoder().encode(event)
+            guard let message = String(data: data, encoding: .utf8) else { return }
+            send(message: message)
+        }
+        catch {
+            onError(.sender(reason: .failedToSerializeMessage(error: error, type: "ShowTextTrack")))
+        }
     }
     
     /// Hides any subtiltes currently displayed
     public func hideSubtitles() {
-        
+        do {
+            let event = HideTextTrack()
+            let data = try JSONEncoder().encode(event)
+            guard let message = String(data: data, encoding: .utf8) else { return }
+            send(message: message)
+        }
+        catch {
+            onError(.sender(reason: .failedToSerializeMessage(error: error, type: "HideTextTrack")))
+        }
     }
     
+    
+    
+    internal struct ShowTextTrack: Encodable {
+        internal let language: String
+        
+        internal func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: BaseKeys.self)
+            try container.encode("showtexttrack", forKey: .type)
+            
+            var nested = container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
+            try nested.encode(language, forKey: .language)
+        }
+        
+        internal enum BaseKeys: CodingKey {
+            case type
+            case data
+        }
+        internal enum DataKeys: CodingKey {
+            case language
+        }
+    }
+    
+    internal struct HideTextTrack: Encodable {
+        internal func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: BaseKeys.self)
+            try container.encode("hidetexttrack", forKey: .type)
+        }
+        
+        internal enum BaseKeys: CodingKey {
+            case type
+        }
+    }
+}
+
+extension CastChannel {
     /// Updates the currently active audio track on the receiver
     ///
     /// - parameter audioTrack: The track to display
     public func use(audioTrack: Track) {
+        use(audio: audioTrack.language)
     }
     
     /// Updates the currently active audio track on the receiver
     ///
     /// - parameter audio: The language code to display
     public func use(audio: String) {
+        do {
+            let event = EnableAudioTrack(language: audio)
+            let data = try JSONEncoder().encode(event)
+            guard let message = String(data: data, encoding: .utf8) else { return }
+            send(message: message)
+        }
+        catch {
+            onError(.sender(reason: .failedToSerializeMessage(error: error, type: "EnableAudioTrack")))
+        }
+    }
+    
+    internal struct EnableAudioTrack: Encodable {
+        internal let language: String
         
+        internal func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: BaseKeys.self)
+            try container.encode("enableaudiotrack", forKey: .type)
+            
+            var nested = container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
+            try nested.encode(language, forKey: .language)
+        }
+        
+        internal enum BaseKeys: CodingKey {
+            case type
+            case data
+        }
+        internal enum DataKeys: CodingKey {
+            case language
+        }
     }
 }
 
@@ -332,26 +472,59 @@ public struct VolumeChanged: Decodable {
     }
 }
 
-public struct CastError: Swift.Error, Decodable {
-    /// The error code
-    public let code: Int
+internal struct ProgramChanged: Decodable {
+    let programId: String
     
-    /// The error message
-    public let message: String
-    
-    public init(from decoder: Decoder) throws {
+    internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: BaseKeys.self)
         let nested = try container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
         
-        code = try nested.decode(Int.self, forKey: .code)
-        message = try nested.decode(String.self, forKey: .message)
+        programId = try nested.decode(String.self, forKey: .programId)
     }
     
-    enum BaseKeys: CodingKey {
+    internal enum BaseKeys: CodingKey {
         case data
     }
-    enum DataKeys: CodingKey {
-        case code
-        case message
+    internal enum DataKeys: CodingKey {
+        case programId
+    }
+}
+
+public enum CastError {
+    case receiver(reason: ReceiverError)
+    case sender(reason: SenderError)
+    case googleCast(error: GCKError)
+    
+    public enum SenderError: Error {
+        case failedToSerializeMessage(error: Error, type: String)
+    }
+    
+    public struct ReceiverError: Swift.Error, Decodable {
+        /// The error code
+        public let code: Int
+        
+        /// The error message
+        public let message: String
+        
+        internal init(code: Int, message: String) {
+            self.code = code
+            self.message = message
+        }
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: BaseKeys.self)
+            let nested = try container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
+            
+            code = try nested.decode(Int.self, forKey: .code)
+            message = try nested.decode(String.self, forKey: .message)
+        }
+        
+        internal enum BaseKeys: CodingKey {
+            case data
+        }
+        internal enum DataKeys: CodingKey {
+            case code
+            case message
+        }
     }
 }
