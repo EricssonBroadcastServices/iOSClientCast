@@ -25,7 +25,6 @@ public class CastChannel: GCKCastChannel {
     fileprivate var onProgramChanged: (String) -> Void = { _ in }
     fileprivate var onSegmentMissing: (Int64) -> Void = { _ in }
     fileprivate var onError: (CastError) -> Void = { _ in }
-    fileprivate var onUnsupportedMessage: (String, Error) -> Void = { _,_ in }
     
     
     public override func didReceiveTextMessage(_ message: String) {
@@ -68,7 +67,7 @@ extension CastChannel {
             }
         }
         catch {
-            onUnsupportedMessage(response, error)
+            onError(.sender(reason: .unsupportedMessage(message: response, error: error)))
         }
     }
 }
@@ -175,15 +174,6 @@ extension CastChannel {
         return self
     }
     
-    /// `CastChannel` encountered a message it could not interpret.
-    ///
-    /// - parameter message: This is the raw `response` returned by the ChromeCast receiver
-    /// - parameter error: The error trying to decode the message
-    @discardableResult
-    public func onUnsupportedMessage(callback: @escaping (String, Error) -> Void) -> CastChannel {
-        onUnsupportedMessage = callback
-        return self
-    }
 }
 
 
@@ -222,36 +212,6 @@ extension CastChannel {
     }
 }
 
-
-
-//- (void)refreshControls {
-//    NSDictionary *messageDictionary = @{@"type":@"refreshcontrols"};
-//    NSString *message = [self convertDictionaryToString:messageDictionary];
-//    [self sendTextMessage:message error:nil];
-//    NSLog(@"sendTextMessage: %@", message.description);
-//    }
-//
-//    - (void)showTextTrack:(NSString *)language {
-//        NSMutableDictionary *messageDictionary = [NSMutableDictionary new];
-//        [messageDictionary setObject:@"showtexttrack" forKey:@"type"];
-//
-//        NSMutableDictionary *dataDictionary = [NSMutableDictionary new];
-//        [dataDictionary setObject:language forKey:@"language"];
-//
-//        [messageDictionary setObject:dataDictionary forKey:@"data"];
-//
-//        NSString *message = [self convertDictionaryToString:messageDictionary];
-//        [self sendTextMessage:message error:nil];
-//        NSLog(@"sendTextMessage: %@", message.description);
-//        }
-//
-//        - (void)hideTextTrack {
-//            NSMutableDictionary *messageDictionary = [NSMutableDictionary new];
-//            [messageDictionary setObject:@"hidetexttrack" forKey:@"type"];
-//            NSString *message = [self convertDictionaryToString:messageDictionary];
-//            [self sendTextMessage:message error:nil];
-//            NSLog(@"sendTextMessage: %@", message.description);
-//}
 extension CastChannel {
     /// Updates the currently displayed text track on the receiver
     ///
@@ -496,7 +456,17 @@ public enum CastError {
     case googleCast(error: GCKError)
     
     public enum SenderError: Error {
+        /// `CastChannel` failed to serialize the outgoing message.
+        ///
+        /// - parameter error: The error trying to decode the message
+        /// - parameter type: The type of message that failed
         case failedToSerializeMessage(error: Error, type: String)
+        
+        /// `CastChannel` encountered a message it could not interpret.
+        ///
+        /// - parameter message: This is the raw `response` returned by the ChromeCast receiver
+        /// - parameter error: The error trying to decode the message
+        case unsupportedMessage(message: String, error: Error)
     }
     
     public struct ReceiverError: Swift.Error, Decodable {
