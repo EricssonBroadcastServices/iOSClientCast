@@ -9,45 +9,6 @@
 import Foundation
 import GoogleCast
 
-func test(session: GCKCastSession) {
-    let imageUrl = URL(fileURLWithPath: "")
-    let width = 100
-    let height = 100
-    let mediaMetadata = GCKMediaMetadata(metadataType: .generic) //.movie
-    mediaMetadata.setString("Movie Title", forKey: kGCKMetadataKeyTitle)
-    mediaMetadata.setString("Some sort of movie tag line", forKey: kGCKMetadataKeySubtitle)
-    mediaMetadata.addImage(GCKImage(url: imageUrl, width: width, height: height))
-    
-    let mediaInfo = GCKMediaInformation(contentID: "SomeID",
-                                        streamType: .none, // .live?
-                                        contentType: "video/mp4",
-                                        metadata: mediaMetadata,
-                                        streamDuration: 0,
-                                        mediaTracks: nil,
-                                        textTrackStyle: nil,
-                                        customData: nil)
-    
-    let exposureSpecificData: [String: Any] = [
-        "audioLanguage": "en",
-        "textLanguage": "en",
-        "startTime": 0,
-        "absoluteStartTime": 101010101010,// milliseconds since 1970/01/01,
-        "timeShiftDisabled": false,
-        "maxBitrate": 10000,
-        "autoplay": true,
-        "useLastViewedOffset": true
-    ]
-    let shouldAutoPlay = true
-    let request = session
-        .remoteMediaClient?
-        .loadMedia(mediaInfo,
-                   autoplay: shouldAutoPlay,
-                   playPosition: 0,
-                   customData: exposureSpecificData)
-    
-}
-
-
 /// `CastEnvironment` defines the environment in which the receiver will request the proper media from the *Exposure api*.
 ///
 /// If no media is found, `CastChannel` will respond with the appropriate error information.
@@ -64,6 +25,12 @@ public struct CastEnvironment: Encodable {
     /// Valid API session that has access to the requested media
     public let sessionToken: String
     
+    public init(baseUrl: String, customer: String, businessUnit: String, sessionToken: String) {
+        self.baseUrl = baseUrl
+        self.customer = customer
+        self.businessUnit = businessUnit
+        self.sessionToken = sessionToken
+    }
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -78,6 +45,15 @@ public struct CastEnvironment: Encodable {
         case customer
         case businessUnit
         case sessionToken
+    }
+    
+    public var toJson: [String: Any] {
+        return [
+            CodingKeys.baseUrl.rawValue: baseUrl,
+            CodingKeys.customer.rawValue: customer,
+            CodingKeys.businessUnit.rawValue: businessUnit,
+            CodingKeys.sessionToken.rawValue: sessionToken
+        ]
     }
 }
 
@@ -95,11 +71,34 @@ public struct CustomData: Encodable {
     public let textLanguage: String?
     public let startTime: Int64?
     public let absoluteStartTime: Int64?
-    public let timeShiftDisabled: Bool?
+    public let timeShiftDisabled: Bool
     public let maxBitrate: Int64?
-    public let autoplay: Bool?
-    public let useLastViewedOffset: Bool?
+    public let autoplay: Bool
+    public let useLastViewedOffset: Bool
     
+    public init(environment: CastEnvironment,
+                assetId: String,
+                programId: String? = nil,
+                audioLanguage: String? = nil,
+                textLanguage: String? = nil,
+                startTime: Int64? = nil,
+                absoluteStartTime: Int64? = nil,
+                timeShiftDisabled: Bool = false,
+                maxBitrate: Int64? = nil,
+                autoplay: Bool = true,
+                useLastViewedOffset: Bool = false) {
+        self.exposureEnvironment = environment
+        self.assetId = assetId
+        self.programId = programId
+        self.audioLanguage = audioLanguage
+        self.textLanguage = textLanguage
+        self.startTime = startTime
+        self.absoluteStartTime = absoluteStartTime
+        self.timeShiftDisabled = timeShiftDisabled
+        self.maxBitrate = maxBitrate
+        self.autoplay = autoplay
+        self.useLastViewedOffset = useLastViewedOffset
+    }
     
     internal enum CodingKeys: String, CodingKey {
         case exposureEnvironment = "ericssonexposure"
@@ -113,6 +112,38 @@ public struct CustomData: Encodable {
         case maxBitrate
         case autoplay
         case useLastViewedOffset
+    }
+    
+    public var toJson: [String: Any] {
+        var json: [String: Any] = [
+            CodingKeys.exposureEnvironment.rawValue: exposureEnvironment.toJson,
+            CodingKeys.assetId.rawValue: assetId,
+            CodingKeys.timeShiftDisabled.rawValue: timeShiftDisabled,
+            CodingKeys.autoplay.rawValue: autoplay,
+            CodingKeys.useLastViewedOffset.rawValue: useLastViewedOffset,
+        ]
+        
+        if let value = audioLanguage {
+            json[CodingKeys.audioLanguage.rawValue] = value
+        }
+        
+        if let value = textLanguage {
+            json[CodingKeys.textLanguage.rawValue] = value
+        }
+        
+        if let value = startTime {
+            json[CodingKeys.startTime.rawValue] = value
+        }
+        
+        if let value = absoluteStartTime {
+            json[CodingKeys.absoluteStartTime.rawValue] = value
+        }
+        
+        if let value = maxBitrate {
+            json[CodingKeys.maxBitrate.rawValue] = value
+        }
+        
+        return json
     }
 }
 
@@ -131,6 +162,8 @@ public class CastChannel: GCKCastChannel {
     fileprivate var onStartTimeLive: (Int64) -> Void = { _ in }
     fileprivate var onProgramChanged: (String) -> Void = { _ in }
     fileprivate var onSegmentMissing: (Int64) -> Void = { _ in }
+    fileprivate var onAutoplay: (Bool) -> Void = { _ in }
+    fileprivate var onIsLive: (Bool) -> Void = { _ in }
     fileprivate var onError: (CastError) -> Void = { _ in }
     
     
@@ -162,6 +195,12 @@ public class CastChannel: GCKCastChannel {
             case .segmentMissing:
                 let rawEvent = try decoder.decode(RawSingleValueEvent<Int64>.self, from: data)
                 onSegmentMissing(rawEvent.value)
+            case .autoplay:
+                let rawEvent = try decoder.decode(RawSingleValueEvent<Bool>.self, from: data)
+                onAutoplay(rawEvent.value)
+            case .isLive:
+                let rawEvent = try decoder.decode(RawSingleValueEvent<Bool>.self, from: data)
+                onIsLive(rawEvent.value)
             case .error:
                 let event = try decoder.decode(CastError.ReceiverError.self, from: data)
                 onError(.receiver(reason: event))
@@ -183,6 +222,8 @@ internal enum MessageType: String, Decodable {
     case startTimeLive = "startTimeLive"
     case programChanged = "programchanged"
     case segmentMissing = "segmentmissing"
+    case autoplay = "autoplay"
+    case isLive = "isLive"
     case error = "error"
     
     internal init(from decoder: Decoder) throws {
@@ -266,6 +307,23 @@ extension CastChannel {
         return self
     }
     
+    /// Signals whether autoplay is enabled or not.
+    ///
+    /// - parameter enabled: If autoplay is enabled or not
+    @discardableResult
+    public func onAutoplay(callback: @escaping (Bool) -> Void) -> CastChannel {
+        onAutoplay = callback
+        return self
+    }
+    
+    /// Signals whether the stream is a live stream or not
+    ///
+    /// - parameter enabled: If stream is live or not
+    @discardableResult
+    public func onIsLive(callback: @escaping (Bool) -> Void) -> CastChannel {
+        onIsLive = callback
+        return self
+    }
     /// Signals an error occured
     ///
     /// - parameter error: The error that occured
@@ -459,23 +517,23 @@ public struct TracksUpdated: Decodable {
         subtitles = tracks
             .filter{ $0.type == "text" }
             .map{ Track(label: $0.label,
-                        trackId: $0.trackId,
+                        trackId: $0.id,
                         language: $0.language,
-                        active: activeTracksIds.contains($0.trackId))
+                        active: activeTracksIds.contains($0.id))
         }
         audio = tracks
             .filter{ $0.type == "audio" }
             .map{ Track(label: $0.label,
-                        trackId: $0.trackId,
+                        trackId: $0.id,
                         language: $0.language,
-                        active: activeTracksIds.contains($0.trackId))
+                        active: activeTracksIds.contains($0.id))
         }
     }
     
     internal struct RawTrack: Decodable {
         internal let label: String
         internal let type: String
-        internal let trackId: Int
+        internal let id: Int
         internal let language: String
     }
     
