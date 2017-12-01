@@ -37,6 +37,7 @@
 		762809181FD01994005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		7628091A1FD01CEB005610DF /* Cast-Swift-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 762809191FD01CEA005610DF /* Cast-Swift-Bridging-Header.h */; };
 		7628091C1FD01D77005610DF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628091B1FD01D77005610DF /* Channel.swift */; };
+		7668F8D81FD1D8A000823161 /* GoogleCast.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,19 @@
 			remoteInfo = Cast;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7668F8D71FD1D89900823161 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				7668F8D81FD1D8A000823161 /* GoogleCast.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		761371E11FD1993F007AAFF8 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -266,6 +280,7 @@
 				762808E11FD01426005610DF /* Sources */,
 				762808E21FD01426005610DF /* Frameworks */,
 				762808E31FD01426005610DF /* Resources */,
+				7668F8D71FD1D89900823161 /* CopyFiles */,
 			);
 			buildRules = (
 			);
