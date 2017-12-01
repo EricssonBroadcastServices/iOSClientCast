@@ -19,7 +19,7 @@ public class Channel: GCKCastChannel {
     fileprivate var onTracksUpdated: (TracksUpdated) -> Void = { _ in }
     fileprivate var onTimeshiftEnabled: (Bool) -> Void = { _ in }
     fileprivate var onVolumeChanged: (VolumeChanged) -> Void = { _ in }
-    fileprivate var onDurationChanged: (Int64) -> Void = { _ in }
+    fileprivate var onDurationChanged: (Float) -> Void = { _ in }
     fileprivate var onStartTimeLive: (Int64) -> Void = { _ in }
     fileprivate var onProgramChanged: (String) -> Void = { _ in }
     fileprivate var onSegmentMissing: (Int64) -> Void = { _ in }
@@ -45,7 +45,7 @@ public class Channel: GCKCastChannel {
                 let event = try decoder.decode(VolumeChanged.self, from: data)
                 onVolumeChanged(event)
             case .durationChange:
-                let rawEvent = try decoder.decode(RawSingleValueEvent<Int64>.self, from: data)
+                let rawEvent = try decoder.decode(RawSingleValueEvent<Float>.self, from: data)
                 onDurationChanged(rawEvent.value)
             case .startTimeLive:
                 let rawEvent = try decoder.decode(RawSingleValueEvent<Int64>.self, from: data)
@@ -105,7 +105,7 @@ extension Channel {
     ///
     /// - parameter duration: The new duration of the media
     @discardableResult
-    public func onDurationChanged(callback: @escaping (Int64) -> Void) -> Channel {
+    public func onDurationChanged(callback: @escaping (Float) -> Void) -> Channel {
         onDurationChanged = callback
         return self
     }
