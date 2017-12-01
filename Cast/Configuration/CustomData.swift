@@ -11,7 +11,7 @@ import Foundation
 /// Data structure describing configuration options that can be delivered to the `ChromeCast` receiver during loading of new media.
 public struct CustomData: Encodable {
     /// Environment used to contact exposure
-    public let exposureEnvironment: CastEnvironment
+    public let exposureEnvironment: Environment
     
     /// *Vod* media asset to cast
     public let assetId: String
@@ -55,7 +55,7 @@ public struct CustomData: Encodable {
     /// If enabled, playback will continue any bookmarked position related to the user (as specified by the `SessionToken`
     public let useLastViewedOffset: Bool
     
-    public init(environment: CastEnvironment,
+    public init(environment: Environment,
                 assetId: String,
                 programId: String? = nil,
                 audioLanguage: String? = nil,

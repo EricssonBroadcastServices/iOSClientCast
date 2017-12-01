@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		761371E21FD1993F007AAFF8 /* CastEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E11FD1993F007AAFF8 /* CastEnvironment.swift */; };
+		761371E21FD1993F007AAFF8 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E11FD1993F007AAFF8 /* Environment.swift */; };
 		761371E41FD19962007AAFF8 /* CustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E31FD19962007AAFF8 /* CustomData.swift */; };
 		761371E81FD19A28007AAFF8 /* RawSingleValueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E71FD19A28007AAFF8 /* RawSingleValueEvent.swift */; };
 		761371EA1FD19A49007AAFF8 /* TracksUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E91FD19A49007AAFF8 /* TracksUpdated.swift */; };
@@ -50,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		761371E11FD1993F007AAFF8 /* CastEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastEnvironment.swift; sourceTree = "<group>"; };
+		761371E11FD1993F007AAFF8 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		761371E31FD19962007AAFF8 /* CustomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomData.swift; sourceTree = "<group>"; };
 		761371E71FD19A28007AAFF8 /* RawSingleValueEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSingleValueEvent.swift; sourceTree = "<group>"; };
 		761371E91FD19A49007AAFF8 /* TracksUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksUpdated.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		761371F71FD19BE2007AAFF8 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				761371E11FD1993F007AAFF8 /* CastEnvironment.swift */,
+				761371E11FD1993F007AAFF8 /* Environment.swift */,
 				761371E31FD19962007AAFF8 /* CustomData.swift */,
 			);
 			path = Configuration;
@@ -355,7 +355,7 @@
 				761371F41FD19B2F007AAFF8 /* MessageType.swift in Sources */,
 				761371E81FD19A28007AAFF8 /* RawSingleValueEvent.swift in Sources */,
 				761371F01FD19A78007AAFF8 /* ProgramChanged.swift in Sources */,
-				761371E21FD1993F007AAFF8 /* CastEnvironment.swift in Sources */,
+				761371E21FD1993F007AAFF8 /* Environment.swift in Sources */,
 				761371EA1FD19A49007AAFF8 /* TracksUpdated.swift in Sources */,
 				7628091C1FD01D77005610DF /* Channel.swift in Sources */,
 				761371EC1FD19A5A007AAFF8 /* Track.swift in Sources */,

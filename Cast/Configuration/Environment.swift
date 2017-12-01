@@ -11,7 +11,7 @@ import Foundation
 /// `CastEnvironment` defines the environment in which the receiver will request the proper media from the *Exposure api*.
 ///
 /// If no media is found, `Cast.Channel` will respond with the appropriate error information.
-public struct CastEnvironment: Encodable {
+public struct Environment: Encodable {
     /// Base exposure url. This is the customer specific URL to Exposure
     public let baseUrl: String
     
