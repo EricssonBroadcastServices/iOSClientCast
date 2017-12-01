@@ -9,10 +9,10 @@
 import Foundation
 import GoogleCast
 
-public class CastChannel: GCKCastChannel {
+public class Channel: GCKCastChannel {
     public static let defaultNamespace: String = "urn:x-cast:com.ericsson.cast.receiver"
     
-    public init(namepace: String = CastChannel.defaultNamespace) {
+    public init(namepace: String = Channel.defaultNamespace) {
         super.init(namespace: namepace)
     }
     
@@ -73,12 +73,12 @@ public class CastChannel: GCKCastChannel {
     }
 }
 
-extension CastChannel {
+extension Channel {
     /// Signals the tracks have been updated
     ///
     /// - parameter tracksUpdated: The latest available tracks
     @discardableResult
-    public func onTracksUpdated(callback: @escaping (TracksUpdated) -> Void) -> CastChannel {
+    public func onTracksUpdated(callback: @escaping (TracksUpdated) -> Void) -> Channel {
         onTracksUpdated = callback
         return self
     }
@@ -87,7 +87,7 @@ extension CastChannel {
     ///
     /// - parameter enabled: If timeshift is enabled or not
     @discardableResult
-    public func onTimeshiftEnabled(callback: @escaping (Bool) -> Void) -> CastChannel {
+    public func onTimeshiftEnabled(callback: @escaping (Bool) -> Void) -> Channel {
         onTimeshiftEnabled = callback
         return self
     }
@@ -96,7 +96,7 @@ extension CastChannel {
     ///
     /// - parameter volumeChanged: The active volume
     @discardableResult
-    public func onVolumeChanged(callback: @escaping (VolumeChanged) -> Void) -> CastChannel {
+    public func onVolumeChanged(callback: @escaping (VolumeChanged) -> Void) -> Channel {
         onVolumeChanged = callback
         return self
     }
@@ -105,7 +105,7 @@ extension CastChannel {
     ///
     /// - parameter duration: The new duration of the media
     @discardableResult
-    public func onDurationChanged(callback: @escaping (Int64) -> Void) -> CastChannel {
+    public func onDurationChanged(callback: @escaping (Int64) -> Void) -> Channel {
         onDurationChanged = callback
         return self
     }
@@ -114,7 +114,7 @@ extension CastChannel {
     ///
     /// - parameter startTime: In milliseconds since 1970/01/01 (ie unix epoch time)
     @discardableResult
-    public func onStartTimeLive(callback: @escaping (Int64) -> Void) -> CastChannel {
+    public func onStartTimeLive(callback: @escaping (Int64) -> Void) -> Channel {
         onStartTimeLive = callback
         return self
     }
@@ -123,7 +123,7 @@ extension CastChannel {
     ///
     /// - parameter programId: The programId for the program
     @discardableResult
-    public func onProgramChanged(callback: @escaping (String) -> Void) -> CastChannel {
+    public func onProgramChanged(callback: @escaping (String) -> Void) -> Channel {
         onProgramChanged = callback
         return self
     }
@@ -132,7 +132,7 @@ extension CastChannel {
     ///
     /// - parameter position: The possition where segment is missing
     @discardableResult
-    public func onSegmentMissing(callback: @escaping (Int64) -> Void) -> CastChannel {
+    public func onSegmentMissing(callback: @escaping (Int64) -> Void) -> Channel {
         onSegmentMissing = callback
         return self
     }
@@ -141,7 +141,7 @@ extension CastChannel {
     ///
     /// - parameter enabled: If autoplay is enabled or not
     @discardableResult
-    public func onAutoplay(callback: @escaping (Bool) -> Void) -> CastChannel {
+    public func onAutoplay(callback: @escaping (Bool) -> Void) -> Channel {
         onAutoplay = callback
         return self
     }
@@ -150,7 +150,7 @@ extension CastChannel {
     ///
     /// - parameter enabled: If stream is live or not
     @discardableResult
-    public func onIsLive(callback: @escaping (Bool) -> Void) -> CastChannel {
+    public func onIsLive(callback: @escaping (Bool) -> Void) -> Channel {
         onIsLive = callback
         return self
     }
@@ -158,14 +158,14 @@ extension CastChannel {
     ///
     /// - parameter error: The error that occured
     @discardableResult
-    public func onError(callback: @escaping (CastError) -> Void) -> CastChannel {
+    public func onError(callback: @escaping (CastError) -> Void) -> Channel {
         onError = callback
         return self
     }
     
 }
 
-extension CastChannel {
+extension Channel {
     /// Deliver the message to the `ChromeCast` receiver, reporting any errors that occur.
     fileprivate func send(message: String) {
         var gckError: GCKError?
@@ -177,7 +177,7 @@ extension CastChannel {
 }
 
 // MARK: - Refresh Controls
-extension CastChannel {
+extension Channel {
     /// After joining a session, it might be necessary to request the constrols' status (volume level, timeshift enabled, tracks, startTimeLive). By sending this message to the receiver, it will then answer with updated controls.
     public func refreshControls() {
         do {
@@ -204,7 +204,7 @@ extension CastChannel {
 }
 
 // MARK: - Subtitles
-extension CastChannel {
+extension Channel {
     /// Updates the currently displayed text track on the receiver
     ///
     /// - parameter textTrack: The track to display
@@ -276,7 +276,7 @@ extension CastChannel {
 
 
 // MARK: - Audio
-extension CastChannel {
+extension Channel {
     /// Updates the currently active audio track on the receiver
     ///
     /// - parameter audioTrack: The track to display

@@ -17,13 +17,13 @@ public enum CastError {
     
     /// Sender errors occur when the `Cast` framework attempts communication with the `ChromeCast` receiver.
     public enum SenderError: Error {
-        /// `CastChannel` failed to serialize the outgoing message.
+        /// `Cast.Channel` failed to serialize the outgoing message.
         ///
         /// - parameter error: The error trying to decode the message
         /// - parameter type: The type of message that failed
         case failedToSerializeMessage(error: Error, type: String)
         
-        /// `CastChannel` encountered a message it could not interpret.
+        /// `Cast.Channel` encountered a message it could not interpret.
         ///
         /// - parameter message: This is the raw `response` returned by the ChromeCast receiver
         /// - parameter error: The error trying to decode the message
