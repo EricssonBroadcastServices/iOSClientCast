@@ -9,145 +9,6 @@
 import Foundation
 import GoogleCast
 
-/// `CastEnvironment` defines the environment in which the receiver will request the proper media from the *Exposure api*.
-///
-/// If no media is found, `CastChannel` will respond with the appropriate error information.
-public struct CastEnvironment: Encodable {
-    /// Base exposure url. This is the customer specific URL to Exposure
-    public let baseUrl: String
-    
-    /// EMP Customer Group identifier
-    public let customer: String
-    
-    /// EMP Business Unit identifier
-    public let businessUnit: String
-    
-    /// Valid API session that has access to the requested media
-    public let sessionToken: String
-    
-    public init(baseUrl: String, customer: String, businessUnit: String, sessionToken: String) {
-        self.baseUrl = baseUrl
-        self.customer = customer
-        self.businessUnit = businessUnit
-        self.sessionToken = sessionToken
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(baseUrl, forKey: .baseUrl)
-        try container.encode(customer, forKey: .customer)
-        try container.encode(businessUnit, forKey: .businessUnit)
-        try container.encode(sessionToken, forKey: .sessionToken)
-    }
-    
-    internal enum CodingKeys: String, CodingKey {
-        case baseUrl = "exposureApiURL"
-        case customer
-        case businessUnit
-        case sessionToken
-    }
-    
-    public var toJson: [String: Any] {
-        return [
-            CodingKeys.baseUrl.rawValue: baseUrl,
-            CodingKeys.customer.rawValue: customer,
-            CodingKeys.businessUnit.rawValue: businessUnit,
-            CodingKeys.sessionToken.rawValue: sessionToken
-        ]
-    }
-}
-
-public struct CustomData: Encodable {
-    /// Environment used to contact exposure
-    public let exposureEnvironment: CastEnvironment
-
-    /// *Vod* media asset to cast
-    public let assetId: String
-
-    /// If provided on a live channel it specifies the program to watch otherwise the receiver will load the program live at the moment.
-    public let programId: String?
-
-    public let audioLanguage: String?
-    public let textLanguage: String?
-    public let startTime: Int64?
-    public let absoluteStartTime: Int64?
-    public let timeShiftDisabled: Bool
-    public let maxBitrate: Int64?
-    public let autoplay: Bool
-    public let useLastViewedOffset: Bool
-    
-    public init(environment: CastEnvironment,
-                assetId: String,
-                programId: String? = nil,
-                audioLanguage: String? = nil,
-                textLanguage: String? = nil,
-                startTime: Int64? = nil,
-                absoluteStartTime: Int64? = nil,
-                timeShiftDisabled: Bool = false,
-                maxBitrate: Int64? = nil,
-                autoplay: Bool = true,
-                useLastViewedOffset: Bool = false) {
-        self.exposureEnvironment = environment
-        self.assetId = assetId
-        self.programId = programId
-        self.audioLanguage = audioLanguage
-        self.textLanguage = textLanguage
-        self.startTime = startTime
-        self.absoluteStartTime = absoluteStartTime
-        self.timeShiftDisabled = timeShiftDisabled
-        self.maxBitrate = maxBitrate
-        self.autoplay = autoplay
-        self.useLastViewedOffset = useLastViewedOffset
-    }
-    
-    internal enum CodingKeys: String, CodingKey {
-        case exposureEnvironment = "ericssonexposure"
-        case assetId
-        case programId
-        case audioLanguage
-        case textLanguage
-        case startTime
-        case absoluteStartTime
-        case timeShiftDisabled
-        case maxBitrate
-        case autoplay
-        case useLastViewedOffset
-    }
-    
-    public var toJson: [String: Any] {
-        var json: [String: Any] = [
-            CodingKeys.exposureEnvironment.rawValue: exposureEnvironment.toJson,
-            CodingKeys.assetId.rawValue: assetId,
-            CodingKeys.timeShiftDisabled.rawValue: timeShiftDisabled,
-            CodingKeys.autoplay.rawValue: autoplay,
-            CodingKeys.useLastViewedOffset.rawValue: useLastViewedOffset,
-        ]
-        
-        if let value = audioLanguage {
-            json[CodingKeys.audioLanguage.rawValue] = value
-        }
-        
-        if let value = textLanguage {
-            json[CodingKeys.textLanguage.rawValue] = value
-        }
-        
-        if let value = startTime {
-            json[CodingKeys.startTime.rawValue] = value
-        }
-        
-        if let value = absoluteStartTime {
-            json[CodingKeys.absoluteStartTime.rawValue] = value
-        }
-        
-        if let value = maxBitrate {
-            json[CodingKeys.maxBitrate.rawValue] = value
-        }
-        
-        return json
-    }
-}
-
-
 public class CastChannel: GCKCastChannel {
     public static let defaultNamespace: String = "urn:x-cast:com.ericsson.cast.receiver"
     
@@ -211,37 +72,6 @@ public class CastChannel: GCKCastChannel {
         }
     }
 }
-
-
-
-internal enum MessageType: String, Decodable {
-    case tracksUpdated = "tracksupdated"
-    case timeShiftEnabled = "timeShiftEnabled"
-    case volumeChange = "volumechange"
-    case durationChange = "durationchange"
-    case startTimeLive = "startTimeLive"
-    case programChanged = "programchanged"
-    case segmentMissing = "segmentmissing"
-    case autoplay = "autoplay"
-    case isLive = "isLive"
-    case error = "error"
-    
-    internal init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let string = try container.decode(String.self, forKey: .type)
-        guard let msg = MessageType(rawValue: string) else {
-            let context = DecodingError.Context(codingPath: [CodingKeys.type], debugDescription: "Key not found")
-            throw DecodingError.keyNotFound(CodingKeys.type, context)
-        }
-        self = msg
-    }
-    
-    internal enum CodingKeys: CodingKey {
-        case type
-    }
-}
-
 
 extension CastChannel {
     /// Signals the tracks have been updated
@@ -335,8 +165,8 @@ extension CastChannel {
     
 }
 
-
 extension CastChannel {
+    /// Deliver the message to the `ChromeCast` receiver, reporting any errors that occur.
     fileprivate func send(message: String) {
         var gckError: GCKError?
         sendTextMessage(message, error: &gckError)
@@ -346,6 +176,7 @@ extension CastChannel {
     }
 }
 
+// MARK: - Refresh Controls
 extension CastChannel {
     /// After joining a session, it might be necessary to request the constrols' status (volume level, timeshift enabled, tracks, startTimeLive). By sending this message to the receiver, it will then answer with updated controls.
     public func refreshControls() {
@@ -359,6 +190,7 @@ extension CastChannel {
         }
     }
     
+    /// Internal message delivered to the receiver when a user asks for control refreshment.
     internal struct RefreshControls: Encodable {
         internal func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: BaseKeys.self)
@@ -371,6 +203,7 @@ extension CastChannel {
     }
 }
 
+// MARK: - Subtitles
 extension CastChannel {
     /// Updates the currently displayed text track on the receiver
     ///
@@ -407,8 +240,7 @@ extension CastChannel {
         }
     }
     
-    
-    
+    /// Internal message detailing a subtitle change request
     internal struct ShowTextTrack: Encodable {
         internal let language: String
         
@@ -429,6 +261,7 @@ extension CastChannel {
         }
     }
     
+    /// Internal message instructing the receiver to hide text tracks
     internal struct HideTextTrack: Encodable {
         internal func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: BaseKeys.self)
@@ -441,6 +274,8 @@ extension CastChannel {
     }
 }
 
+
+// MARK: - Audio
 extension CastChannel {
     /// Updates the currently active audio track on the receiver
     ///
@@ -464,6 +299,7 @@ extension CastChannel {
         }
     }
     
+    /// Internal message detailing an audio change request
     internal struct EnableAudioTrack: Encodable {
         internal let language: String
         
@@ -485,175 +321,8 @@ extension CastChannel {
     }
 }
 
-internal struct RawSingleValueEvent<Value: Decodable>: Decodable {
-    internal let value: Value
-    
-    
-    internal init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: BaseKeys.self)
-        value = try container.decode(Value.self, forKey: .data)
-    }
-    
-    internal enum BaseKeys: CodingKey {
-        case data
-    }
-}
-
-/// Embedded tracks are broadcasted to all connected senders when a sender send refreshcontrols message, or when subtitles/audio tracks change or period change. If the stream has multi periods the audio and text tracks can change even id's
-public struct TracksUpdated: Decodable {
-    /// All subtitle tracks available
-    public let subtitles: [Track]
-    
-    /// All audio tracks available
-    public let audio: [Track]
-    
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: BaseKeys.self)
-        let data = try container.nestedContainer(keyedBy: TracksInfoKeys.self, forKey: .data)
-        let tracksInfo = try data.nestedContainer(keyedBy: TracksKeys.self, forKey: .tracksInfo)
-        let activeTracksIds = try tracksInfo.decode([Int].self, forKey: .activeTrackIds)
-        let tracks = try tracksInfo.decode([RawTrack].self, forKey: .tracks)
-        subtitles = tracks
-            .filter{ $0.type == "text" }
-            .map{ Track(label: $0.label,
-                        trackId: $0.id,
-                        language: $0.language,
-                        active: activeTracksIds.contains($0.id))
-        }
-        audio = tracks
-            .filter{ $0.type == "audio" }
-            .map{ Track(label: $0.label,
-                        trackId: $0.id,
-                        language: $0.language,
-                        active: activeTracksIds.contains($0.id))
-        }
-    }
-    
-    internal struct RawTrack: Decodable {
-        internal let label: String
-        internal let type: String
-        internal let id: Int
-        internal let language: String
-    }
-    
-    internal enum BaseKeys: CodingKey {
-        case data
-    }
-    internal enum TracksInfoKeys: CodingKey {
-        case tracksInfo
-    }
-    internal enum TracksKeys: CodingKey {
-        case activeTrackIds
-        case tracks
-    }
-}
 
 
-public struct Track {
-    /// textual representation of track
-    public let label: String
-    
-    /// Track identifier
-    public let trackId: Int
-    
-    /// language identifier
-    ///
-    /// Format: sv
-    public let language: String
-    
-    /// If the track is active or not
-    public let active: Bool
-}
 
-public struct VolumeChanged: Decodable {
-    /// The volume level
-    public let volume: Int
-    
-    /// If the volume is muted or not
-    public let muted: Bool
-    
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: BaseKeys.self)
-        let nested = try container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
-        
-        volume = try nested.decode(Int.self, forKey: .volume)
-        muted = try nested.decode(Bool.self, forKey: .muted)
-    }
-    
-    enum BaseKeys: CodingKey {
-        case data
-    }
-    enum DataKeys: CodingKey {
-        case volume
-        case muted
-    }
-}
 
-internal struct ProgramChanged: Decodable {
-    let programId: String
-    
-    internal init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: BaseKeys.self)
-        let nested = try container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
-        
-        programId = try nested.decode(String.self, forKey: .programId)
-    }
-    
-    internal enum BaseKeys: CodingKey {
-        case data
-    }
-    internal enum DataKeys: CodingKey {
-        case programId
-    }
-}
 
-public enum CastError {
-    case receiver(reason: ReceiverError)
-    case sender(reason: SenderError)
-    case googleCast(error: GCKError)
-    
-    public enum SenderError: Error {
-        /// `CastChannel` failed to serialize the outgoing message.
-        ///
-        /// - parameter error: The error trying to decode the message
-        /// - parameter type: The type of message that failed
-        case failedToSerializeMessage(error: Error, type: String)
-        
-        /// `CastChannel` encountered a message it could not interpret.
-        ///
-        /// - parameter message: This is the raw `response` returned by the ChromeCast receiver
-        /// - parameter error: The error trying to decode the message
-        case unsupportedMessage(message: String, error: Error)
-    }
-    
-    public struct ReceiverError: Swift.Error, Decodable {
-        /// The error code
-        public let code: Int
-        
-        /// The error message
-        public let message: String
-        
-        internal init(code: Int, message: String) {
-            self.code = code
-            self.message = message
-        }
-        
-        public init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: BaseKeys.self)
-            let nested = try container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
-            
-            code = try nested.decode(Int.self, forKey: .code)
-            message = try nested.decode(String.self, forKey: .message)
-        }
-        
-        internal enum BaseKeys: CodingKey {
-            case data
-        }
-        internal enum DataKeys: CodingKey {
-            case code
-            case message
-        }
-    }
-}
