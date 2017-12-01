@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761371E21FD1993F007AAFF8 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E11FD1993F007AAFF8 /* Environment.swift */; };
+		761371E41FD19962007AAFF8 /* CustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E31FD19962007AAFF8 /* CustomData.swift */; };
+		761371E81FD19A28007AAFF8 /* RawSingleValueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E71FD19A28007AAFF8 /* RawSingleValueEvent.swift */; };
+		761371EA1FD19A49007AAFF8 /* TracksUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E91FD19A49007AAFF8 /* TracksUpdated.swift */; };
+		761371EC1FD19A5A007AAFF8 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371EB1FD19A5A007AAFF8 /* Track.swift */; };
+		761371EE1FD19A6A007AAFF8 /* VolumeChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371ED1FD19A6A007AAFF8 /* VolumeChanged.swift */; };
+		761371F01FD19A78007AAFF8 /* ProgramChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371EF1FD19A78007AAFF8 /* ProgramChanged.swift */; };
+		761371F21FD19A87007AAFF8 /* CastError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371F11FD19A87007AAFF8 /* CastError.swift */; };
+		761371F41FD19B2F007AAFF8 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371F31FD19B2F007AAFF8 /* MessageType.swift */; };
 		762808E61FD01426005610DF /* Cast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762808DC1FD01426005610DF /* Cast.framework */; };
 		762808EB1FD01426005610DF /* CastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762808EA1FD01426005610DF /* CastTests.swift */; };
 		762808ED1FD01426005610DF /* Cast.h in Headers */ = {isa = PBXBuildFile; fileRef = 762808DF1FD01426005610DF /* Cast.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,7 +36,7 @@
 		762809171FD01966005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		762809181FD01994005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		7628091A1FD01CEB005610DF /* Cast-Swift-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 762809191FD01CEA005610DF /* Cast-Swift-Bridging-Header.h */; };
-		7628091C1FD01D77005610DF /* CastChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628091B1FD01D77005610DF /* CastChannel.swift */; };
+		7628091C1FD01D77005610DF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628091B1FD01D77005610DF /* Channel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		761371E11FD1993F007AAFF8 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		761371E31FD19962007AAFF8 /* CustomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomData.swift; sourceTree = "<group>"; };
+		761371E71FD19A28007AAFF8 /* RawSingleValueEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSingleValueEvent.swift; sourceTree = "<group>"; };
+		761371E91FD19A49007AAFF8 /* TracksUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksUpdated.swift; sourceTree = "<group>"; };
+		761371EB1FD19A5A007AAFF8 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		761371ED1FD19A6A007AAFF8 /* VolumeChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeChanged.swift; sourceTree = "<group>"; };
+		761371EF1FD19A78007AAFF8 /* ProgramChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramChanged.swift; sourceTree = "<group>"; };
+		761371F11FD19A87007AAFF8 /* CastError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastError.swift; sourceTree = "<group>"; };
+		761371F31FD19B2F007AAFF8 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
 		762808DC1FD01426005610DF /* Cast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762808DF1FD01426005610DF /* Cast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cast.h; sourceTree = "<group>"; };
 		762808E01FD01426005610DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,7 +81,7 @@
 		762809131FD01797005610DF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		762809161FD01966005610DF /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 		762809191FD01CEA005610DF /* Cast-Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cast-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
-		7628091B1FD01D77005610DF /* CastChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastChannel.swift; sourceTree = "<group>"; };
+		7628091B1FD01D77005610DF /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +108,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		761371F51FD19B9D007AAFF8 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				761371EF1FD19A78007AAFF8 /* ProgramChanged.swift */,
+				761371E71FD19A28007AAFF8 /* RawSingleValueEvent.swift */,
+				761371F31FD19B2F007AAFF8 /* MessageType.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		761371F61FD19BD2007AAFF8 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				761371E91FD19A49007AAFF8 /* TracksUpdated.swift */,
+				761371EB1FD19A5A007AAFF8 /* Track.swift */,
+				761371ED1FD19A6A007AAFF8 /* VolumeChanged.swift */,
+				761371F11FD19A87007AAFF8 /* CastError.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		761371F71FD19BE2007AAFF8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				761371E11FD1993F007AAFF8 /* Environment.swift */,
+				761371E31FD19962007AAFF8 /* CustomData.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		762808D21FD01426005610DF = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +172,10 @@
 				762809191FD01CEA005610DF /* Cast-Swift-Bridging-Header.h */,
 				762808DF1FD01426005610DF /* Cast.h */,
 				762808E01FD01426005610DF /* Info.plist */,
-				7628091B1FD01D77005610DF /* CastChannel.swift */,
+				7628091B1FD01D77005610DF /* Channel.swift */,
+				761371F71FD19BE2007AAFF8 /* Configuration */,
+				761371F61FD19BD2007AAFF8 /* Events */,
+				761371F51FD19B9D007AAFF8 /* Internal */,
 			);
 			path = Cast;
 			sourceTree = "<group>";
@@ -298,7 +349,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7628091C1FD01D77005610DF /* CastChannel.swift in Sources */,
+				761371EE1FD19A6A007AAFF8 /* VolumeChanged.swift in Sources */,
+				761371F21FD19A87007AAFF8 /* CastError.swift in Sources */,
+				761371E41FD19962007AAFF8 /* CustomData.swift in Sources */,
+				761371F41FD19B2F007AAFF8 /* MessageType.swift in Sources */,
+				761371E81FD19A28007AAFF8 /* RawSingleValueEvent.swift in Sources */,
+				761371F01FD19A78007AAFF8 /* ProgramChanged.swift in Sources */,
+				761371E21FD1993F007AAFF8 /* Environment.swift in Sources */,
+				761371EA1FD19A49007AAFF8 /* TracksUpdated.swift in Sources */,
+				7628091C1FD01D77005610DF /* Channel.swift in Sources */,
+				761371EC1FD19A5A007AAFF8 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
