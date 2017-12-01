@@ -9,6 +9,113 @@
 import Foundation
 import GoogleCast
 
+func test(session: GCKCastSession) {
+    let imageUrl = URL(fileURLWithPath: "")
+    let width = 100
+    let height = 100
+    let mediaMetadata = GCKMediaMetadata(metadataType: .generic) //.movie
+    mediaMetadata.setString("Movie Title", forKey: kGCKMetadataKeyTitle)
+    mediaMetadata.setString("Some sort of movie tag line", forKey: kGCKMetadataKeySubtitle)
+    mediaMetadata.addImage(GCKImage(url: imageUrl, width: width, height: height))
+    
+    let mediaInfo = GCKMediaInformation(contentID: "SomeID",
+                                        streamType: .none, // .live?
+                                        contentType: "video/mp4",
+                                        metadata: mediaMetadata,
+                                        streamDuration: 0,
+                                        mediaTracks: nil,
+                                        textTrackStyle: nil,
+                                        customData: nil)
+    
+    let exposureSpecificData: [String: Any] = [
+        "audioLanguage": "en",
+        "textLanguage": "en",
+        "startTime": 0,
+        "absoluteStartTime": 101010101010,// milliseconds since 1970/01/01,
+        "timeShiftDisabled": false,
+        "maxBitrate": 10000,
+        "autoplay": true,
+        "useLastViewedOffset": true
+    ]
+    let shouldAutoPlay = true
+    let request = session
+        .remoteMediaClient?
+        .loadMedia(mediaInfo,
+                   autoplay: shouldAutoPlay,
+                   playPosition: 0,
+                   customData: exposureSpecificData)
+    
+}
+
+
+/// `CastEnvironment` defines the environment in which the receiver will request the proper media from the *Exposure api*.
+///
+/// If no media is found, `CastChannel` will respond with the appropriate error information.
+public struct CastEnvironment: Encodable {
+    /// Base exposure url. This is the customer specific URL to Exposure
+    public let baseUrl: String
+    
+    /// EMP Customer Group identifier
+    public let customer: String
+    
+    /// EMP Business Unit identifier
+    public let businessUnit: String
+    
+    /// Valid API session that has access to the requested media
+    public let sessionToken: String
+    
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(baseUrl, forKey: .baseUrl)
+        try container.encode(customer, forKey: .customer)
+        try container.encode(businessUnit, forKey: .businessUnit)
+        try container.encode(sessionToken, forKey: .sessionToken)
+    }
+    
+    internal enum CodingKeys: String, CodingKey {
+        case baseUrl = "exposureApiURL"
+        case customer
+        case businessUnit
+        case sessionToken
+    }
+}
+
+public struct CustomData: Encodable {
+    /// Environment used to contact exposure
+    public let exposureEnvironment: CastEnvironment
+
+    /// *Vod* media asset to cast
+    public let assetId: String
+
+    /// If provided on a live channel it specifies the program to watch otherwise the receiver will load the program live at the moment.
+    public let programId: String?
+
+    public let audioLanguage: String?
+    public let textLanguage: String?
+    public let startTime: Int64?
+    public let absoluteStartTime: Int64?
+    public let timeShiftDisabled: Bool?
+    public let maxBitrate: Int64?
+    public let autoplay: Bool?
+    public let useLastViewedOffset: Bool?
+    
+    
+    internal enum CodingKeys: String, CodingKey {
+        case exposureEnvironment = "ericssonexposure"
+        case assetId
+        case programId
+        case audioLanguage
+        case textLanguage
+        case startTime
+        case absoluteStartTime
+        case timeShiftDisabled
+        case maxBitrate
+        case autoplay
+        case useLastViewedOffset
+    }
+}
+
 
 public class CastChannel: GCKCastChannel {
     public static let defaultNamespace: String = "urn:x-cast:com.ericsson.cast.receiver"
@@ -28,13 +135,7 @@ public class CastChannel: GCKCastChannel {
     
     
     public override func didReceiveTextMessage(_ message: String) {
-        parse(response: message)
-    }
-}
-
-extension CastChannel {
-    fileprivate func parse(response: String) {
-        guard let data = response.data(using: .utf8) else { return }
+        guard let data = message.data(using: .utf8) else { return }
         
         let decoder = JSONDecoder()
         do {
@@ -67,7 +168,7 @@ extension CastChannel {
             }
         }
         catch {
-            onError(.sender(reason: .unsupportedMessage(message: response, error: error)))
+            onError(.sender(reason: .unsupportedMessage(message: message, error: error)))
         }
     }
 }
