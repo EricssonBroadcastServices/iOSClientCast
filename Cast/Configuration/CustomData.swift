@@ -106,6 +106,10 @@ extension CustomData {
             CodingKeys.useLastViewedOffset.rawValue: useLastViewedOffset,
             ]
         
+        if let value = programId {
+            json[CodingKeys.programId.rawValue] = value
+        }
+        
         if let value = audioLanguage {
             json[CodingKeys.audioLanguage.rawValue] = value
         }
