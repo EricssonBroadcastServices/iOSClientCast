@@ -12,8 +12,8 @@ import GoogleCast
 public class Channel: GCKCastChannel {
     public static let defaultNamespace: String = "urn:x-cast:com.ericsson.cast.receiver"
     
-    public init(namepace: String = Channel.defaultNamespace) {
-        super.init(namespace: namepace)
+    public override init(namespace: String = Channel.defaultNamespace) {
+        super.init(namespace: namespace)
     }
     
     fileprivate var onTracksUpdated: (TracksUpdated) -> Void = { _ in }
