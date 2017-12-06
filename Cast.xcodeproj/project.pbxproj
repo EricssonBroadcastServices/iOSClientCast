@@ -41,6 +41,13 @@
 		76DBCE751FD81426009C83AE /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE741FD81426009C83AE /* Dictionary+Extensions.swift */; };
 		76DBCE771FD81442009C83AE /* RawSingleValueEventSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE761FD81442009C83AE /* RawSingleValueEventSpec.swift */; };
 		76DBCE791FD8173E009C83AE /* MessageTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE781FD8173E009C83AE /* MessageTypeSpec.swift */; };
+		76DBCE7B1FD81B0A009C83AE /* CastErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE7A1FD81B0A009C83AE /* CastErrorSpec.swift */; };
+		76DBCE7D1FD81C1A009C83AE /* VolumeChangedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE7C1FD81C1A009C83AE /* VolumeChangedSpec.swift */; };
+		76DBCE811FD81CEB009C83AE /* TracksUpdatedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE801FD81CEB009C83AE /* TracksUpdatedSpec.swift */; };
+		76DBCE831FD8210B009C83AE /* EnvironmentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE821FD8210B009C83AE /* EnvironmentSpec.swift */; };
+		76DBCE851FD8229C009C83AE /* CustomDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE841FD8229C009C83AE /* CustomDataSpec.swift */; };
+		76DBCE871FD826F5009C83AE /* ChannelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE861FD826F5009C83AE /* ChannelSpec.swift */; };
+		76DBCE891FD834AF009C83AE /* ChannelSenderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +109,13 @@
 		76DBCE741FD81426009C83AE /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		76DBCE761FD81442009C83AE /* RawSingleValueEventSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSingleValueEventSpec.swift; sourceTree = "<group>"; };
 		76DBCE781FD8173E009C83AE /* MessageTypeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTypeSpec.swift; sourceTree = "<group>"; };
+		76DBCE7A1FD81B0A009C83AE /* CastErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastErrorSpec.swift; sourceTree = "<group>"; };
+		76DBCE7C1FD81C1A009C83AE /* VolumeChangedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeChangedSpec.swift; sourceTree = "<group>"; };
+		76DBCE801FD81CEB009C83AE /* TracksUpdatedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksUpdatedSpec.swift; sourceTree = "<group>"; };
+		76DBCE821FD8210B009C83AE /* EnvironmentSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSpec.swift; sourceTree = "<group>"; };
+		76DBCE841FD8229C009C83AE /* CustomDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataSpec.swift; sourceTree = "<group>"; };
+		76DBCE861FD826F5009C83AE /* ChannelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSpec.swift; sourceTree = "<group>"; };
+		76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSenderSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +222,13 @@
 				76DBCE721FD80685009C83AE /* ProgramChangedSpec.swift */,
 				76DBCE761FD81442009C83AE /* RawSingleValueEventSpec.swift */,
 				76DBCE781FD8173E009C83AE /* MessageTypeSpec.swift */,
+				76DBCE7A1FD81B0A009C83AE /* CastErrorSpec.swift */,
+				76DBCE7C1FD81C1A009C83AE /* VolumeChangedSpec.swift */,
+				76DBCE801FD81CEB009C83AE /* TracksUpdatedSpec.swift */,
+				76DBCE821FD8210B009C83AE /* EnvironmentSpec.swift */,
+				76DBCE841FD8229C009C83AE /* CustomDataSpec.swift */,
+				76DBCE861FD826F5009C83AE /* ChannelSpec.swift */,
+				76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */,
 			);
 			path = CastTests;
 			sourceTree = "<group>";
@@ -389,9 +410,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DBCE811FD81CEB009C83AE /* TracksUpdatedSpec.swift in Sources */,
+				76DBCE871FD826F5009C83AE /* ChannelSpec.swift in Sources */,
+				76DBCE7D1FD81C1A009C83AE /* VolumeChangedSpec.swift in Sources */,
+				76DBCE891FD834AF009C83AE /* ChannelSenderSpec.swift in Sources */,
 				76DBCE731FD80685009C83AE /* ProgramChangedSpec.swift in Sources */,
 				762808EB1FD01426005610DF /* CastTests.swift in Sources */,
+				76DBCE7B1FD81B0A009C83AE /* CastErrorSpec.swift in Sources */,
+				76DBCE851FD8229C009C83AE /* CustomDataSpec.swift in Sources */,
 				76DBCE771FD81442009C83AE /* RawSingleValueEventSpec.swift in Sources */,
+				76DBCE831FD8210B009C83AE /* EnvironmentSpec.swift in Sources */,
 				76DBCE791FD8173E009C83AE /* MessageTypeSpec.swift in Sources */,
 				76DBCE751FD81426009C83AE /* Dictionary+Extensions.swift in Sources */,
 			);

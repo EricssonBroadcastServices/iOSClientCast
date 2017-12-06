@@ -21,3 +21,12 @@ extension Dictionary where Key == String, Value == Codable {
         return try JSONDecoder().decode(T.self, from: data)
     }
 }
+
+extension Dictionary where Key == String, Value == Codable {
+    func jsonMessage() -> String? {
+        let data = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
+        guard let json = data else { return nil }
+        return String(data: json, encoding: .utf8)
+    }
+}
+

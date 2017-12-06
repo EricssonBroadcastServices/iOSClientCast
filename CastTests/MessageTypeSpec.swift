@@ -65,6 +65,11 @@ class MessageTypeSpec: QuickSpec {
                 let messageType = self.missingKeyJson(with: "error").decode(MessageType.self)
                 expect(messageType).to(beNil())
             }
+            
+            it("should fail with undefined messageType") {
+                let messageType = self.validJson(with: "undefined").decode(MessageType.self)
+                expect(messageType).to(beNil())
+            }
         }
     }
     

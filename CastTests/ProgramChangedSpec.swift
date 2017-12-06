@@ -14,20 +14,20 @@ import Nimble
 @testable import Cast
 
 class ProgramChangedSpec: QuickSpec {
-    let programId = "aProgram"
+    static let programId = "aProgram"
     override func spec() {
         describe("Decoding") {
             
             it("Should decode correctly") {
-                let data = self.validJson()
+                let data = ProgramChangedSpec.validJson()
                 let program = data.decode(ProgramChanged.self)
                 
                 expect(program).toNot(beNil())
-                expect(program!.programId).to(equal(self.programId))
+                expect(program!.programId).to(equal(ProgramChangedSpec.programId))
             }
             
             it("should faild decoding with missing key") {
-                let data = self.missingKeyJson()
+                let data = ProgramChangedSpec.missingKeyJson()
                 let program = data.decode(ProgramChanged.self)
                 
                 expect(program).to(beNil())
@@ -35,7 +35,7 @@ class ProgramChangedSpec: QuickSpec {
         }
     }
     
-    func validJson() -> [String: Codable] {
+    static func validJson() -> [String: Codable] {
         return [
             "data": [
                 "programId": programId
@@ -43,7 +43,7 @@ class ProgramChangedSpec: QuickSpec {
         ]
     }
     
-    func missingKeyJson() -> [String: Codable] {
+    static func missingKeyJson() -> [String: Codable] {
         return [
             "data": [
                 "invalidKey": programId

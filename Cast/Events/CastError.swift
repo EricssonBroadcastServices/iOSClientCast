@@ -10,7 +10,7 @@ import Foundation
 import GoogleCast
 
 /// Error message for the `Cast` framework
-public enum CastError {
+public enum CastError: Error {
     case receiver(reason: ReceiverError)
     case sender(reason: SenderError)
     case googleCast(error: GCKError)
@@ -54,6 +54,7 @@ public enum CastError {
         internal enum BaseKeys: CodingKey {
             case data
         }
+        
         internal enum DataKeys: CodingKey {
             case code
             case message

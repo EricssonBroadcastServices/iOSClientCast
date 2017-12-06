@@ -19,7 +19,7 @@ class RawSingleValueEventSpec: QuickSpec {
             
             it("decodes String") {
                 let input = "string"
-                let raw = self.validJson(with: input).decode(RawSingleValueEvent<String>.self)
+                let raw = RawSingleValueEventSpec.validJson(with: input).decode(RawSingleValueEvent<String>.self)
                 
                 expect(raw).toNot(beNil())
                 expect(raw!.value).to(equal(input))
@@ -27,7 +27,7 @@ class RawSingleValueEventSpec: QuickSpec {
             
             it("decodes Bool") {
                 let input = false
-                let raw = self.validJson(with: input).decode(RawSingleValueEvent<Bool>.self)
+                let raw = RawSingleValueEventSpec.validJson(with: input).decode(RawSingleValueEvent<Bool>.self)
                 
                 expect(raw).toNot(beNil())
                 expect(raw!.value).to(equal(input))
@@ -35,7 +35,7 @@ class RawSingleValueEventSpec: QuickSpec {
             
             it("decodes Int") {
                 let input = 10
-                let raw = self.validJson(with: input).decode(RawSingleValueEvent<Int>.self)
+                let raw = RawSingleValueEventSpec.validJson(with: input).decode(RawSingleValueEvent<Int>.self)
                 
                 expect(raw).toNot(beNil())
                 expect(raw!.value).to(equal(input))
@@ -43,7 +43,7 @@ class RawSingleValueEventSpec: QuickSpec {
             
             it("decodes Float") {
                 let input: Float = 0.05
-                let raw = self.validJson(with: input).decode(RawSingleValueEvent<Float>.self)
+                let raw = RawSingleValueEventSpec.validJson(with: input).decode(RawSingleValueEvent<Float>.self)
                 
                 expect(raw).toNot(beNil())
                 expect(raw!.value).to(equal(input))
@@ -51,7 +51,7 @@ class RawSingleValueEventSpec: QuickSpec {
             
             it("decodes Double") {
                 let input = 0.1
-                let raw = self.validJson(with: input).decode(RawSingleValueEvent<Double>.self)
+                let raw = RawSingleValueEventSpec.validJson(with: input).decode(RawSingleValueEvent<Double>.self)
                 
                 expect(raw).toNot(beNil())
                 expect(raw!.value).to(equal(input))
@@ -59,7 +59,7 @@ class RawSingleValueEventSpec: QuickSpec {
             
             it("decodes Int64") {
                 let input:Int64 = 10
-                let raw = self.validJson(with: input).decode(RawSingleValueEvent<Int64>.self)
+                let raw = RawSingleValueEventSpec.validJson(with: input).decode(RawSingleValueEvent<Int64>.self)
                 
                 expect(raw).toNot(beNil())
                 expect(raw!.value).to(equal(input))
@@ -67,20 +67,20 @@ class RawSingleValueEventSpec: QuickSpec {
             
             it("fails to decode with missing keys") {
                 let input:Int64 = 10
-                let raw = self.missingKeyJson(with: input).decode(RawSingleValueEvent<Int64>.self)
+                let raw = RawSingleValueEventSpec.missingKeyJson(with: input).decode(RawSingleValueEvent<Int64>.self)
                 
                 expect(raw).to(beNil())
             }
         }
     }
     
-    func validJson<T: Codable>(with value: T) -> [String: Codable] {
+    static func validJson<T: Codable>(with value: T) -> [String: Codable] {
         return [
             "data": value
         ]
     }
     
-    func missingKeyJson<T: Codable>(with value: T) -> [String: Codable] {
+    static func missingKeyJson<T: Codable>(with value: T) -> [String: Codable] {
         return [
             "invalidKey": value
         ]
