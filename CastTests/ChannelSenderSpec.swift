@@ -67,6 +67,26 @@ class ChannelSenderSpec: QuickSpec {
                 expect(self.message).toNot(beNil())
                 expect(self.message).to(equal(targetMessage!))
             }
+            
+            
+            it("Should send audio selection event") {
+                self.channel.use(audio: "en")
+                
+                let targetMessage = self.useAudioMessage()
+                expect(targetMessage).toNot(beNil())
+                expect(self.message).toNot(beNil())
+                expect(self.message).to(equal(targetMessage!))
+            }
+            
+            it("Should send audioTrackc event") {
+                let track = Track(label: "label", trackId: 1, language: "sv", active: false)
+                self.channel.use(audioTrack: track)
+                
+                let targetMessage = self.useAudioTrackMessage()
+                expect(targetMessage).toNot(beNil())
+                expect(self.message).toNot(beNil())
+                expect(self.message).to(equal(targetMessage!))
+            }
         }
     }
     
@@ -91,6 +111,18 @@ class ChannelSenderSpec: QuickSpec {
     func hideSubtitlesMessage() -> String? {
         return """
         {"type":"hidetexttrack"}
+        """
+    }
+    
+    func useAudioMessage() -> String? {
+        return """
+        {"type":"enableaudiotrack","data":{"language":"en"}}
+        """
+    }
+    
+    func useAudioTrackMessage() -> String? {
+        return """
+        {"type":"enableaudiotrack","data":{"language":"sv"}}
         """
     }
 }
