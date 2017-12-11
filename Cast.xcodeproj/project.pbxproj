@@ -293,7 +293,6 @@
 				762808D91FD01426005610DF /* Headers */,
 				762808DA1FD01426005610DF /* Resources */,
 				76B5FCD71FDE996000607C41 /* CopyFiles */,
-				76B5FCD61FDE994300607C41 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -392,21 +391,6 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		76B5FCD41FDE97CA00607C41 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/GoogleCast/GoogleCast.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/GoogleCast.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		76B5FCD61FDE994300607C41 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
