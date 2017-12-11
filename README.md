@@ -8,7 +8,7 @@
 * [Installation](#installation)
 * Usage
     - [Getting Started](#getting-started)
-    - [Loading Media](#loading-media)
+    - [Loading Media](#loading-media)
     - [Responding to Events](#responding-to-events)
     - [Error Handling](#error-handling)
 * [Release Notes](#release-notes)
