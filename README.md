@@ -162,40 +162,61 @@ A user who joins a session in progress may wish to receive updated status of the
 channel.refreshControls()
 ```
 
-`onTimeshiftEnabled` signals whether timeshift dependant controls should be displayed in the user interface or not. Timeshift is set on stream level.
-
-
+There is also several general information events detailing how the stream in question behaves. `onTimeshiftEnabled` for example indicates if timeline UI should be present or not.
 
 ```Swift
 channel
     .onTimeshiftEnabled { timeshift in
-    
+        // Hide or show timeline in UI
     }
     .onVolumeChanged { volumeChanged in
-    
-    }
-    .onDurationChanged { duration in
-    
-    }
-    .onStartTimeLive{ startTime in
-    print("Cast.Channel onStartTimeLive",startTime)
-    }
-    .onProgramChanged{ program in
-    print("Cast.Channel onProgramChanged",program)
-    }
-    .onSegmentMissing{ segment in
-    print("Cast.Channel onSegmentMissing",segment)
+        // Update the volume indicator
     }
     .onAutoplay { autoplay in
-    print("Cast.Channel onAutoplay",autoplay)
-    }
-    .onIsLive { isLive in
-    print("Cast.Channel onIsLive",isLive)
-    }
-    .onError{ error in
-    print("Cast.Channel onError",error)
+        // Indicates if playback during the cast session was started automatically
     }
 ```
+
+The following methods declare event listeners that may be especially useful for managing *live* playback.
+
+```Swift
+channel
+    .onDurationChanged { duration in
+        // Signaled repeatedly while a media grows.
+    }
+    .onStartTimeLive{ startTime in
+        // Indicates the start time in *unix epoch* time for the current live stream.
+    }
+    .onProgramChanged{ program in
+        // The program changed, update relevant media metadata
+    }
+    .onIsLive { isLive in
+        // Update "live now" indicators
+    }
+```
+
+### Error Handling
+Two event listeners declare events related to error handling. The first, `onSegmentMissing`, publishes information about seek cancellation due to missing segments. It can be useful to give users feedback when their intended seek failed.
+Beyond that, errors will be broadcasted through the `onError` event.
+
+```Swift
+channel
+    .onSegmentMissing{ segment in
+        // Indicate the seek was cancelled due to missing segments
+    }
+    .onError{ error in
+        // Handle or display the error in question
+    }
+```
+
+Error handling revolves around three types of errors, `ReceiverError`, `SenderError` and `GCKError`. The former two are defined by `Cast` and the last one provided by *Google*.
+
+`SenderError`s mostly deal with serialization and message translation stemming from the *sender*-to-*receiver* communication. Errors in this domain indicate issues with either the `Cast` framework or it's integration with the *EMP receiver*.
+
+`ReceiverError`s come direcly from the *EMP receiver*. For more information with regards to debugging the receiver, please look at this [documentation](#https://github.com/EricssonBroadcastServices/html5-player/tree/master/sdk/tutorials).
+Each `ReceiverError` has an associated `code` and `message`.
+
+Finally, `GCKError` stem from `GoogleCast` framework. More information can be found [here](#https://developers.google.com/cast/docs/debugging)
 
 ## Release Notes
 Release specific changes can be found in the [CHANGELOG](https://github.com/EricssonBroadcastServices/iOSClientCast/blob/master/CHANGELOG.md).
