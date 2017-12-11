@@ -26,7 +26,7 @@ class ProgramChangedSpec: QuickSpec {
                 expect(program!.programId).to(equal(ProgramChangedSpec.programId))
             }
             
-            it("should faild decoding with missing key") {
+            it("should fail decoding with missing key") {
                 let data = ProgramChangedSpec.missingKeyJson()
                 let program = data.decode(ProgramChanged.self)
                 

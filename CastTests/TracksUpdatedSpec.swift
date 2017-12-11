@@ -39,7 +39,7 @@ class TracksUpdatedSpec: QuickSpec {
                 expect(value!.audio[0].active).to(equal(true))
             }
             
-            it("should faild decoding with missing key") {
+            it("should fail decoding with missing key") {
                 let data = TracksUpdatedSpec.missingKeyJson()
                 let value = data.decode(VolumeChanged.self)
                 
