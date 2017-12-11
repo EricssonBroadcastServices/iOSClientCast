@@ -10,6 +10,7 @@
     - [Getting Started](#getting-started)
     - [Loading Media](#loading-media)
     - [Responding to Events](#responding-to-events)
+    - [Error Handling](#error-handling)
 * [Release Notes](#release-notes)
 * [Upgrade Guides](#upgrade-guides)
 * [Roadmap](#roadmap)
@@ -232,6 +233,6 @@ Updating your dependencies is done by running  `carthage update` with the releva
 ## Roadmap
 No formalised roadmap has yet been established but an extensive backlog of possible items exist. The following represent an unordered *wish list* and is subject to change.
 
-- [ ] Deep integration with `Player` through specialized extensions.
+- [ ] Deep integration with `Exposure` through specialized extensions.
 
 ## Contributing
