@@ -8,6 +8,8 @@
 * [Installation](#installation)
 * Usage
     - [Getting Started](#getting-started)
+    - [Loading Media](#loading-media)
+    - [Responding to Events](#responding-to-events)
 * [Release Notes](#release-notes)
 * [Upgrade Guides](#upgrade-guides)
 * [Roadmap](#roadmap)
@@ -23,7 +25,10 @@
 * `Xcode` 9.0+
 
 * Framework dependencies
-    - [`GoogleCast`](https://developers.google.com/cast/)
+    - [`GoogleCast`](https://developers.google.com/cast/) v4.0.2
+    
+* Streams:
+    - `DASH`/`CENC` (as required by the *EMP receiver*)
 
 ## Installation
 
@@ -51,6 +56,146 @@ Finally, make sure you add the `.framework`s to your targets *General -> Embedde
 `Cast` simplifies integration with the *EMP* `ChromeCast` `Receiver` by delivering a set of specialized extensions to the `GoogleCast` library.
 
 ### Getting Started
+*EMP ChromeCast layer*, `Cast` extends the default `GoogleCast` framework to work with the *EMP ChromeCast Receiver* and is fully compliant with the default version unless otherwise stated. The framework is not intended to be a replacement for *Google*s implementaion. Please have a look at the [`EMP ChromeCast Receiver`](#https://github.com/EricssonBroadcastServices/html5-player/blob/master/sdk/tutorials/chromecast-receiver.md) and [sender apps](#https://github.com/EricssonBroadcastServices/html5-player/blob/master/sdk/tutorials/chromecast.md) in general for in depth documentation.
+
+`Cast` does not alter the general *ChromeCast* workflow as described by [`Google`](#https://developers.google.com/cast/) in any significant way.
+
+### Loading Media
+Loading media onto the *receiver* requires *client applications* to supply several things. First of all, a valid `SessionToken` and an *Exposure* `Environment` is required as the *receiver* will perform an entitlements request prior to starting playback. Secondly, media identifiers in the form of *EMP asset Id* (and optionally a program id) for the asset in question.
+
+```Swift
+let environment = Environment(baseUrl: exposureBaseUrl,
+                              customer: "someCustomer",
+                              businessUnit: "someBusinessUnit",
+                              sessionToken: validSessionToken)
+                              
+let assetId = "amazingAsset"
+```
+
+Finally, each load request may be complimented with `CustomData` that issues special instructions to the *receiver*.
+
+```Swift
+let customData = CustomData(environment: environment,
+                            assetId: assetId,
+                            useLastViewedOffset: true)
+```
+
+These include, but are not limited to:
+* Audio and text language
+* Start time manipulation
+* Timeshift override
+* Maximum bitrate selection
+* Autoplay behavior
+* Session shift configuration
+
+The actual loading of the configured media is done through *API*s provided by *Google*. Media metadata can also be set during this process but is not described here. Please consult the *Google* [docmentation](#https://developers.google.com/cast/docs/ios_sender_setup) for more information.
+
+```Swift
+let mediaInfo = GCKMediaInformation(contentID: assetId,
+                                    streamType: .none,
+                                    contentType: "video/mp4",
+                                    metadata: metaData,
+                                    streamDuration: 0,
+                                    mediaTracks: nil,
+                                    textTrackStyle: nil,
+                                    customData: nil)
+
+let mediaLoadOptions = GCKMediaLoadOptions()
+
+// Provide the custom data to the receiver.
+mediaLoadOptions.customData = customData.toJson
+
+GCKCastContext
+    .sharedInstance()
+    .sessionManager
+    .currentCastSession
+    .remoteMediaClient?
+    .loadMedia(mediaInfo, with: mediaLoadOptions)
+```
+
+### Responding to Events
+The *EMP Receiver* has been customized to publish several non-standard events. These can be listened to through by creating, registering and then observing `Channel`s.
+
+A `Channel` is an `Cast` specific extension of the *Google* provided `GCKCastChannel` and governs the *sender*-to-*receiver* communication.
+
+
+Embedded tracks are broadcasted to all connected senders when the tracks or the period change. *Client applications* should listen to the `onTracksUpdated` message and update *UI* accordingly.
+
+```Swift
+let channel = Channel()
+
+channel.onTracksUpdated { tracksUpdated in
+    // Update UI
+}
+```
+
+`tracksUpdated` contains information about subtiles and audio along with information about the currently active track(s). Selecting a different track can be done by supplying the `Channel` with a `Track` struct.
+
+```Swift
+let englishSubs = tracksUpdated
+    .subtitles
+    .filter{ $0.language == "en" }
+    .first
+
+if let subs = englishSubs {
+    channel.use(textTrack: subs)
+}
+```
+
+Or by specifying the *2 letter code* for the desired language.
+
+```Swift
+channel.use(subtitle: "en")
+```
+
+The same proceedure applies for audio tracks.
+
+Finally, it is possible to hide the subtitle track.
+
+```Swift
+channel.hideSubtitles()
+```
+
+A user who joins a session in progress may wish to receive updated status of the *ChromeCast* controls. This can be done by calling `refreshControls()` which will force an `onTracksUpdated` event.
+
+```Swift
+channel.refreshControls()
+```
+
+`onTimeshiftEnabled` signals whether timeshift dependant controls should be displayed in the user interface or not. Timeshift is set on stream level.
+
+
+
+```Swift
+channel
+    .onTimeshiftEnabled { timeshift in
+    
+    }
+    .onVolumeChanged { volumeChanged in
+    
+    }
+    .onDurationChanged { duration in
+    
+    }
+    .onStartTimeLive{ startTime in
+    print("Cast.Channel onStartTimeLive",startTime)
+    }
+    .onProgramChanged{ program in
+    print("Cast.Channel onProgramChanged",program)
+    }
+    .onSegmentMissing{ segment in
+    print("Cast.Channel onSegmentMissing",segment)
+    }
+    .onAutoplay { autoplay in
+    print("Cast.Channel onAutoplay",autoplay)
+    }
+    .onIsLive { isLive in
+    print("Cast.Channel onIsLive",isLive)
+    }
+    .onError{ error in
+    print("Cast.Channel onError",error)
+    }
+```
 
 ## Release Notes
 Release specific changes can be found in the [CHANGELOG](https://github.com/EricssonBroadcastServices/iOSClientCast/blob/master/CHANGELOG.md).

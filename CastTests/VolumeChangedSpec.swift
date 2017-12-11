@@ -28,7 +28,7 @@ class VolumeChangedSpec: QuickSpec {
                 expect(value!.muted).to(equal(VolumeChangedSpec.muted))
             }
             
-            it("should faild decoding with missing key") {
+            it("should fail decoding with missing key") {
                 let data = VolumeChangedSpec.missingKeyJson()
                 let value = data.decode(VolumeChanged.self)
                 

@@ -28,6 +28,11 @@ public enum CastError: Error {
         /// - parameter message: This is the raw `response` returned by the ChromeCast receiver
         /// - parameter error: The error trying to decode the message
         case unsupportedMessage(message: String, error: Error)
+        
+        /// `Cast.Chanbel` encountered a message it could not interpret because it was not formated as `utf8`.
+        ///
+        /// - parameter message: This is the raw `response` returned by the ChromeCast receiver
+        case malformattedMessage(message: String)
     }
     
     /// Receiver errors are delivered by the `ChromeCast` receiver to the `Cast` framework.

@@ -28,11 +28,17 @@ class CastErrorSpec: QuickSpec {
                 expect(value!.message).to(equal(CastErrorSpec.message))
             }
             
-            it("should faild decoding with missing key") {
+            it("should fail decoding with missing key") {
                 let data = CastErrorSpec.missingKeyJson()
                 let value = data.decode(CastError.ReceiverError.self)
                 
                 expect(value).to(beNil())
+            }
+            
+            it("Should init correctly") {
+                let value = CastError.ReceiverError(code: CastErrorSpec.code, message: CastErrorSpec.message)
+                expect(value.code).to(equal(CastErrorSpec.code))
+                expect(value.message).to(equal(CastErrorSpec.message))
             }
         }
     }

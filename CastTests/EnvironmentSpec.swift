@@ -22,13 +22,31 @@ class EnvironmentSpec: QuickSpec {
     override func spec() {
         describe("JSON") {
             it("Should encode correctly") {
-                let data = Environment(baseUrl: self.url, customer: self.customer, businessUnit: self.businessUnit, sessionToken: self.token).toJson
+                let value = Environment(baseUrl: self.url, customer: self.customer, businessUnit: self.businessUnit, sessionToken: self.token).toJson
                 
                 
-                expect(data["exposureApiURL"] as! String).to(equal(self.url))
-                expect(data["customer"] as! String).to(equal(self.customer))
-                expect(data["businessUnit"] as! String).to(equal(self.businessUnit))
-                expect(data["sessionToken"] as! String).to(equal(self.token))
+                expect(value["exposureApiURL"] as! String).to(equal(self.url))
+                expect(value["customer"] as! String).to(equal(self.customer))
+                expect(value["businessUnit"] as! String).to(equal(self.businessUnit))
+                expect(value["sessionToken"] as! String).to(equal(self.token))
+            }
+            
+            it("Should encode correctly") {
+                let value = Environment(baseUrl: self.url, customer: self.customer, businessUnit: self.businessUnit, sessionToken: self.token)
+                
+                do {
+                    let data = try JSONEncoder().encode(value)
+                    
+                    let decoded = try JSONDecoder().decode(Environment.self, from: data)
+                    
+                    expect(decoded.baseUrl).to(equal(self.url))
+                    expect(decoded.customer).to(equal(self.customer))
+                    expect(decoded.businessUnit).to(equal(self.businessUnit))
+                    expect(decoded.sessionToken).to(equal(self.token))
+                }
+                catch {
+                    expect(error).to(beNil())
+                }
             }
         }
     }

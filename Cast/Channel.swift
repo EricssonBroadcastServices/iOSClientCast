@@ -29,7 +29,10 @@ public class Channel: GCKCastChannel {
     
     
     public override func didReceiveTextMessage(_ message: String) {
-        guard let data = message.data(using: .utf8) else { return }
+        guard let data = message.data(using: .utf8) else {
+            onError(.sender(reason: .malformattedMessage(message: message)))
+            return
+        }
         
         let decoder = JSONDecoder()
         do {

@@ -236,4 +236,13 @@ class ChannelSpec: QuickSpec {
         ]
         return data.jsonMessage()
     }
+    
+    func malformatedMessage() -> String? {
+        var data: [String: Codable] = [
+            "type": "isLive",
+            "data": "🚨"
+        ]
+        return data.jsonMessage()
+        
+    }
 }
