@@ -33,10 +33,10 @@
 		7628090E1FD0161D005610DF /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809111FD0161D005610DF /* Nimble.framework */; };
 		7628090F1FD0161D005610DF /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809121FD0161D005610DF /* Quick.framework */; };
 		762809141FD01797005610DF /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 762809131FD01797005610DF /* CHANGELOG.md */; };
-		762809171FD01966005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		762809181FD01994005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		7628091C1FD01D77005610DF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628091B1FD01D77005610DF /* Channel.swift */; };
-		7668F8D81FD1D8A000823161 /* GoogleCast.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		76B5FCD51FDE992A00607C41 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
+		76B5FCD81FDE996B00607C41 /* GoogleCast.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		76DBCE731FD80685009C83AE /* ProgramChangedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE721FD80685009C83AE /* ProgramChangedSpec.swift */; };
 		76DBCE751FD81426009C83AE /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE741FD81426009C83AE /* Dictionary+Extensions.swift */; };
 		76DBCE771FD81442009C83AE /* RawSingleValueEventSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE761FD81442009C83AE /* RawSingleValueEventSpec.swift */; };
@@ -61,13 +61,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7668F8D71FD1D89900823161 /* CopyFiles */ = {
+		76B5FCD71FDE996000607C41 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				7668F8D81FD1D8A000823161 /* GoogleCast.framework in CopyFiles */,
+				76B5FCD81FDE996B00607C41 /* GoogleCast.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				762809171FD01966005610DF /* GoogleCast.framework in Frameworks */,
+				76B5FCD51FDE992A00607C41 /* GoogleCast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +292,8 @@
 				762808D81FD01426005610DF /* Frameworks */,
 				762808D91FD01426005610DF /* Headers */,
 				762808DA1FD01426005610DF /* Resources */,
+				76B5FCD71FDE996000607C41 /* CopyFiles */,
+				76B5FCD61FDE994300607C41 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -309,7 +311,7 @@
 				762808E11FD01426005610DF /* Sources */,
 				762808E21FD01426005610DF /* Frameworks */,
 				762808E31FD01426005610DF /* Resources */,
-				7668F8D71FD1D89900823161 /* CopyFiles */,
+				76B5FCD41FDE97CA00607C41 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -387,6 +389,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76B5FCD41FDE97CA00607C41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/GoogleCast/GoogleCast.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/GoogleCast.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		76B5FCD61FDE994300607C41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/GoogleCast/GoogleCast.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/GoogleCast.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		762808D71FD01426005610DF /* Sources */ = {
@@ -568,7 +603,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-Objc";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.Cast;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -597,7 +635,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-Objc";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.Cast;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
