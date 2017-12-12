@@ -25,7 +25,7 @@ public struct CustomData: Encodable {
     /// Specified text language to use
     public let textLanguage: String?
     
-    /// Specified audio language to use
+    /// Start time to use.
     public let startTime: Int64?
     
     /// Dash stream used by Chromecast and HLS live stream used by mobile clients have different startTime and currentTime. To combat this, `absoluteStartTime` has been introduced for timeshifted live streams, which is a universal way to set start time.

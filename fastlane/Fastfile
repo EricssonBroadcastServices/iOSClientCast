@@ -50,6 +50,12 @@ platform :ios do
              UI.success("====> TESTING DONE")
     end
     
+    desc "Prepares the project for the upcoming sprint by setting the minor version to the sprint number"
+    lane :prepare_next_sprint do
+        
+    end
+    
+    # Private lanes
     
     desc "Checkout latest dependencies as declared in Cartfile.resolved"
     private_lane :update_graph do
@@ -63,8 +69,6 @@ platform :ios do
                  )
         update_dependency_graph()
     end
-    
-    # Private lanes
     
     private_lane :bump_build_number do
         new_build_number = increment_build_number(xcodeproj: ENV["XCODE_PROJECT"])
