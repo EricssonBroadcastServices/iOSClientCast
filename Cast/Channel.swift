@@ -21,11 +21,16 @@ public class Channel: GCKCastChannel {
     fileprivate var onVolumeChanged: (VolumeChanged) -> Void = { _ in }
     fileprivate var onDurationChanged: (Float) -> Void = { _ in }
     fileprivate var onStartTimeLive: (Int64) -> Void = { _ in }
+    
+    @available(*, deprecated: 2.0.79, renamed: "onProgramUpdated()")
     fileprivate var onProgramChanged: (String) -> Void = { _ in }
+    
     fileprivate var onSegmentMissing: (Int64) -> Void = { _ in }
     fileprivate var onAutoplay: (Bool) -> Void = { _ in }
     fileprivate var onIsLive: (Bool) -> Void = { _ in }
     fileprivate var onError: (CastError) -> Void = { _ in }
+    
+    fileprivate var onProgramUpdated: (String, Data) -> Void = { _,_ in }
     
     
     public override func didReceiveTextMessage(_ message: String) {
@@ -56,6 +61,7 @@ public class Channel: GCKCastChannel {
             case .programChanged:
                 let event = try decoder.decode(ProgramChanged.self, from: data)
                 onProgramChanged(event.programId)
+                onProgramUpdated(event.programId,event.data)
             case .segmentMissing:
                 let rawEvent = try decoder.decode(RawSingleValueEvent<Int64>.self, from: data)
                 onSegmentMissing(rawEvent.value)
@@ -107,6 +113,7 @@ extension Channel {
     /// Signals a change in the duration of the media being played.
     ///
     /// - parameter duration: The new duration of the media
+    @available(*, deprecated: 2.0.79, message: "Duration is now a part of the Media Object send on media status updates.")
     @discardableResult
     public func onDurationChanged(callback: @escaping (Float) -> Void) -> Channel {
         onDurationChanged = callback
@@ -125,6 +132,7 @@ extension Channel {
     /// Signals a change in the program of a given channel.
     ///
     /// - parameter programId: The programId for the program
+    @available(*, deprecated: 2.0.79, renamed: "onProgramUpdated()")
     @discardableResult
     public func onProgramChanged(callback: @escaping (String) -> Void) -> Channel {
         onProgramChanged = callback
@@ -179,9 +187,36 @@ extension Channel {
     }
 }
 
+// MMARK: - Pull
+extension Channel {
+    /// After joining a session, it might be necessary to request state, media and asset data from the Receiver. By sending the pull message to the Receiver, it will reply with current state, media and asset data.
+    public func pull() {
+        do {
+            let data = try JSONEncoder().encode(Pull())
+            guard let message = String(data: data, encoding: .utf8) else { return }
+            send(message: message)
+        }
+        catch {
+            onError(.sender(reason: .failedToSerializeMessage(error: error, type: "Pull")))
+        }
+    }
+    
+    internal struct Pull: Encodable {
+        internal func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: BaseKeys.self)
+            try container.encode("pull", forKey: .type)
+        }
+        
+        internal enum BaseKeys: CodingKey {
+            case type
+        }
+    }
+}
+
 // MARK: - Refresh Controls
 extension Channel {
     /// After joining a session, it might be necessary to request the constrols' status (volume level, timeshift enabled, tracks, startTimeLive). By sending this message to the receiver, it will then answer with updated controls.
+    @available(*, deprecated: 2.0.79, renamed: "pull()")
     public func refreshControls() {
         do {
             let data = try JSONEncoder().encode(RefreshControls())
@@ -194,6 +229,7 @@ extension Channel {
     }
     
     /// Internal message delivered to the receiver when a user asks for control refreshment.
+    @available(*, deprecated: 2.0.79)
     internal struct RefreshControls: Encodable {
         internal func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: BaseKeys.self)
