@@ -12,13 +12,11 @@ import Foundation
 /// Internal struct used to parse receiver message detailing a change in program
 internal struct ProgramChanged: Decodable {
     let programId: String
-    let data: Data
     
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: BaseKeys.self)
         let nested = try container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
         let program = try nested.nestedContainer(keyedBy: ProgramKeys.self, forKey: .program)
-        data = try program.decode(Data.self, forKey: .rawData)
         programId = try program.decode(String.self, forKey: .programId)
     }
     
@@ -30,8 +28,7 @@ internal struct ProgramChanged: Decodable {
         case program
     }
     
-    internal enum ProgramKeys: CodingKey {
-        case rawData
+    internal enum ProgramKeys: String, CodingKey {
         case programId
     }
 }

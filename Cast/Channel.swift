@@ -30,7 +30,8 @@ public class Channel: GCKCastChannel {
     fileprivate var onIsLive: (Bool) -> Void = { _ in }
     fileprivate var onError: (CastError) -> Void = { _ in }
     
-    fileprivate var onProgramUpdated: (String, Data) -> Void = { _,_ in }
+    fileprivate var onProgramUpdated: (ProgramUpdated) -> Void = { _ in }
+    fileprivate var onEntitlementChange: (EntitlementChange) -> Void = { _ in }
     
     
     public override func didReceiveTextMessage(_ message: String) {
@@ -60,8 +61,9 @@ public class Channel: GCKCastChannel {
                 onStartTimeLive(rawEvent.value)
             case .programChanged:
                 let event = try decoder.decode(ProgramChanged.self, from: data)
+                let changeEvent = try decoder.decode(ProgramUpdated.self, from: data)
                 onProgramChanged(event.programId)
-                onProgramUpdated(event.programId,event.data)
+                onProgramUpdated(changeEvent)
             case .segmentMissing:
                 let rawEvent = try decoder.decode(RawSingleValueEvent<Int64>.self, from: data)
                 onSegmentMissing(rawEvent.value)
@@ -71,6 +73,9 @@ public class Channel: GCKCastChannel {
             case .isLive:
                 let rawEvent = try decoder.decode(RawSingleValueEvent<Bool>.self, from: data)
                 onIsLive(rawEvent.value)
+            case .entitlementChange:
+                let event = try decoder.decode(EntitlementChange.self, from: data)
+                onEntitlementChange(event)
             case .error:
                 let event = try decoder.decode(CastError.ReceiverError.self, from: data)
                 onError(.receiver(reason: event))
@@ -174,6 +179,24 @@ extension Channel {
         return self
     }
     
+    
+    /// Signals a change in the program of a given channel.
+    ///
+    /// - parameter program: the new program
+    @discardableResult
+    public func onProgramUpdated(callback: @escaping (ProgramUpdated) -> Void) -> Channel {
+        onProgramUpdated = callback
+        return self
+    }
+    
+    /// Signals a new entitlement produced
+    ///
+    /// - parameter entitlement: the new entitlement
+    @discardableResult
+    public func onEntitlementChange(callback: @escaping (ProgramUpdated) -> Void) -> Channel {
+        onProgramUpdated = callback
+        return self
+    }
 }
 
 extension Channel {
