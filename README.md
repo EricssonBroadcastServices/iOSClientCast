@@ -69,16 +69,25 @@ let environment = Environment(baseUrl: exposureBaseUrl,
                               customer: "someCustomer",
                               businessUnit: "someBusinessUnit",
                               sessionToken: validSessionToken)
+
+let properties = PlaybackProperties(playFrom: "bookmark")
 ```
+
+PlaybackProperties specify startTime behavior. The following options apply:
+
+* `defaultBehaviour` (default) Start at beginning of the program if programId is included otherwise start at live edge
+* `startTime` Start at a Unix startTime
+* `beginning` Start at the beginning of the program
+* `bookmark` Start at the bookmark returned by EMP backend. If there is no bookmark, it falls back to the defaultBehaviour
 
 Finally, each load request may be complimented with `CustomData` that issues special instructions to the *receiver*.
 
 ```Swift
-let vodPlayback = CustomData(environment: environment, assetId: "anAssetId")
+let vodPlayback = CustomData(environment: environment, assetId: "anAssetId", playbackProperties: properties)
 
-let channelPlayback = CustomData(environment: environment, channelId: "aChannelId")
+let channelPlayback = CustomData(environment: environment, channelId: "aChannelId", playbackProperties: properties)
 
-let programPlaybacl = CustomData(environment: environment, channelId: "aChannelId", programId: "aSpecificProgramId")
+let programPlaybacl = CustomData(environment: environment, channelId: "aChannelId", programId: "aSpecificProgramId", playbackProperties: properties)
 ```
 
 These include, but are not limited to:
