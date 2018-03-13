@@ -54,10 +54,10 @@ Running `carthage update` will fetch your dependencies and place them in `/Carth
 Finally, make sure you add the `.framework`s to your targets *General -> Embedded Binaries* section.
 
 ## Usage
-`Cast` simplifies integration with the *EMP* `ChromeCast` `Receiver` by delivering a set of specialized extensions to the `GoogleCast` library.
+`Cast` serves as a **reference implementation** of a  `ChromeCast` sender interface for communicating with the *EMP* `Receiver`. Client applications should define their own custom sender library.
 
 ### Getting Started
-*EMP ChromeCast layer*, `Cast` extends the default `GoogleCast` framework to work with the *EMP ChromeCast Receiver* and is fully compliant with the default version unless otherwise stated. The framework is not intended to be a replacement for *Google*s implementaion. Please have a look at the [`EMP ChromeCast Receiver`](#https://github.com/EricssonBroadcastServices/html5-player/blob/master/sdk/tutorials/chromecast-receiver.md) and [sender apps](#https://github.com/EricssonBroadcastServices/html5-player/blob/master/sdk/tutorials/chromecast.md) in general for in depth documentation.
+*EMP ChromeCast layer*, `Cast` extends the default `GoogleCast` framework to work with the *EMP ChromeCast Receiver* and is fully compliant with the default version unless otherwise stated. The framework is not intended to be a replacement for *Google*s implementaion. Please have a look at the [`EMP ChromeCast Receiver`](#https://github.com/EricssonBroadcastServices/chromecast-receiver-2/blob/documentation-comments/sdk/tutorials/chromecast.md) for in depth documentation.
 
 `Cast` does not alter the general *ChromeCast* workflow as described by [`Google`](#https://developers.google.com/cast/) in any significant way.
 
@@ -69,16 +69,25 @@ let environment = Environment(baseUrl: exposureBaseUrl,
                               customer: "someCustomer",
                               businessUnit: "someBusinessUnit",
                               sessionToken: validSessionToken)
-                              
-let assetId = "amazingAsset"
+
+let properties = PlaybackProperties(playFrom: "bookmark")
 ```
+
+PlaybackProperties specify startTime behavior. The following options apply:
+
+* `defaultBehaviour` (default) Start at beginning of the program if programId is included otherwise start at live edge
+* `startTime` Start at a Unix startTime
+* `beginning` Start at the beginning of the program
+* `bookmark` Start at the bookmark returned by EMP backend. If there is no bookmark, it falls back to the defaultBehaviour
 
 Finally, each load request may be complimented with `CustomData` that issues special instructions to the *receiver*.
 
 ```Swift
-let customData = CustomData(environment: environment,
-                            assetId: assetId,
-                            useLastViewedOffset: true)
+let vodPlayback = CustomData(environment: environment, assetId: "anAssetId", playbackProperties: properties)
+
+let channelPlayback = CustomData(environment: environment, channelId: "aChannelId", playbackProperties: properties)
+
+let programPlaybacl = CustomData(environment: environment, channelId: "aChannelId", programId: "aSpecificProgramId", playbackProperties: properties)
 ```
 
 These include, but are not limited to:
@@ -157,10 +166,10 @@ Finally, it is possible to hide the subtitle track.
 channel.hideSubtitles()
 ```
 
-A user who joins a session in progress may wish to receive updated status of the *ChromeCast* controls. This can be done by calling `refreshControls()` which will force an `onTracksUpdated` event.
+A user who joins a session in progress may wish to receive updated status of the *ChromeCast* controls. This can be done by calling `pull()` which will force an `onTracksUpdated` event.
 
 ```Swift
-channel.refreshControls()
+channel.pull()
 ```
 
 There is also several general information events detailing how the stream in question behaves. `onTimeshiftEnabled` for example indicates if timeline UI should be present or not.
@@ -182,13 +191,13 @@ The following methods declare event listeners that may be especially useful for 
 
 ```Swift
 channel
-    .onDurationChanged { duration in
-        // Signaled repeatedly while a media grows.
+    .onEntitlementChange{ entitlement in
+        // Indicages the playback session takes place under a new entitlement
     }
     .onStartTimeLive{ startTime in
         // Indicates the start time in *unix epoch* time for the current live stream.
     }
-    .onProgramChanged{ program in
+    .onProgramUpdated{ program in
         // The program changed, update relevant media metadata
     }
     .onIsLive { isLive in
@@ -214,7 +223,7 @@ Error handling revolves around three types of errors, `ReceiverError`, `SenderEr
 
 `SenderError`s mostly deal with serialization and message translation stemming from the *sender*-to-*receiver* communication. Errors in this domain indicate issues with either the `Cast` framework or it's integration with the *EMP receiver*.
 
-`ReceiverError`s come direcly from the *EMP receiver*. For more information with regards to debugging the receiver, please look at this [documentation](#https://github.com/EricssonBroadcastServices/html5-player/tree/master/sdk/tutorials).
+`ReceiverError`s come direcly from the *EMP receiver*. For more information with regards to debugging the receiver, please look at this [documentation](#https://github.com/EricssonBroadcastServices/chromecast-receiver-2/blob/documentation-comments/sdk/tutorials/chromecast.md).
 Each `ReceiverError` has an associated `code` and `message`.
 
 Finally, `GCKError` stem from `GoogleCast` framework. More information can be found [here](#https://developers.google.com/cast/docs/debugging)

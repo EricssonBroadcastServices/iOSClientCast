@@ -35,6 +35,8 @@
 		762809141FD01797005610DF /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 762809131FD01797005610DF /* CHANGELOG.md */; };
 		762809181FD01994005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		7628091C1FD01D77005610DF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628091B1FD01D77005610DF /* Channel.swift */; };
+		76A233C220567F9E00F8A234 /* ProgramUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A233C120567F9E00F8A234 /* ProgramUpdated.swift */; };
+		76A233C42056813600F8A234 /* EntitlementChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A233C32056813600F8A234 /* EntitlementChange.swift */; };
 		76B5FCD51FDE992A00607C41 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		76B5FCD81FDE996B00607C41 /* GoogleCast.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		76DBCE731FD80685009C83AE /* ProgramChangedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE721FD80685009C83AE /* ProgramChangedSpec.swift */; };
@@ -105,6 +107,8 @@
 		762809131FD01797005610DF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		762809161FD01966005610DF /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 		7628091B1FD01D77005610DF /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		76A233C120567F9E00F8A234 /* ProgramUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramUpdated.swift; sourceTree = "<group>"; };
+		76A233C32056813600F8A234 /* EntitlementChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitlementChange.swift; sourceTree = "<group>"; };
 		76DBCE721FD80685009C83AE /* ProgramChangedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramChangedSpec.swift; sourceTree = "<group>"; };
 		76DBCE741FD81426009C83AE /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		76DBCE761FD81442009C83AE /* RawSingleValueEventSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSingleValueEventSpec.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				761371EB1FD19A5A007AAFF8 /* Track.swift */,
 				761371ED1FD19A6A007AAFF8 /* VolumeChanged.swift */,
 				761371F11FD19A87007AAFF8 /* CastError.swift */,
+				76A233C120567F9E00F8A234 /* ProgramUpdated.swift */,
+				76A233C32056813600F8A234 /* EntitlementChange.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -420,6 +426,8 @@
 				761371F01FD19A78007AAFF8 /* ProgramChanged.swift in Sources */,
 				761371E21FD1993F007AAFF8 /* Environment.swift in Sources */,
 				761371EA1FD19A49007AAFF8 /* TracksUpdated.swift in Sources */,
+				76A233C220567F9E00F8A234 /* ProgramUpdated.swift in Sources */,
+				76A233C42056813600F8A234 /* EntitlementChange.swift in Sources */,
 				7628091C1FD01D77005610DF /* Channel.swift in Sources */,
 				761371EC1FD19A5A007AAFF8 /* Track.swift in Sources */,
 			);

@@ -30,7 +30,7 @@ platform :ios do
         
         bump_build_number
         
-        run_unit_tests
+        #run_unit_tests
         
         clean_build_artifacts
         

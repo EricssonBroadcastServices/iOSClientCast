@@ -22,6 +22,7 @@ internal enum MessageType: String, Decodable {
     case autoplay = "autoplay"
     case isLive = "isLive"
     case error = "error"
+    case entitlementChange = "entitlementchange"
     
     internal init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
