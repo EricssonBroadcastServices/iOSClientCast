@@ -385,6 +385,7 @@ extension Channel {
 
 // MARK: - PlayheadTime
 extension Channel {
+    /// Seeks to the specified `timestamp`, in unix time (milliseconds)
     public func seek(toTime time: Int64) {
         do {
             let event = PlayheadTime(timestamp: time)
