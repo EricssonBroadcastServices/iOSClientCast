@@ -351,23 +351,45 @@ extension Channel {
     /// - parameter audio: The language code to display
     public func use(audio: String) {
         do {
-            let event = EnableAudioTrack(language: audio)
+            let event = SelectAudioTrack(language: audio)
             let data = try JSONEncoder().encode(event)
             guard let message = String(data: data, encoding: .utf8) else { return }
             send(message: message)
         }
         catch {
-            onError(.sender(reason: .failedToSerializeMessage(error: error, type: "EnableAudioTrack")))
+            onError(.sender(reason: .failedToSerializeMessage(error: error, type: "SelectAudioTrack")))
         }
     }
     
     /// Internal message detailing an audio change request
+    @available(*, deprecated: 2.0.79, renamed: "SelectAudioTrack")
     internal struct EnableAudioTrack: Encodable {
         internal let language: String
         
         internal func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: BaseKeys.self)
-            try container.encode("enableaudiotrack", forKey: .type)
+            try container.encode("selectaudiotrack", forKey: .type)
+            
+            var nested = container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
+            try nested.encode(language, forKey: .language)
+        }
+        
+        internal enum BaseKeys: CodingKey {
+            case type
+            case data
+        }
+        internal enum DataKeys: CodingKey {
+            case language
+        }
+    }
+    
+    /// Internal message detailing an audio change request
+    internal struct SelectAudioTrack: Encodable {
+        internal let language: String
+        
+        internal func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: BaseKeys.self)
+            try container.encode("selectaudiotrack", forKey: .type)
             
             var nested = container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
             try nested.encode(language, forKey: .language)
