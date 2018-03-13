@@ -193,8 +193,8 @@ extension Channel {
     ///
     /// - parameter entitlement: the new entitlement
     @discardableResult
-    public func onEntitlementChange(callback: @escaping (ProgramUpdated) -> Void) -> Channel {
-        onProgramUpdated = callback
+    public func onEntitlementChange(callback: @escaping (EntitlementChange) -> Void) -> Channel {
+        onEntitlementChange = callback
         return self
     }
 }
@@ -383,7 +383,36 @@ extension Channel {
     }
 }
 
-
+// MARK: - PlayheadTime
+extension Channel {
+    public func seek(toTime time: Int64) {
+        do {
+            let event = PlayheadTime(timestamp: time)
+            let data = try JSONEncoder().encode(event)
+            guard let message = String(data: data, encoding: .utf8) else { return }
+            send(message: message)
+        }
+        catch {
+            onError(.sender(reason: .failedToSerializeMessage(error: error, type: "PlayheadTime")))
+        }
+    }
+    
+    internal struct PlayheadTime: Encodable {
+        let timestamp: Int64
+        
+        internal func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: BaseKeys.self)
+            try container.encode("playheadtime", forKey: .type)
+            
+            try container.encode(timestamp, forKey: .data)
+        }
+        
+        internal enum BaseKeys: CodingKey {
+            case type
+            case data
+        }
+    }
+}
 
 
 
