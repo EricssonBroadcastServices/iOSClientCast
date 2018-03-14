@@ -6,7 +6,7 @@ The `Cast` reference implementation has been updated to the new *Receiver 2.0* [
 
 ### API Changes
 
-#### `Channel`
+#### Channel
 
 | reason | api |
 | -------- | --- |
@@ -14,7 +14,7 @@ The `Cast` reference implementation has been updated to the new *Receiver 2.0* [
 | deprecated | `func onProgramChanged(callback: @escaping (String) -> Void) -> Channel` |
 | deprecated | `func refreshControls()` |
 
-#### `CustomData`
+#### CustomData
 
 | reason | api |
 | -------- | --- |
