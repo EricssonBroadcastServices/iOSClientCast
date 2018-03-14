@@ -9,11 +9,15 @@ The `Cast` reference implementation has been updated to the new *Receiver 2.0* [
 #### `Channel`
 
 | reason | api |
+| -------- | --- |
 | deprecated | `func onDurationChanged(callback: @escaping (Float) -> Void) -> Channel` |
 | deprecated | `func onProgramChanged(callback: @escaping (String) -> Void) -> Channel` |
 | deprecated | `func refreshControls()` |
 
 #### `CustomData`
+
+| reason | api |
+| -------- | --- |
 | deprecated | `let startTime: Int64?` |
 | deprecated | `let absoluteStartTime: Int64?` |
 | deprecated | `let useLastViewedOffset: Bool?` |
