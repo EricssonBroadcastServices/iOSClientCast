@@ -50,6 +50,7 @@
 		76DBCE851FD8229C009C83AE /* CustomDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE841FD8229C009C83AE /* CustomDataSpec.swift */; };
 		76DBCE871FD826F5009C83AE /* ChannelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE861FD826F5009C83AE /* ChannelSpec.swift */; };
 		76DBCE891FD834AF009C83AE /* ChannelSenderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */; };
+		76FF7662205922FE00A82C47 /* chromecast-integration.md in Resources */ = {isa = PBXBuildFile; fileRef = 76FF7661205922FE00A82C47 /* chromecast-integration.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		76DBCE841FD8229C009C83AE /* CustomDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataSpec.swift; sourceTree = "<group>"; };
 		76DBCE861FD826F5009C83AE /* ChannelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSpec.swift; sourceTree = "<group>"; };
 		76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSenderSpec.swift; sourceTree = "<group>"; };
+		76FF7661205922FE00A82C47 /* chromecast-integration.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "chromecast-integration.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				762809021FD014ED005610DF /* README.md */,
 				762809131FD01797005610DF /* CHANGELOG.md */,
 				762809001FD014ED005610DF /* UPGRADE_GUIDE.md */,
+				76FF76632059230400A82C47 /* Documentation */,
 				762808F61FD01491005610DF /* fastlane */,
 				762809081FD014F7005610DF /* Cartfile */,
 				762809071FD014F7005610DF /* Cartfile.private */,
@@ -274,6 +277,14 @@
 				762809161FD01966005610DF /* GoogleCast.framework */,
 			);
 			path = GoogleCast;
+			sourceTree = "<group>";
+		};
+		76FF76632059230400A82C47 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				76FF7661205922FE00A82C47 /* chromecast-integration.md */,
+			);
+			path = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +393,7 @@
 				762808FF1FD01491005610DF /* Fastfile in Resources */,
 				762809091FD014F8005610DF /* Cartfile.resolved in Resources */,
 				762809031FD014ED005610DF /* UPGRADE_GUIDE.md in Resources */,
+				76FF7662205922FE00A82C47 /* chromecast-integration.md in Resources */,
 				762808FC1FD01491005610DF /* .env in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
