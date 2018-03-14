@@ -7,7 +7,7 @@
 * [Requirements](#requirements)
 * [Installation](#installation)
 * Usage
-    - [ChromeCast Integration](#https://github.com/EricssonBroadcastServices/iOSClientCast/blob/master/Documentation/chromecast-integration.md)
+    - [ChromeCast Integration](https://github.com/EricssonBroadcastServices/iOSClientCast/blob/master/Documentation/chromecast-integration.md)
 * [Release Notes](#release-notes)
 * [Upgrade Guides](#upgrade-guides)
 * [Roadmap](#roadmap)
