@@ -50,10 +50,17 @@ public enum CastError: Error {
         
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: BaseKeys.self)
-            let nested = try container.nestedContainer(keyedBy: DataKeys.self, forKey: .data)
-            
-            code = try nested.decode(Int.self, forKey: .code)
-            message = try nested.decode(String.self, forKey: .message)
+            if let nested = try? container.nestedContainer(keyedBy: DataKeys.self, forKey: .data) {
+                let errorCode = try nested.decodeIfPresent(Int.self, forKey: .code)
+                let errorMessage = try nested.decodeIfPresent(String.self, forKey: .message)
+                
+                code = errorCode ?? -1
+                message = errorMessage ?? "UNKNOWN_ERROR"
+            }
+            else {
+                code = -1
+                message = "UNKNOWN_ERROR"
+            }
         }
         
         internal enum BaseKeys: CodingKey {

@@ -33,7 +33,6 @@ public class Channel: GCKCastChannel {
     fileprivate var onProgramUpdated: (ProgramUpdated) -> Void = { _ in }
     fileprivate var onEntitlementChange: (EntitlementChange) -> Void = { _ in }
     
-    
     public override func didReceiveTextMessage(_ message: String) {
         guard let data = message.data(using: .utf8) else {
             onError(.sender(reason: .malformattedMessage(message: message)))
