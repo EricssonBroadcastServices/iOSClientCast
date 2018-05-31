@@ -43,10 +43,18 @@ These include, but are not limited to:
 * Autoplay behavior
 * Session shift configuration
 
-The actual loading of the configured media is done through *API*s provided by *Google*. Media metadata can also be set during this process but is not described here. Please consult the *Google* [docmentation](#https://developers.google.com/cast/docs/ios_sender_setup) for more information.
+The actual loading of the configured media is done through *API*s provided by *Google*. An initial set of metadata can be supplied before loading the media. This will show up on the *mini controller* and the *expanded controller*. Once the receiver has loaded the media, the metadata will be updated continuously. It is important to use the correct `contentID` when configuring the `GCKMediaInformation`.
+
+* program playback: use `programId`
+* channel playback: use `channelId`
+* assets or vods: use `assetId`
+
+Please consult the *Google* [docmentation](#https://developers.google.com/cast/docs/ios_sender_setup) for more information.
+
+
 
 ```Swift
-let mediaInfo = GCKMediaInformation(contentID: assetId,
+let mediaInfo = GCKMediaInformation(contentID: contentId,
                                     streamType: .none,
                                     contentType: "video/mp4",
                                     metadata: metaData,

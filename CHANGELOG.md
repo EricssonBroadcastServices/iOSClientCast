@@ -4,6 +4,11 @@
 * `2.0.79` Release - [2.0.79](#2079)
 * `0.73.x` Releases - [0.73.0](#0730)
 
+## Not released
+
+#### Documentation
+* Clarified use of `contentID` when preparing `GCKMediaInformation` before starting to casting.
+
 ## 2.0.82
 
 #### Bug Fixes
