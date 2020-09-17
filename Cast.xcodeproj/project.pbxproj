@@ -29,7 +29,6 @@
 		762809091FD014F8005610DF /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 762809061FD014F7005610DF /* Cartfile.resolved */; };
 		7628090A1FD014F8005610DF /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 762809071FD014F7005610DF /* Cartfile.private */; };
 		7628090B1FD014F8005610DF /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 762809081FD014F7005610DF /* Cartfile */; };
-		7628090D1FD0161D005610DF /* Mockingjay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809101FD0161D005610DF /* Mockingjay.framework */; };
 		7628090E1FD0161D005610DF /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809111FD0161D005610DF /* Nimble.framework */; };
 		7628090F1FD0161D005610DF /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809121FD0161D005610DF /* Quick.framework */; };
 		762809141FD01797005610DF /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 762809131FD01797005610DF /* CHANGELOG.md */; };
@@ -102,7 +101,6 @@
 		762809061FD014F7005610DF /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = SOURCE_ROOT; };
 		762809071FD014F7005610DF /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
 		762809081FD014F7005610DF /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		762809101FD0161D005610DF /* Mockingjay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mockingjay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762809111FD0161D005610DF /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762809121FD0161D005610DF /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762809131FD01797005610DF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
@@ -137,7 +135,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7628090D1FD0161D005610DF /* Mockingjay.framework in Frameworks */,
 				7628090E1FD0161D005610DF /* Nimble.framework in Frameworks */,
 				7628090F1FD0161D005610DF /* Quick.framework in Frameworks */,
 				762809181FD01994005610DF /* GoogleCast.framework in Frameworks */,
@@ -264,7 +261,6 @@
 		7628090C1FD0161D005610DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				762809101FD0161D005610DF /* Mockingjay.framework */,
 				762809111FD0161D005610DF /* Nimble.framework */,
 				762809121FD0161D005610DF /* Quick.framework */,
 			);
@@ -530,6 +526,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -582,6 +579,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -615,7 +613,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -646,7 +644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.Cast;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -665,7 +663,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.CastTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -684,7 +682,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.CastTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
