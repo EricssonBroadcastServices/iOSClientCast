@@ -32,12 +32,9 @@
 		7628090E1FD0161D005610DF /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809111FD0161D005610DF /* Nimble.framework */; };
 		7628090F1FD0161D005610DF /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809121FD0161D005610DF /* Quick.framework */; };
 		762809141FD01797005610DF /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 762809131FD01797005610DF /* CHANGELOG.md */; };
-		762809181FD01994005610DF /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		7628091C1FD01D77005610DF /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628091B1FD01D77005610DF /* Channel.swift */; };
 		76A233C220567F9E00F8A234 /* ProgramUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A233C120567F9E00F8A234 /* ProgramUpdated.swift */; };
 		76A233C42056813600F8A234 /* EntitlementChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A233C32056813600F8A234 /* EntitlementChange.swift */; };
-		76B5FCD51FDE992A00607C41 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
-		76B5FCD81FDE996B00607C41 /* GoogleCast.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 762809161FD01966005610DF /* GoogleCast.framework */; };
 		76DBCE731FD80685009C83AE /* ProgramChangedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE721FD80685009C83AE /* ProgramChangedSpec.swift */; };
 		76DBCE751FD81426009C83AE /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE741FD81426009C83AE /* Dictionary+Extensions.swift */; };
 		76DBCE771FD81442009C83AE /* RawSingleValueEventSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE761FD81442009C83AE /* RawSingleValueEventSpec.swift */; };
@@ -50,6 +47,23 @@
 		76DBCE871FD826F5009C83AE /* ChannelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE861FD826F5009C83AE /* ChannelSpec.swift */; };
 		76DBCE891FD834AF009C83AE /* ChannelSenderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */; };
 		76FF7666205924F400A82C47 /* chromecast-integration.md in Resources */ = {isa = PBXBuildFile; fileRef = 76FF7665205924F400A82C47 /* chromecast-integration.md */; };
+		78C24D11251382FD001ED9E3 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D10251382FD001ED9E3 /* GoogleCast.framework */; };
+		78C24D432513831C001ED9E3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D422513831C001ED9E3 /* Accelerate.framework */; };
+		78C24D4525138322001ED9E3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D4425138322001ED9E3 /* AudioToolbox.framework */; };
+		78C24D4725138328001ED9E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D4625138328001ED9E3 /* AVFoundation.framework */; };
+		78C24D492513832E001ED9E3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D482513832E001ED9E3 /* CFNetwork.framework */; };
+		78C24D4B25138334001ED9E3 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D4A25138334001ED9E3 /* CoreBluetooth.framework */; };
+		78C24D4D2513833A001ED9E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D4C2513833A001ED9E3 /* CoreData.framework */; };
+		78C24D4F25138340001ED9E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D4E25138340001ED9E3 /* CoreGraphics.framework */; };
+		78C24D5125138347001ED9E3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D5025138347001ED9E3 /* CoreMedia.framework */; };
+		78C24D532513834D001ED9E3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D522513834D001ED9E3 /* CoreText.framework */; };
+		78C24D5525138353001ED9E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D5425138353001ED9E3 /* Foundation.framework */; };
+		78C24D572513835E001ED9E3 /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D562513835E001ED9E3 /* MediaAccessibility.framework */; };
+		78C24D5925138364001ED9E3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D5825138364001ED9E3 /* MediaPlayer.framework */; };
+		78C24D5B25138369001ED9E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D5A25138369001ED9E3 /* QuartzCore.framework */; };
+		78C24D5D2513836E001ED9E3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D5C2513836E001ED9E3 /* Security.framework */; };
+		78C24D5F25138373001ED9E3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D5E25138373001ED9E3 /* SystemConfiguration.framework */; };
+		78C24D6125138379001ED9E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D6025138379001ED9E3 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +83,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				76B5FCD81FDE996B00607C41 /* GoogleCast.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +117,6 @@
 		762809111FD0161D005610DF /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762809121FD0161D005610DF /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		762809131FD01797005610DF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
-		762809161FD01966005610DF /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 		7628091B1FD01D77005610DF /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		76A233C120567F9E00F8A234 /* ProgramUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramUpdated.swift; sourceTree = "<group>"; };
 		76A233C32056813600F8A234 /* EntitlementChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitlementChange.swift; sourceTree = "<group>"; };
@@ -120,6 +132,23 @@
 		76DBCE861FD826F5009C83AE /* ChannelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSpec.swift; sourceTree = "<group>"; };
 		76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSenderSpec.swift; sourceTree = "<group>"; };
 		76FF7665205924F400A82C47 /* chromecast-integration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "chromecast-integration.md"; sourceTree = "<group>"; };
+		78C24D10251382FD001ED9E3 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
+		78C24D422513831C001ED9E3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D4425138322001ED9E3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D4625138328001ED9E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D482513832E001ED9E3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D4A25138334001ED9E3 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D4C2513833A001ED9E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D4E25138340001ED9E3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D5025138347001ED9E3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D522513834D001ED9E3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D5425138353001ED9E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D562513835E001ED9E3 /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/MediaAccessibility.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D5825138364001ED9E3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/iOSSupport/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D5A25138369001ED9E3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D5C2513836E001ED9E3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D5E25138373001ED9E3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		78C24D6025138379001ED9E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +156,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76B5FCD51FDE992A00607C41 /* GoogleCast.framework in Frameworks */,
+				78C24D572513835E001ED9E3 /* MediaAccessibility.framework in Frameworks */,
+				78C24D5D2513836E001ED9E3 /* Security.framework in Frameworks */,
+				78C24D5925138364001ED9E3 /* MediaPlayer.framework in Frameworks */,
+				78C24D5B25138369001ED9E3 /* QuartzCore.framework in Frameworks */,
+				78C24D4725138328001ED9E3 /* AVFoundation.framework in Frameworks */,
+				78C24D11251382FD001ED9E3 /* GoogleCast.framework in Frameworks */,
+				78C24D5F25138373001ED9E3 /* SystemConfiguration.framework in Frameworks */,
+				78C24D532513834D001ED9E3 /* CoreText.framework in Frameworks */,
+				78C24D4D2513833A001ED9E3 /* CoreData.framework in Frameworks */,
+				78C24D5125138347001ED9E3 /* CoreMedia.framework in Frameworks */,
+				78C24D432513831C001ED9E3 /* Accelerate.framework in Frameworks */,
+				78C24D6125138379001ED9E3 /* UIKit.framework in Frameworks */,
+				78C24D4F25138340001ED9E3 /* CoreGraphics.framework in Frameworks */,
+				78C24D4525138322001ED9E3 /* AudioToolbox.framework in Frameworks */,
+				78C24D4B25138334001ED9E3 /* CoreBluetooth.framework in Frameworks */,
+				78C24D492513832E001ED9E3 /* CFNetwork.framework in Frameworks */,
+				78C24D5525138353001ED9E3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +182,6 @@
 			files = (
 				7628090E1FD0161D005610DF /* Nimble.framework in Frameworks */,
 				7628090F1FD0161D005610DF /* Quick.framework in Frameworks */,
-				762809181FD01994005610DF /* GoogleCast.framework in Frameworks */,
 				762808E61FD01426005610DF /* Cast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +305,22 @@
 		7628090C1FD0161D005610DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78C24D6025138379001ED9E3 /* UIKit.framework */,
+				78C24D5E25138373001ED9E3 /* SystemConfiguration.framework */,
+				78C24D5C2513836E001ED9E3 /* Security.framework */,
+				78C24D5A25138369001ED9E3 /* QuartzCore.framework */,
+				78C24D5825138364001ED9E3 /* MediaPlayer.framework */,
+				78C24D562513835E001ED9E3 /* MediaAccessibility.framework */,
+				78C24D5425138353001ED9E3 /* Foundation.framework */,
+				78C24D522513834D001ED9E3 /* CoreText.framework */,
+				78C24D5025138347001ED9E3 /* CoreMedia.framework */,
+				78C24D4E25138340001ED9E3 /* CoreGraphics.framework */,
+				78C24D4C2513833A001ED9E3 /* CoreData.framework */,
+				78C24D4A25138334001ED9E3 /* CoreBluetooth.framework */,
+				78C24D482513832E001ED9E3 /* CFNetwork.framework */,
+				78C24D4625138328001ED9E3 /* AVFoundation.framework */,
+				78C24D4425138322001ED9E3 /* AudioToolbox.framework */,
+				78C24D422513831C001ED9E3 /* Accelerate.framework */,
 				762809111FD0161D005610DF /* Nimble.framework */,
 				762809121FD0161D005610DF /* Quick.framework */,
 			);
@@ -270,7 +330,7 @@
 		762809151FD0194F005610DF /* GoogleCast */ = {
 			isa = PBXGroup;
 			children = (
-				762809161FD01966005610DF /* GoogleCast.framework */,
+				78C24D10251382FD001ED9E3 /* GoogleCast.framework */,
 			);
 			path = GoogleCast;
 			sourceTree = "<group>";

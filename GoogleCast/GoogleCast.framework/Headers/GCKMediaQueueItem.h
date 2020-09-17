@@ -12,13 +12,20 @@
 @class GCKMediaInformation;
 @class GCKMediaQueueItemBuilder;
 
-GCK_ASSUME_NONNULL_BEGIN
+/**
+ * A media queue item ID.
+ *
+ * @since 4.1
+ */
+typedef NSUInteger GCKMediaQueueItemID;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * @var kGCKMediaQueueInvalidItemID
  * An invalid queue item ID.
  */
-GCK_EXTERN const NSUInteger kGCKMediaQueueInvalidItemID;
+GCK_EXTERN const GCKMediaQueueItemID kGCKMediaQueueInvalidItemID;
 
 /**
  * A class representing a media queue item. Instances of this object are immutable.
@@ -38,12 +45,14 @@ GCK_EXPORT
 @property(nonatomic, strong, readonly) GCKMediaInformation *mediaInformation;
 
 /** The item ID, or @ref kGCKMediaQueueInvalidItemID if one has not yet been assigned. */
-@property(nonatomic, assign, readonly) NSUInteger itemID;
+@property(nonatomic, assign, readonly) GCKMediaQueueItemID itemID;
 
 /**
  * Whether the item should automatically start playback when it becomes the current item in the
  * queue. If <code>NO</code>, the queue will pause when it reaches this item. The default value is
  * <code>YES</code>.
+ * When using this item to load a media queue in @ref GCKMediaLoadRequestData, this property in the
+ * first item only takes effect if @c autoplay in @ref GCKMediaLoadRequestData is nil.
  */
 @property(nonatomic, assign, readonly) BOOL autoplay;
 
@@ -90,8 +99,8 @@ GCK_EXPORT
                                 autoplay:(BOOL)autoplay
                                startTime:(NSTimeInterval)startTime
                              preloadTime:(NSTimeInterval)preloadTime
-                          activeTrackIDs:(NSArray<NSNumber *> *GCK_NULLABLE_TYPE)activeTrackIDs
-                              customData:(id GCK_NULLABLE_TYPE)customData;
+                          activeTrackIDs:(nullable NSArray<NSNumber *> *)activeTrackIDs
+                              customData:(nullable id)customData;
 
 /**
  * Designated initializer. Constructs a new GCKMediaQueueItem with the given attributes. See the
@@ -112,8 +121,8 @@ GCK_EXPORT
                                startTime:(NSTimeInterval)startTime
                         playbackDuration:(NSTimeInterval)playbackDuration
                              preloadTime:(NSTimeInterval)preloadTime
-                          activeTrackIDs:(NSArray<NSNumber *> *GCK_NULLABLE_TYPE)activeTrackIDs
-                              customData:(id GCK_NULLABLE_TYPE)customData
+                          activeTrackIDs:(nullable NSArray<NSNumber *> *)activeTrackIDs
+                              customData:(nullable id)customData
     /*NS_DESIGNATED_INITIALIZER*/;
 
 /**
@@ -160,39 +169,39 @@ GCK_EXPORT
 @interface GCKMediaQueueItemBuilder : NSObject
 
 /** The media information associated with this item. */
-@property(nonatomic, copy, readwrite, GCK_NULLABLE) GCKMediaInformation *mediaInformation;
+@property(nonatomic, copy, nullable) GCKMediaInformation *mediaInformation;
 
 /**
  * Whether the item should automatically start playback when it becomes the current item in the
  * queue. If <code>NO</code>, the queue will pause when it reaches this item. The default value is
  * <code>YES</code>.
  */
-@property(nonatomic, assign, readwrite) BOOL autoplay;
+@property(nonatomic, assign) BOOL autoplay;
 
 /**
  * The start time of the item, in seconds. The default value is @ref kGCKInvalidTimeInterval,
  * indicating that a start time does not apply (for example, for a live stream) or that the default
  * start time should be used.
  */
-@property(nonatomic, assign, readwrite) NSTimeInterval startTime;
+@property(nonatomic, assign) NSTimeInterval startTime;
 
 /**
  * The playback duration for the item, in seconds, or <code>INFINITY</code> if the stream's actual
  * duration should be used.
  */
-@property(nonatomic, assign, readwrite) NSTimeInterval playbackDuration;
+@property(nonatomic, assign) NSTimeInterval playbackDuration;
 
 /**
  * How long before the previous item ends, in seconds, before the receiver should start preloading
  * this item. The default value is @ref kGCKInvalidTimeInterval, indicating no preload time.
  */
-@property(nonatomic, assign, readwrite) NSTimeInterval preloadTime;
+@property(nonatomic, assign) NSTimeInterval preloadTime;
 
 /** The active track IDs for this item. */
-@property(nonatomic, copy, readwrite, GCK_NULLABLE) NSArray<NSNumber *> *activeTrackIDs;
+@property(nonatomic, copy, nullable) NSArray<NSNumber *> *activeTrackIDs;
 
 /** The custom data associated with this item, if any. */
-@property(nonatomic, copy, readwrite, GCK_NULLABLE) id customData;
+@property(nonatomic, copy, nullable) id customData;
 
 /**
  * Constructs a new GCKMediaQueueItemBuilder with attributes initialized to default values.
@@ -205,7 +214,7 @@ GCK_EXPORT
  *
  * @param item The item to copy.
  */
-- (instancetype)initWithMediaQueueItem:(GCKMediaQueueItem *GCK_NULLABLE_TYPE)item;
+- (instancetype)initWithMediaQueueItem:(nullable GCKMediaQueueItem *)item;
 
 /**
  * Builds a GCKMediaQueueItem using the builder's current attributes.
@@ -214,4 +223,4 @@ GCK_EXPORT
 
 @end
 
-GCK_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END

@@ -7,7 +7,7 @@
 @class GCKDiscoveryCriteria;
 @class GCKLaunchOptions;
 
-GCK_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Options that affect the discovery of Cast devices and the behavior of Cast sessions. Writable
@@ -54,7 +54,7 @@ GCK_EXPORT
  * A flag indicating whether the sender device's physical volume buttons should control the
  * session's volume.
  */
-@property(nonatomic, assign, readwrite) BOOL physicalVolumeButtonsWillControlDeviceVolume;
+@property(nonatomic, assign) BOOL physicalVolumeButtonsWillControlDeviceVolume;
 
 /**
  * A flag indicating whether the discovery of Cast devices should start automatically at
@@ -64,7 +64,7 @@ GCK_EXPORT
  *
  * @since 3.4
  */
-@property(nonatomic, assign, readwrite) BOOL disableDiscoveryAutostart;
+@property(nonatomic, assign) BOOL disableDiscoveryAutostart;
 
 /**
  * A flag which is used to disable or enable collection of diagnostic data to improve the
@@ -73,12 +73,12 @@ GCK_EXPORT
  *
  * @since 4.0
  */
-@property(nonatomic, assign, readwrite) BOOL disableAnalyticsLogging;
+@property(nonatomic, assign) BOOL disableAnalyticsLogging;
 
 /**
  * The receiver launch options to use when starting a Cast session.
  */
-@property(nonatomic, copy, readwrite, GCK_NULLABLE) GCKLaunchOptions *launchOptions;
+@property(nonatomic, copy, nullable) GCKLaunchOptions *launchOptions;
 
 /**
  * The shared container identifier to use for background HTTP downloads that are performed by the
@@ -86,7 +86,7 @@ GCK_EXPORT
  *
  * @since 3.2
  */
-@property(nonatomic, copy, readwrite, GCK_NULLABLE) NSString *sharedContainerIdentifier;
+@property(nonatomic, copy, nullable) NSString *sharedContainerIdentifier;
 
 /**
  * Whether sessions should be suspended when the sender application goes into the background (and
@@ -96,7 +96,7 @@ GCK_EXPORT
  *
  * @since 3.4
  */
-@property(nonatomic, assign, readwrite) BOOL suspendSessionsWhenBackgrounded;
+@property(nonatomic, assign) BOOL suspendSessionsWhenBackgrounded;
 
 /**
  * Whether the receiver application should be terminated when the user ends the session via the
@@ -104,8 +104,25 @@ GCK_EXPORT
  *
  * @since 4.0
  */
-@property(nonatomic, assign, readwrite) BOOL stopReceiverApplicationWhenEndingSession;
+@property(nonatomic, assign) BOOL stopReceiverApplicationWhenEndingSession;
+
+/**
+ * Whether cast devices discovery start only after a user taps on the @c GCKUICastButton the first
+ * time.
+ *
+ * If set to <code>YES</code>, the @c GCKUICastButton is displayed until a user taps on the cast
+ * button the first time. On the first tap, an interstitial is presented to explain why local
+ * network access permission is required for the cast to work. Discovery starts once the
+ * interstitial is dismissed. The cast button is shown again when a cast device is discovered on
+ * the local network. In successive App launches, @c GCKUICastButton is shown only when any cast
+ * device is discovered. If set to <code>NO</code>, device discovery starts based on the flag
+ * @c disableDiscoveryAutoStart. This flag comes into effect only on iOS 14 and above if the flag
+ * @c disableDiscoveryAutoStart is set to <code>NO</code>. Default value is <code>YES</code>.
+ *
+ * @since 4.5.0
+ */
+@property(nonatomic, assign) BOOL startDiscoveryAfterFirstTapOnCastButton;
 
 @end
 
-GCK_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END
