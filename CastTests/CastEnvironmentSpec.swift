@@ -13,7 +13,7 @@ import Nimble
 
 @testable import Cast
 
-class EnvironmentSpec: QuickSpec {
+class CastEnvironmentSpec: QuickSpec {
     let url = "https://www.example.com"
     let customer = "Customer"
     let businessUnit = "BusinessUnit"
@@ -22,7 +22,7 @@ class EnvironmentSpec: QuickSpec {
     override func spec() {
         describe("JSON") {
             it("Should encode correctly") {
-                let value = Environment(baseUrl: self.url, customer: self.customer, businessUnit: self.businessUnit, sessionToken: self.token).toJson
+                let value = CastEnvironment(baseUrl: self.url, customer: self.customer, businessUnit: self.businessUnit, sessionToken: self.token).toJson
                 
                 
                 expect(value["exposureApiURL"] as! String).to(equal(self.url))
@@ -32,12 +32,12 @@ class EnvironmentSpec: QuickSpec {
             }
             
             it("Should encode correctly") {
-                let value = Environment(baseUrl: self.url, customer: self.customer, businessUnit: self.businessUnit, sessionToken: self.token)
+                let value = CastEnvironment(baseUrl: self.url, customer: self.customer, businessUnit: self.businessUnit, sessionToken: self.token)
                 
                 do {
                     let data = try JSONEncoder().encode(value)
                     
-                    let decoded = try JSONDecoder().decode(Environment.self, from: data)
+                    let decoded = try JSONDecoder().decode(CastEnvironment.self, from: data)
                     
                     expect(decoded.baseUrl).to(equal(self.url))
                     expect(decoded.customer).to(equal(self.customer))

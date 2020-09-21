@@ -18,7 +18,7 @@ class CustomDataSpec: QuickSpec {
         describe("JSON") {
             it("Should encode correctly") {
                 let token = UUID().uuidString
-                let environment = Environment(baseUrl: "https://www.example.com", customer: "Customer", businessUnit: "BusinessUnit", sessionToken: token)
+                let environment = CastEnvironment(baseUrl: "https://www.example.com", customer: "Customer", businessUnit: "BusinessUnit", sessionToken: token)
                 let data = CustomData(environment: environment,
                                       assetId: "assetId",
                                       programId: "programId",
