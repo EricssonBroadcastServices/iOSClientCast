@@ -10,13 +10,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class GCKUICastButton;
 @class GCKUICastContainerViewController;
 @class GCKUIExpandedMediaControlsViewController;
 @class GCKUIMiniMediaControlsViewController;
+
 @protocol GCKUIImageCache;
 @protocol GCKUIImagePicker;
 
-GCK_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * The name of the notification that will be published when the expanded media controls should be
@@ -54,14 +56,14 @@ GCK_EXTERN NSString *const kGCKUICastDialogDidHideNotification;
  * referenced in media metadata. A default implementation will be used if one is not provided by the
  * application. May be set to <code>nil</code> to reinstate the default image cache.
  */
-@property(nonatomic, strong, readwrite, GCK_NULLABLE) id<GCKUIImageCache> imageCache;
+@property(nonatomic, strong, nullable) id<GCKUIImageCache> imageCache;
 
 /**
  * The image picker implementation that will be used to select an image for a specific purpose.
  * A default implementation will be used if one is not provided by the application. May be set to
  * <code>nil</code> to reinstate the default image picker.
  */
-@property(nonatomic, strong, readwrite, GCK_NULLABLE) id<GCKUIImagePicker> imagePicker;
+@property(nonatomic, strong, nullable) id<GCKUIImagePicker> imagePicker;
 
 /**
  * Displays the Cast dialog.
@@ -80,13 +82,30 @@ GCK_EXTERN NSString *const kGCKUICastDialogDidHideNotification;
 - (GCKUIMiniMediaControlsViewController *)createMiniMediaControlsViewController;
 
 /**
- * If it has not been shown before, presents a fullscreen modal view controller that calls attention
- * to the Cast button and displays some brief instructional text about its use.
+ * If it has not been shown before, presents a fullscreen modal view controller
+ * that calls attention to the Cast button and displays some brief instructional
+ * text about its use.
  *
- * @return <code>YES</code> if the view controller was shown, <code>NO</code> if it was not shown
- * because it had already been shown before.
+ * @return <code>YES</code> if the view controller was shown, <code>NO</code> if
+ * it was not shown because it had already been shown before. Since version 4.1,
+ * <code>NO</code> is also returned if the Cast Button was not found.
+ * @deprecated Use presentCastInstructionsViewControllerOnceWithCastButton:.
  */
-- (BOOL)presentCastInstructionsViewControllerOnce;
+- (BOOL)presentCastInstructionsViewControllerOnce
+    GCK_DEPRECATED("Use presentCastInstructionsViewControllerOnceWithCastButton:");
+
+/**
+ * If it has not been shown before, presents a fullscreen modal view controller
+ * that calls attention to the Cast button, whose view is passed in, and displays
+ * some brief instructional text about its use.
+ *
+ * @return <code>YES</code> if the view controller was shown, <code>NO</code> if
+ * it was not shown because it had already been shown before. <code>NO</code> is
+ * also returned if the Cast Button was not found.
+ *
+ * @since 4.1
+ */
+- (BOOL)presentCastInstructionsViewControllerOnceWithCastButton:(GCKUICastButton *)castButton;
 
 /**
  * Clears the persistent flag that tracks whether the Cast instructions modal view controller has
@@ -105,7 +124,7 @@ GCK_EXTERN NSString *const kGCKUICastDialogDidHideNotification;
  * default expaned controls view. If <code>NO</code>, the framework will just trigger a
  * @ref GCKCastContext::kGCKExpandedMediaControlsTriggeredNotification.
  */
-@property(nonatomic, assign, readwrite) BOOL useDefaultExpandedMediaControls;
+@property(nonatomic, assign) BOOL useDefaultExpandedMediaControls;
 
 /**
  * The instance of the default Cast expanded media controls view controller.
@@ -115,6 +134,6 @@ GCK_EXTERN NSString *const kGCKUICastDialogDidHideNotification;
 
 @end
 
-GCK_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END
 
 /** @endcond */

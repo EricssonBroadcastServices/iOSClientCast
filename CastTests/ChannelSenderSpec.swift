@@ -116,13 +116,13 @@ class ChannelSenderSpec: QuickSpec {
     
     func useAudioMessage() -> String? {
         return """
-        {"type":"enableaudiotrack","data":{"language":"en"}}
+        {"type":"selectaudiotrack","data":{"language":"en"}}
         """
     }
     
     func useAudioTrackMessage() -> String? {
         return """
-        {"type":"enableaudiotrack","data":{"language":"sv"}}
+        {"type":"selectaudiotrack","data":{"language":"sv"}}
         """
     }
 }

@@ -48,7 +48,7 @@ class TracksUpdatedSpec: QuickSpec {
         }
     }
     
-    static func validJson() -> [String: Codable] {
+    static func validJson() -> [String: Any] {
         return [
             "data": [
                 "tracksInfo": [
@@ -78,7 +78,7 @@ class TracksUpdatedSpec: QuickSpec {
         ]
     }
     
-    static func missingKeyJson() -> [String: Codable] {
+    static func missingKeyJson() -> [String: Any] {
         return [
             "data": [
                 "tracksInfo": [

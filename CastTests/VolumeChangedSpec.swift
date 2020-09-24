@@ -14,7 +14,7 @@ import Nimble
 @testable import Cast
 
 class VolumeChangedSpec: QuickSpec {
-    static let volume = 101
+    static let volume = Float(exactly: 101)
     static let muted = false
     override func spec() {
         describe("Decoding") {
@@ -24,7 +24,7 @@ class VolumeChangedSpec: QuickSpec {
                 let value = data.decode(VolumeChanged.self)
                 
                 expect(value).toNot(beNil())
-                expect(value!.volume).to(equal(VolumeChangedSpec.volume))
+                expect(value!.volumeLevel).to(equal(VolumeChangedSpec.volume))
                 expect(value!.muted).to(equal(VolumeChangedSpec.muted))
             }
             
@@ -37,7 +37,7 @@ class VolumeChangedSpec: QuickSpec {
         }
     }
     
-    static func validJson() -> [String: Codable] {
+    static func validJson() -> [String: Any] {
         return [
             "data": [
                 "volume": volume,
@@ -46,7 +46,7 @@ class VolumeChangedSpec: QuickSpec {
         ]
     }
     
-    static func missingKeyJson() -> [String: Codable] {
+    static func missingKeyJson() -> [String: Any] {
         return [
             "data": [
                 "volume": volume,

@@ -11,7 +11,7 @@ import Foundation
 /// Data structure describing configuration options that can be delivered to the `ChromeCast` receiver during loading of new media.
 public struct CustomData: Encodable {
     /// Environment used to contact exposure
-    public let exposureEnvironment: Environment
+    public let exposureEnvironment: CastEnvironment
     
     /// *Vod* media asset to cast
     public let assetId: String?
@@ -104,7 +104,7 @@ public struct CustomData: Encodable {
         }
     }
     
-    public init(environment: Environment,
+    public init(environment: CastEnvironment,
                 assetId: String? = nil,
                 channelId: String? = nil,
                 programId: String? = nil,

@@ -18,7 +18,7 @@ class CustomDataSpec: QuickSpec {
         describe("JSON") {
             it("Should encode correctly") {
                 let token = UUID().uuidString
-                let environment = Environment(baseUrl: "https://www.example.com", customer: "Customer", businessUnit: "BusinessUnit", sessionToken: token)
+                let environment = CastEnvironment(baseUrl: "https://www.example.com", customer: "Customer", businessUnit: "BusinessUnit", sessionToken: token)
                 let data = CustomData(environment: environment,
                                       assetId: "assetId",
                                       programId: "programId",
@@ -31,13 +31,12 @@ class CustomDataSpec: QuickSpec {
                                       autoplay: false,
                                       useLastViewedOffset: true).toJson
                 
-                
                 expect(data["ericssonexposure"]).toNot(beNil())
                 
                 expect(data["assetId"] as? String).to(equal("assetId"))
                 expect(data["programId"] as? String).to(equal("programId"))
                 expect(data["audioLanguage"] as? String).to(equal("audioLang"))
-                expect(data["textLanguage"] as? String).to(equal("textLang"))
+                expect(data["subtitleLanguage"] as? String).to(equal("textLang"))
                 expect(data["startTime"] as? Int64).to(equal(10))
                 expect(data["absoluteStartTime"] as? Int64).to(equal(100))
                 expect(data["timeShiftDisabled"] as? Bool).to(equal(true))

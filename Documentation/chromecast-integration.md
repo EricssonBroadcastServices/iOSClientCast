@@ -6,11 +6,18 @@
 
 `Cast` does not alter the general *ChromeCast* workflow as described by [`Google`](#https://developers.google.com/cast/) in any significant way.
 
+### iOS Permissions Changes
+With recent updates to iOS, the operating system will now enforce new restrictions and permissions that affect the Cast user experience. It will also affect how you build the Cast SDK into your app. For your app to maintain Cast functionality with the latest versions of iOS, you must make updates to handle these permissions changes.
+
+Please follow the guidelines in this document to support the iOS version your app supports . 
+[`Google Cast `](#https://developers.google.com/cast/docs/ios_sender/ios_permissions_changes)
+
+
 ### Loading Media
 Loading media onto the *receiver* requires *client applications* to supply several things. First of all, a valid `SessionToken` and an *Exposure* `Environment` is required as the *receiver* will perform an entitlements request prior to starting playback. Secondly, media identifiers in the form of *EMP asset Id* (and optionally a program id) for the asset in question.
 
 ```Swift
-let environment = Environment(baseUrl: exposureBaseUrl,
+let environment = CastEnvironment(baseUrl: exposureBaseUrl,
 customer: "someCustomer",
 businessUnit: "someBusinessUnit",
 sessionToken: validSessionToken)
@@ -28,6 +35,9 @@ PlaybackProperties specify startTime behavior. The following options apply:
 Finally, each load request may be complimented with `CustomData` that issues special instructions to the *receiver*.
 
 ```Swift
+let assetPlayback = CustomData(environment: environment, assetId: "anAssetId", playbackProperties: properties)
+
+// Old versions 
 let vodPlayback = CustomData(environment: environment, assetId: "anAssetId", playbackProperties: properties)
 
 let channelPlayback = CustomData(environment: environment, channelId: "aChannelId", playbackProperties: properties)
@@ -54,14 +64,17 @@ Please consult the *Google* [docmentation](#https://developers.google.com/cast/d
 
 
 ```Swift
-let mediaInfo = GCKMediaInformation(contentID: contentId,
-                                    streamType: .none,
-                                    contentType: "video/mp4",
-                                    metadata: metaData,
-                                    streamDuration: 0,
-                                    mediaTracks: nil,
-                                    textTrackStyle: nil,
-                                    customData: nil)
+
+let mediaInfoBuilder = GCKMediaInformationBuilder()
+mediaInfoBuilder.contentID = contentId
+mediaInfoBuilder.streamType = .none
+mediaInfoBuilder.contentType = "video/mp4"
+mediaInfoBuilder.metadata = nil
+mediaInfoBuilder.streamDuration = 0
+mediaInfoBuilder.mediaTracks = nil
+mediaInfoBuilder.textTrackStyle = nil
+
+let mediaInfo = mediaInfoBuilder.build()
 
 let mediaLoadOptions = GCKMediaLoadOptions()
 

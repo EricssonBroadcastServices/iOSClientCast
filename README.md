@@ -12,16 +12,16 @@
 * [Upgrade Guides](#upgrade-guides)
 
 ## Features
-
+- [x] Google Chrome Cast 
 
 ## Requirements
 
 * `iOS` 9.0+
-* `Swift` 4.0+
-* `Xcode` 9.0+
+* `Swift` 5.0+
+* `Xcode` 12.0+
 
 * Framework dependencies
-    - [`GoogleCast`](https://developers.google.com/cast/) v4.0.2
+    - [`GoogleCast`](https://developers.google.com/cast/) v4.5.0
     
 * Streams:
     - `DASH`/`CENC` (as required by the *EMP receiver*)

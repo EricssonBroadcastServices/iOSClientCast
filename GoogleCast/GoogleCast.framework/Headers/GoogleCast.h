@@ -1,6 +1,6 @@
 // GoogleCast Framework
-// Build generated on Fri Nov 17 14:37:22 PST 2017.
-// Copyright 2013-2017 Google Inc.
+// Build generated on Sun Sep 13 21:34:10 PDT 2020.
+// Copyright 2013-2020 Google Inc.
 
 
 #import <GoogleCast/GCKAdBreakClipInfo.h>
@@ -13,12 +13,14 @@
 #import <GoogleCast/GCKCastSession.h>
 #import <GoogleCast/GCKColor.h>
 #import <GoogleCast/GCKCommon.h>
+#import <GoogleCast/GCKCredentialsData.h>
 #import <GoogleCast/GCKDefines.h>
 #import <GoogleCast/GCKDevice.h>
 #import <GoogleCast/GCKDeviceProvider+Protected.h>
 #import <GoogleCast/GCKDeviceProvider.h>
 #import <GoogleCast/GCKDiscoveryCriteria.h>
 #import <GoogleCast/GCKDiscoveryManager.h>
+#import <GoogleCast/GCKDynamicDevice.h>
 #import <GoogleCast/GCKError.h>
 #import <GoogleCast/GCKGenericChannel.h>
 #import <GoogleCast/GCKImage.h>
@@ -29,9 +31,15 @@
 #import <GoogleCast/GCKLoggerFilter.h>
 #import <GoogleCast/GCKMediaCommon.h>
 #import <GoogleCast/GCKMediaInformation.h>
+#import <GoogleCast/GCKMediaLiveSeekableRange.h>
 #import <GoogleCast/GCKMediaLoadOptions.h>
+#import <GoogleCast/GCKMediaLoadRequestData.h>
 #import <GoogleCast/GCKMediaMetadata.h>
+#import <GoogleCast/GCKMediaQueue.h>
+#import <GoogleCast/GCKMediaQueueContainerMetadata.h>
+#import <GoogleCast/GCKMediaQueueData.h>
 #import <GoogleCast/GCKMediaQueueItem.h>
+#import <GoogleCast/GCKMediaQueueLoadOptions.h>
 #import <GoogleCast/GCKMediaRequestItem.h>
 #import <GoogleCast/GCKMediaSeekOptions.h>
 #import <GoogleCast/GCKMediaStatus.h>
@@ -39,6 +47,7 @@
 #import <GoogleCast/GCKMediaTrack.h>
 #import <GoogleCast/GCKMultizoneDevice.h>
 #import <GoogleCast/GCKMultizoneStatus.h>
+#import <GoogleCast/GCKNetworkAddress.h>
 #import <GoogleCast/GCKOpenURLOptions.h>
 #import <GoogleCast/GCKRemoteMediaClient+Protected.h>
 #import <GoogleCast/GCKRemoteMediaClient.h>
@@ -49,6 +58,7 @@
 #import <GoogleCast/GCKSessionManager.h>
 #import <GoogleCast/GCKSessionOptions.h>
 #import <GoogleCast/GCKSessionTraits.h>
+#import <GoogleCast/GCKVastAdsRequest.h>
 #import <GoogleCast/GCKVideoInfo.h>
 #import <GoogleCast/NSDictionary+GCKAdditions.h>
 #import <GoogleCast/NSMutableDictionary+GCKAdditions.h>
