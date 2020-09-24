@@ -12,7 +12,7 @@
 * [Upgrade Guides](#upgrade-guides)
 
 ## Features
-
+- [x] Google Chrome Cast 
 
 ## Requirements
 
