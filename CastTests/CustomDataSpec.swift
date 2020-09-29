@@ -24,6 +24,7 @@ class CustomDataSpec: QuickSpec {
                                       programId: "programId",
                                       audioLanguage: "audioLang",
                                       textLanguage: "textLang",
+                                      language: "language",
                                       startTime: 10,
                                       absoluteStartTime: 100,
                                       timeShiftDisabled: true,
@@ -37,6 +38,7 @@ class CustomDataSpec: QuickSpec {
                 expect(data["programId"] as? String).to(equal("programId"))
                 expect(data["audioLanguage"] as? String).to(equal("audioLang"))
                 expect(data["subtitleLanguage"] as? String).to(equal("textLang"))
+                expect(data["language"] as? String).to(equal("language"))
                 expect(data["startTime"] as? Int64).to(equal(10))
                 expect(data["absoluteStartTime"] as? Int64).to(equal(100))
                 expect(data["timeShiftDisabled"] as? Bool).to(equal(true))

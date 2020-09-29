@@ -28,6 +28,8 @@ public struct CustomData: Encodable {
     /// Specified text language to use
     public let textLanguage: String?
     
+    public let language: String?
+    
     /// Specified audio language to use
     @available(*, deprecated: 2.0.79, message: "Use PlaybackProperties instead")
     public let startTime: Int64?
@@ -110,6 +112,7 @@ public struct CustomData: Encodable {
                 programId: String? = nil,
                 audioLanguage: String? = nil,
                 textLanguage: String? = nil,
+                language:String? = nil,
                 startTime: Int64? = nil,
                 absoluteStartTime: Int64? = nil,
                 timeShiftDisabled: Bool = false,
@@ -123,6 +126,7 @@ public struct CustomData: Encodable {
         self.programId = programId
         self.audioLanguage = audioLanguage
         self.textLanguage = textLanguage
+        self.language = language
         self.startTime = startTime
         self.absoluteStartTime = absoluteStartTime
         self.timeShiftDisabled = timeShiftDisabled
@@ -141,6 +145,7 @@ extension CustomData {
         case programId
         case audioLanguage
         case textLanguage = "subtitleLanguage"
+        case language
         
         @available(*, deprecated: 2.0.79, message: "Use PlaybackProperties instead")
         case startTime
@@ -199,6 +204,10 @@ extension CustomData {
         
         if let value = maxBitrate {
             json[CodingKeys.maxBitrate.rawValue] = value
+        }
+        
+        if let value = language {
+            json[CodingKeys.language.rawValue] = value
         }
         
         return json

@@ -1,10 +1,15 @@
 # CHANGELOG
 
-* `2.2.00` Release - [2.2.00](#2000)
+* `2.2.00` Release - [2.2.10](#2000)
 * `2.0.93` Release - [2.0.93](#2093)
 * `2.0.82` Release - [2.0.82](#2082)
 * `2.0.79` Release - [2.0.79](#2079)
 * `0.73.x` Releases - [0.73.0](#0730)
+
+## 2.2.100
+#### Features
+* `EMP-15028` Now the sender app can pass `language` that should be used for mediainfo in control bar.
+
 
 ## 2.2.000
 
