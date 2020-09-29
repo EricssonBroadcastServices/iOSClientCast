@@ -9,6 +9,9 @@
 ### iOS Permissions Changes
 With recent updates to iOS, the operating system will now enforce new restrictions and permissions that affect the Cast user experience. It will also affect how you build the Cast SDK into your app. For your app to maintain Cast functionality with the latest versions of iOS, you must make updates to handle these permissions changes.
 
+`Cast`  library uses the Google Chrome cast sdk which requires Bluetooth® permissions.
+
+
 Please follow the guidelines in this document to support the iOS version your app supports . 
 [`Google Cast `](#https://developers.google.com/cast/docs/ios_sender/ios_permissions_changes)
 
