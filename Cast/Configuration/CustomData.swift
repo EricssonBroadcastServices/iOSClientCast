@@ -28,6 +28,7 @@ public struct CustomData: Encodable {
     /// Specified text language to use
     public let textLanguage: String?
     
+    // language that should be used for mediainfo in control bar.
     public let language: String?
     
     /// Specified audio language to use
@@ -192,6 +193,8 @@ extension CustomData {
         
         if let value = textLanguage {
             json[CodingKeys.textLanguage.rawValue] = value
+        } else {
+            json[CodingKeys.textLanguage.rawValue] = "None"
         }
         
         if let value = startTime {
