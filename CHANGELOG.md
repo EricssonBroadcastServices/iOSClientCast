@@ -1,10 +1,17 @@
 # CHANGELOG
 
-* `2.2.00` Release - [2.2.10](#2000)
+* `2.2.20` Release - [2.2.20](#2220)
+* `2.2.10` Release - [2.2.10](#2210)
 * `2.0.93` Release - [2.0.93](#2093)
 * `2.0.82` Release - [2.0.82](#2082)
 * `2.0.79` Release - [2.0.79](#2079)
 * `0.73.x` Releases - [0.73.0](#0730)
+
+
+## 2.2.200
+#### Features
+* `EMP-15180` When subtitle parameter is not specified , pass `None` to the receiver so it will start the chrome cast playback without subtitles. 
+
 
 ## 2.2.100
 #### Features

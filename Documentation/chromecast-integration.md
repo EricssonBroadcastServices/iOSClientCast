@@ -55,6 +55,9 @@ These include, but are not limited to:
 * Maximum bitrate selection
 * Autoplay behavior
 * Session shift configuration
+* Language that can be used for mediainfo in control bar.
+
+* When the subtitle parameter ( `textLanguage` ) is not specified , `Cast` will pass `None` to the receiver so it will start the chrome cast playback without the subtitles. 
 
 The actual loading of the configured media is done through *API*s provided by *Google*. An initial set of metadata can be supplied before loading the media. This will show up on the *mini controller* and the *expanded controller*. Once the receiver has loaded the media, the metadata will be updated continuously. It is important to use the correct `contentID` when configuring the `GCKMediaInformation`.
 
