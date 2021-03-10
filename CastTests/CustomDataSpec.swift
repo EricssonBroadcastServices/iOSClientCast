@@ -17,21 +17,18 @@ class CustomDataSpec: QuickSpec {
     override func spec() {
         describe("JSON") {
             it("Should encode correctly") {
-                let token = UUID().uuidString
-               
-                
-                let adParameters = CastAdsOptions(latitude: "latitude", longitude: "longitude", mute: true, consent: "consent", deviceMake: "apple", ifa: "ifa", gdprOptin: false)
+
+                let adParameters = CastAdsOptions(latitude: "latitude", longitude: "longitude", mute: true, consent: "consent", deviceMake: "apple", ifa: "ifa", gdprOptin: true)
                 
                 let data = CustomData(customer: "customer",
-                                      businessUnit: "BusinessUnit",
+                                      businessUnit: "businessUnit",
                                       locale: "locale",
                                       adParameters: adParameters).toJson
                 
 
                 expect(data["customer"] as? String).to(equal("customer"))
-                expect(data["BusinessUnit"] as? String).to(equal("BusinessUnit"))
+                expect(data["businessUnit"] as? String).to(equal("businessUnit"))
                 expect(data["locale"] as? String).to(equal("locale"))
-                expect(data["adParameters"] as? CastAdsOptions).to(equal(adParameters))
             }
         }
     }
