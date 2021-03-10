@@ -2,7 +2,7 @@
 `Cast` serves as a **reference implementation** of a  `ChromeCast` sender interface for communicating with the *EMP* `Receiver`. Client applications should define their own custom sender library.
 
 ### Getting Started
-*EMP ChromeCast layer*, `Cast` extends the default `GoogleCast` framework to work with the *EMP ChromeCast Receiver* and is fully compliant with the default version unless otherwise stated. The framework is not intended to be a replacement for *Google*s implementaion. Please have a look at the [`EMP ChromeCast Receiver`](#https://github.com/EricssonBroadcastServices/chromecast-receiver-2/blob/documentation-comments/sdk/tutorials/chromecast.md) for in depth documentation.
+*EMP ChromeCast layer*, `Cast` extends the default `GoogleCast` framework to work with the *EMP ChromeCast Receiver* and is fully compliant with the default version unless otherwise stated. The framework is not intended to be a replacement for *Google*s implementaion. Please have a look at the [`EMP ChromeCast Receiver`](https://github.com/EricssonBroadcastServices/cast-receiver) for in depth documentation.
 
 `Cast` does not alter the general *ChromeCast* workflow as described by [`Google`](#https://developers.google.com/cast/) in any significant way.
 
@@ -13,7 +13,67 @@ With recent updates to iOS, the operating system will now enforce new restrictio
 
 
 Please follow the guidelines in this document to support the iOS version your app supports . 
-[`Google Cast `](#https://developers.google.com/cast/docs/ios_sender/ios_permissions_changes)
+[`Google Cast`](#https://developers.google.com/cast/docs/ios_sender/ios_permissions_changes)
+
+### Sample Integration
+
+Developers can find a sample implementation of the cast sdk here.  [`iOSClientSDKSampleApp`](https://github.com/EricssonBroadcastServices/iOSClientSDKSampleApp)
+
+
+### Version 2.3
+### Loading Media
+Loading media onto the *receiver* requires *client applications* to supply several things. First of all, a valid `SessionToken` and an *Exposure* `Environment` is required as the *receiver* will perform an entitlements request prior to starting playback. Secondly, media identifiers in the form of *EMP asset Id*.
+
+From the version 2.3 & onwards developers do not need to create `CastEnvironment`. They can directly pass the `customer` & `businessUnit` values as `CustomData` in to the cast receiver. 
+
+```Swift
+let customData = CustomData(customer: environment.customer, businessUnit: environment.businessUnit, locale: "fr").toJson
+```
+
+Then developers can create the `GCKMediaInformationBuilder` & assign the *EMP asset Id* value as `contentID` value.
+
+```Swift
+let mediaInfoBuilder = GCKMediaInformationBuilder()
+mediaInfoBuilder.contentID = playable.assetId
+```
+
+Finally you need to assign the `SessionToken` value as the `GCKMediaLoadRequestDataBuilder.credentials` value to make an authenticated `GCKRequest`. 
+
+```Swift
+let mediaInfo = mediaInfoBuilder.build()
+        
+if let remoteMediaClient = session.remoteMediaClient {
+            
+   let mediaQueueItemBuilder = GCKMediaQueueItemBuilder()
+   mediaQueueItemBuilder.mediaInformation = mediaInfo
+   let mediaQueueItem = mediaQueueItemBuilder.build()
+   let queueDataBuilder = GCKMediaQueueDataBuilder(queueType: .generic)
+   queueDataBuilder.items = [mediaQueueItem]
+   queueDataBuilder.repeatMode = remoteMediaClient.mediaStatus?.queueRepeatMode ?? .off
+            
+    
+
+   let mediaLoadRequestDataBuilder = GCKMediaLoadRequestDataBuilder()
+   mediaLoadRequestDataBuilder.credentials = "SessionToken"
+   mediaLoadRequestDataBuilder.queueData = queueDataBuilder.build()
+   mediaLoadRequestDataBuilder.customData = customData
+            
+   let request = remoteMediaClient.loadMedia(with: mediaLoadRequestDataBuilder.build())
+
+}
+```
+
+#### Server-Side Ad Insertion (SSAI) When ChromeCast
+if you are planning to use server side ads insertion & required to pass `adParameters` to the cast reciever, you can create `CastAdsOptions` & add it to the `CustomData`. 
+
+
+```Swift
+let adsOptions = CastAdsOptions(latitude: "18.000", longitude: "18.000", mute: true, consent: "consent", deviceMake: "deviceMake", ifa: "ifa", gdprOptin: true)
+let customData = CustomData(customer: environment.customer, businessUnit: environment.businessUnit, adParameters: adsOptions).toJson
+```
+
+
+### Version 2.2.00 or below
 
 
 ### Loading Media

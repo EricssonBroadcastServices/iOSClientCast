@@ -13,7 +13,7 @@ import Nimble
 
 @testable import Cast
 
-class CastEnvironmentSpec: QuickSpec {
+/* class CastEnvironmentSpec: QuickSpec {
     let url = "https://www.example.com"
     let customer = "Customer"
     let businessUnit = "BusinessUnit"
@@ -50,4 +50,4 @@ class CastEnvironmentSpec: QuickSpec {
             }
         }
     }
-}
+} */
