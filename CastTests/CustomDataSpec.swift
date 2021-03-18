@@ -23,12 +23,14 @@ class CustomDataSpec: QuickSpec {
                 let data = CustomData(customer: "customer",
                                       businessUnit: "businessUnit",
                                       locale: "locale",
-                                      adParameters: adParameters).toJson
+                                      adParameters: adParameters,
+                                      adobePrimetimeToken: "adobePrimetimeToken").toJson
                 
 
                 expect(data["customer"] as? String).to(equal("customer"))
                 expect(data["businessUnit"] as? String).to(equal("businessUnit"))
                 expect(data["locale"] as? String).to(equal("locale"))
+                expect(data["adobePrimetimeToken"] as? String).to(equal("adobePrimetimeToken"))
             }
         }
     }
