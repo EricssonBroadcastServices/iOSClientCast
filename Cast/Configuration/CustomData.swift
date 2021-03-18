@@ -21,15 +21,19 @@ public struct CustomData: Encodable {
     // language that should be used for mediainfo in control bar.
     public let locale: String?
     
+    /// Client specific ad params that can be used in server side ad insertion
     public let adParameters: CastAdsOptions?
     
+    /// X-Adobe-Primetime-MediaToken
+    public let adobePrimetimeToken: String?
+    
     public init(customer: String, businessUnit: String,
-                locale:String? = nil, adParameters: CastAdsOptions? = nil) {
+                locale:String? = nil, adParameters: CastAdsOptions? = nil, adobePrimetimeToken: String? = nil) {
         self.customer = customer
         self.businessUnit = businessUnit
         self.locale = locale
         self.adParameters = adParameters
-       
+        self.adobePrimetimeToken = adobePrimetimeToken
     }
 }
 
@@ -39,6 +43,7 @@ extension CustomData {
         case businessUnit
         case locale
         case adParameters
+        case adobePrimetimeToken
     }
 }
 
@@ -52,6 +57,9 @@ extension CustomData {
         }
         if let adParameters = adParameters {
             json[CodingKeys.adParameters.rawValue] = adParameters.toJson
+        }
+        if let adobePrimetimeToken = adobePrimetimeToken {
+            json[CodingKeys.adobePrimetimeToken.rawValue] = adobePrimetimeToken
         }
         return json
     }
