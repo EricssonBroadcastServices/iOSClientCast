@@ -63,7 +63,7 @@ if let remoteMediaClient = session.remoteMediaClient {
 }
 ```
 
-#### Server-Side Ad Insertion (SSAI) When ChromeCast
+#### Server-Side Ad Insertion (SSAI) when casting
 if you are planning to use server side ads insertion & required to pass `adParameters` to the cast reciever, you can create `CastAdsOptions` & add it to the `CustomData`. 
 
 
@@ -72,6 +72,11 @@ let adsOptions = CastAdsOptions(latitude: "18.000", longitude: "18.000", mute: t
 let customData = CustomData(customer: environment.customer, businessUnit: environment.businessUnit, adParameters: adsOptions).toJson
 ```
 
+#### Integrate Primetime authentication when casting
+if you are planning to use adobe primetime authentication & required to pass `Adobe Primetime Token` when casting, you can add it to the `CustomData` as well. 
+```Swift
+let customData = CustomData(customer: environment.customer, businessUnit: environment.businessUnit, adobePrimetimeToken: "base64EncodedToken").toJson
+```
 
 ### Version 2.2.00 or below
 
