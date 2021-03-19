@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		761371E21FD1993F007AAFF8 /* CastEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E11FD1993F007AAFF8 /* CastEnvironment.swift */; };
 		761371E41FD19962007AAFF8 /* CustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E31FD19962007AAFF8 /* CustomData.swift */; };
 		761371E81FD19A28007AAFF8 /* RawSingleValueEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E71FD19A28007AAFF8 /* RawSingleValueEvent.swift */; };
 		761371EA1FD19A49007AAFF8 /* TracksUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761371E91FD19A49007AAFF8 /* TracksUpdated.swift */; };
@@ -42,7 +41,6 @@
 		76DBCE7B1FD81B0A009C83AE /* CastErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE7A1FD81B0A009C83AE /* CastErrorSpec.swift */; };
 		76DBCE7D1FD81C1A009C83AE /* VolumeChangedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE7C1FD81C1A009C83AE /* VolumeChangedSpec.swift */; };
 		76DBCE811FD81CEB009C83AE /* TracksUpdatedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE801FD81CEB009C83AE /* TracksUpdatedSpec.swift */; };
-		76DBCE831FD8210B009C83AE /* CastEnvironmentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE821FD8210B009C83AE /* CastEnvironmentSpec.swift */; };
 		76DBCE851FD8229C009C83AE /* CustomDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE841FD8229C009C83AE /* CustomDataSpec.swift */; };
 		76DBCE871FD826F5009C83AE /* ChannelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE861FD826F5009C83AE /* ChannelSpec.swift */; };
 		76DBCE891FD834AF009C83AE /* ChannelSenderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */; };
@@ -64,6 +62,8 @@
 		78C24D5D2513836E001ED9E3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D5C2513836E001ED9E3 /* Security.framework */; };
 		78C24D5F25138373001ED9E3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D5E25138373001ED9E3 /* SystemConfiguration.framework */; };
 		78C24D6125138379001ED9E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D6025138379001ED9E3 /* UIKit.framework */; };
+		78D4DA9D25F7A3B900D811B2 /* CastAdsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D4DA9C25F7A3B900D811B2 /* CastAdsOptions.swift */; };
+		78D4DABA25F8D58400D811B2 /* CastAdsOptionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D4DAB925F8D58400D811B2 /* CastAdsOptionsSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		761371E11FD1993F007AAFF8 /* CastEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastEnvironment.swift; sourceTree = "<group>"; };
 		761371E31FD19962007AAFF8 /* CustomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomData.swift; sourceTree = "<group>"; };
 		761371E71FD19A28007AAFF8 /* RawSingleValueEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawSingleValueEvent.swift; sourceTree = "<group>"; };
 		761371E91FD19A49007AAFF8 /* TracksUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksUpdated.swift; sourceTree = "<group>"; };
@@ -127,7 +126,6 @@
 		76DBCE7A1FD81B0A009C83AE /* CastErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastErrorSpec.swift; sourceTree = "<group>"; };
 		76DBCE7C1FD81C1A009C83AE /* VolumeChangedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeChangedSpec.swift; sourceTree = "<group>"; };
 		76DBCE801FD81CEB009C83AE /* TracksUpdatedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksUpdatedSpec.swift; sourceTree = "<group>"; };
-		76DBCE821FD8210B009C83AE /* CastEnvironmentSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastEnvironmentSpec.swift; sourceTree = "<group>"; };
 		76DBCE841FD8229C009C83AE /* CustomDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDataSpec.swift; sourceTree = "<group>"; };
 		76DBCE861FD826F5009C83AE /* ChannelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSpec.swift; sourceTree = "<group>"; };
 		76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSenderSpec.swift; sourceTree = "<group>"; };
@@ -149,6 +147,8 @@
 		78C24D5C2513836E001ED9E3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		78C24D5E25138373001ED9E3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		78C24D6025138379001ED9E3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		78D4DA9C25F7A3B900D811B2 /* CastAdsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAdsOptions.swift; sourceTree = "<group>"; };
+		78D4DAB925F8D58400D811B2 /* CastAdsOptionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAdsOptionsSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +215,8 @@
 		761371F71FD19BE2007AAFF8 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				761371E11FD1993F007AAFF8 /* CastEnvironment.swift */,
 				761371E31FD19962007AAFF8 /* CustomData.swift */,
+				78D4DA9C25F7A3B900D811B2 /* CastAdsOptions.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -275,10 +275,10 @@
 				76DBCE7A1FD81B0A009C83AE /* CastErrorSpec.swift */,
 				76DBCE7C1FD81C1A009C83AE /* VolumeChangedSpec.swift */,
 				76DBCE801FD81CEB009C83AE /* TracksUpdatedSpec.swift */,
-				76DBCE821FD8210B009C83AE /* CastEnvironmentSpec.swift */,
 				76DBCE841FD8229C009C83AE /* CustomDataSpec.swift */,
 				76DBCE861FD826F5009C83AE /* ChannelSpec.swift */,
 				76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */,
+				78D4DAB925F8D58400D811B2 /* CastAdsOptionsSpec.swift */,
 			);
 			path = CastTests;
 			sourceTree = "<group>";
@@ -492,7 +492,7 @@
 				761371F41FD19B2F007AAFF8 /* MessageType.swift in Sources */,
 				761371E81FD19A28007AAFF8 /* RawSingleValueEvent.swift in Sources */,
 				761371F01FD19A78007AAFF8 /* ProgramChanged.swift in Sources */,
-				761371E21FD1993F007AAFF8 /* CastEnvironment.swift in Sources */,
+				78D4DA9D25F7A3B900D811B2 /* CastAdsOptions.swift in Sources */,
 				761371EA1FD19A49007AAFF8 /* TracksUpdated.swift in Sources */,
 				76A233C220567F9E00F8A234 /* ProgramUpdated.swift in Sources */,
 				76A233C42056813600F8A234 /* EntitlementChange.swift in Sources */,
@@ -513,8 +513,8 @@
 				762808EB1FD01426005610DF /* CastTests.swift in Sources */,
 				76DBCE7B1FD81B0A009C83AE /* CastErrorSpec.swift in Sources */,
 				76DBCE851FD8229C009C83AE /* CustomDataSpec.swift in Sources */,
+				78D4DABA25F8D58400D811B2 /* CastAdsOptionsSpec.swift in Sources */,
 				76DBCE771FD81442009C83AE /* RawSingleValueEventSpec.swift in Sources */,
-				76DBCE831FD8210B009C83AE /* CastEnvironmentSpec.swift in Sources */,
 				76DBCE791FD8173E009C83AE /* MessageTypeSpec.swift in Sources */,
 				76DBCE751FD81426009C83AE /* Dictionary+Extensions.swift in Sources */,
 			);
@@ -652,7 +652,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = JCUPRVKEC5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -666,7 +666,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.2.2;
+				MARKETING_VERSION = 2.3.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -686,7 +686,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = JCUPRVKEC5;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -700,7 +700,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.2.2;
+				MARKETING_VERSION = 2.3.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",

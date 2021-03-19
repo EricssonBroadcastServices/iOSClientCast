@@ -1,11 +1,20 @@
 # CHANGELOG
 
+* `2.3.00` Release - [2.3.00](#2300)
 * `2.2.20` Release - [2.2.20](#2220)
 * `2.2.10` Release - [2.2.10](#2210)
 * `2.0.93` Release - [2.0.93](#2093)
 * `2.0.82` Release - [2.0.82](#2082)
 * `2.0.79` Release - [2.0.79](#2079)
 * `0.73.x` Releases - [0.73.0](#0730)
+
+## 2.3.000
+#### Breaking Changes
+* `EMP-15724` There are several breaking changes from the previous cast client sdk such as `CastEnvironment` , `playbackProperties` have been deprecated. Please check the * [`ChromeCast Integration`](https://github.com/EricssonBroadcastServices/iOSClientCast/blob/master/Documentation/chromecast-integration.md)  for more information
+
+#### Features
+* `EMP-15724` Upgrade Cast Sender to follow the new CAF Receiver requirements. 
+* `EMP-15724` Add support for passing optional `adParameters` when casting. 
 
 
 ## 2.2.200
