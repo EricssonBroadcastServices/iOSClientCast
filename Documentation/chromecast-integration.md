@@ -20,11 +20,11 @@ Please follow the guidelines in this document to support the iOS version your ap
 Developers can find a sample implementation of the cast sdk here.  [`iOSClientSDKSampleApp`](https://github.com/EricssonBroadcastServices/iOSClientSDKSampleApp)
 
 
-### Version 2.3
+### Version 3.0
 ### Loading Media
 Loading media onto the *receiver* requires *client applications* to supply several things. First of all, a valid `SessionToken` and an *Exposure* `Environment` is required as the *receiver* will perform an entitlements request prior to starting playback. Secondly, media identifiers in the form of *EMP asset Id*.
 
-From the version 2.3 & onwards developers do not need to create `CastEnvironment`. They can directly pass the `customer` & `businessUnit` values as `CustomData` in to the cast receiver. 
+From the version 2.0 & onwards developers do not need to create `CastEnvironment`. They can directly pass the `customer` & `businessUnit` values as `CustomData` in to the cast receiver. 
 
 ```Swift
 let customData = CustomData(customer: environment.customer, businessUnit: environment.businessUnit, locale: "fr").toJson
