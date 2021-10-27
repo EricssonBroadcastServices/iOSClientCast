@@ -119,7 +119,7 @@ platform :ios do
     
     desc "Checkout latest dependencies as declared in Cartfile.resolved"
     private_lane :update_graph do
-        
+        sh "cd .."
         sh "carthage.sh update --use-submodules --platform ios --use-xcframeworks"
 #        carthage(
 #                 command: "update",
