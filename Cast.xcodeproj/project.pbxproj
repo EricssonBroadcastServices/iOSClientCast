@@ -45,7 +45,45 @@
 		76DBCE871FD826F5009C83AE /* ChannelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE861FD826F5009C83AE /* ChannelSpec.swift */; };
 		76DBCE891FD834AF009C83AE /* ChannelSenderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */; };
 		76FF7666205924F400A82C47 /* chromecast-integration.md in Resources */ = {isa = PBXBuildFile; fileRef = 76FF7665205924F400A82C47 /* chromecast-integration.md */; };
-		78C24D11251382FD001ED9E3 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D10251382FD001ED9E3 /* GoogleCast.framework */; };
+		781CAEB32729755300934A27 /* strip_unused_archs.sh in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE8B2729755300934A27 /* strip_unused_archs.sh */; };
+		781CAEB42729755300934A27 /* utf_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE8D2729755300934A27 /* utf_LICENSE.html */; };
+		781CAEB52729755300934A27 /* tcmalloc_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE8E2729755300934A27 /* tcmalloc_LICENSE.html */; };
+		781CAEB62729755300934A27 /* tink_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE8F2729755300934A27 /* tink_LICENSE.html */; };
+		781CAEB72729755300934A27 /* libresample_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE902729755300934A27 /* libresample_LICENSE.html */; };
+		781CAEB82729755300934A27 /* brotli_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE912729755300934A27 /* brotli_LICENSE.html */; };
+		781CAEB92729755300934A27 /* chromium_certificate_verifier_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE922729755300934A27 /* chromium_certificate_verifier_LICENSE.html */; };
+		781CAEBA2729755300934A27 /* libxml_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE932729755300934A27 /* libxml_LICENSE.html */; };
+		781CAEBB2729755300934A27 /* tz_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE942729755300934A27 /* tz_LICENSE.html */; };
+		781CAEBC2729755300934A27 /* appliance_linux_packages_openssl_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE952729755300934A27 /* appliance_linux_packages_openssl_LICENSE.html */; };
+		781CAEBD2729755300934A27 /* darts_clone_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE962729755300934A27 /* darts_clone_LICENSE.html */; };
+		781CAEBE2729755300934A27 /* kissfft_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE972729755300934A27 /* kissfft_LICENSE.html */; };
+		781CAEBF2729755300934A27 /* opencensus_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE982729755300934A27 /* opencensus_LICENSE.html */; };
+		781CAEC02729755300934A27 /* eigen3_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE992729755300934A27 /* eigen3_LICENSE.html */; };
+		781CAEC12729755300934A27 /* riegeli_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE9A2729755300934A27 /* riegeli_LICENSE.html */; };
+		781CAEC22729755300934A27 /* audio_to_tactile_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE9B2729755300934A27 /* audio_to_tactile_LICENSE.html */; };
+		781CAEC32729755300934A27 /* ares_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE9C2729755300934A27 /* ares_LICENSE.html */; };
+		781CAEC42729755300934A27 /* zstdlib_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE9D2729755300934A27 /* zstdlib_LICENSE.html */; };
+		781CAEC52729755300934A27 /* objective_c_ChromeWebView_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE9E2729755300934A27 /* objective_c_ChromeWebView_LICENSE.html */; };
+		781CAEC62729755300934A27 /* utf8_range_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE9F2729755300934A27 /* utf8_range_LICENSE.html */; };
+		781CAEC72729755300934A27 /* icu_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA02729755300934A27 /* icu_LICENSE.html */; };
+		781CAEC82729755300934A27 /* zlib_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA12729755300934A27 /* zlib_LICENSE.html */; };
+		781CAEC92729755300934A27 /* address_sorting_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA22729755300934A27 /* address_sorting_LICENSE.html */; };
+		781CAECA2729755300934A27 /* xxhash_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA32729755300934A27 /* xxhash_LICENSE.html */; };
+		781CAECB2729755300934A27 /* grpc_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA42729755300934A27 /* grpc_LICENSE.html */; };
+		781CAECC2729755300934A27 /* grpc_proto_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA52729755300934A27 /* grpc_proto_LICENSE.html */; };
+		781CAECD2729755300934A27 /* re2_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA62729755300934A27 /* re2_LICENSE.html */; };
+		781CAECE2729755300934A27 /* oss_licenses_index.txt in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA72729755300934A27 /* oss_licenses_index.txt */; };
+		781CAECF2729755300934A27 /* protobuf_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA82729755300934A27 /* protobuf_LICENSE.html */; };
+		781CAED02729755300934A27 /* upb_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEA92729755300934A27 /* upb_LICENSE.html */; };
+		781CAED12729755300934A27 /* objective_c_gtm_session_fetcher_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEAA2729755300934A27 /* objective_c_gtm_session_fetcher_LICENSE.html */; };
+		781CAED22729755300934A27 /* zippy_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEAB2729755300934A27 /* zippy_LICENSE.html */; };
+		781CAED32729755300934A27 /* crunchy_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEAC2729755300934A27 /* crunchy_LICENSE.html */; };
+		781CAED42729755300934A27 /* objective_c_Cronet_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEAD2729755300934A27 /* objective_c_Cronet_LICENSE.html */; };
+		781CAED52729755300934A27 /* objective_c_google_toolbox_for_mac_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEAE2729755300934A27 /* objective_c_google_toolbox_for_mac_LICENSE.html */; };
+		781CAED62729755300934A27 /* absl_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEAF2729755300934A27 /* absl_LICENSE.html */; };
+		781CAED72729755300934A27 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781CAEB02729755300934A27 /* GoogleCast.framework */; };
+		781CAED82729755300934A27 /* NutritionLabel.txt in Resources */ = {isa = PBXBuildFile; fileRef = 781CAEB22729755300934A27 /* NutritionLabel.txt */; };
+		781CAED9272975D900934A27 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781CAEB02729755300934A27 /* GoogleCast.framework */; };
 		78C24D432513831C001ED9E3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D422513831C001ED9E3 /* Accelerate.framework */; };
 		78C24D4525138322001ED9E3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D4425138322001ED9E3 /* AudioToolbox.framework */; };
 		78C24D4725138328001ED9E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C24D4625138328001ED9E3 /* AVFoundation.framework */; };
@@ -130,7 +168,44 @@
 		76DBCE861FD826F5009C83AE /* ChannelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSpec.swift; sourceTree = "<group>"; };
 		76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSenderSpec.swift; sourceTree = "<group>"; };
 		76FF7665205924F400A82C47 /* chromecast-integration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "chromecast-integration.md"; sourceTree = "<group>"; };
-		78C24D10251382FD001ED9E3 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
+		781CAE8B2729755300934A27 /* strip_unused_archs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = strip_unused_archs.sh; sourceTree = "<group>"; };
+		781CAE8D2729755300934A27 /* utf_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = utf_LICENSE.html; sourceTree = "<group>"; };
+		781CAE8E2729755300934A27 /* tcmalloc_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tcmalloc_LICENSE.html; sourceTree = "<group>"; };
+		781CAE8F2729755300934A27 /* tink_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tink_LICENSE.html; sourceTree = "<group>"; };
+		781CAE902729755300934A27 /* libresample_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = libresample_LICENSE.html; sourceTree = "<group>"; };
+		781CAE912729755300934A27 /* brotli_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = brotli_LICENSE.html; sourceTree = "<group>"; };
+		781CAE922729755300934A27 /* chromium_certificate_verifier_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = chromium_certificate_verifier_LICENSE.html; sourceTree = "<group>"; };
+		781CAE932729755300934A27 /* libxml_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = libxml_LICENSE.html; sourceTree = "<group>"; };
+		781CAE942729755300934A27 /* tz_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tz_LICENSE.html; sourceTree = "<group>"; };
+		781CAE952729755300934A27 /* appliance_linux_packages_openssl_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = appliance_linux_packages_openssl_LICENSE.html; sourceTree = "<group>"; };
+		781CAE962729755300934A27 /* darts_clone_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = darts_clone_LICENSE.html; sourceTree = "<group>"; };
+		781CAE972729755300934A27 /* kissfft_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = kissfft_LICENSE.html; sourceTree = "<group>"; };
+		781CAE982729755300934A27 /* opencensus_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = opencensus_LICENSE.html; sourceTree = "<group>"; };
+		781CAE992729755300934A27 /* eigen3_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = eigen3_LICENSE.html; sourceTree = "<group>"; };
+		781CAE9A2729755300934A27 /* riegeli_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = riegeli_LICENSE.html; sourceTree = "<group>"; };
+		781CAE9B2729755300934A27 /* audio_to_tactile_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = audio_to_tactile_LICENSE.html; sourceTree = "<group>"; };
+		781CAE9C2729755300934A27 /* ares_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ares_LICENSE.html; sourceTree = "<group>"; };
+		781CAE9D2729755300934A27 /* zstdlib_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = zstdlib_LICENSE.html; sourceTree = "<group>"; };
+		781CAE9E2729755300934A27 /* objective_c_ChromeWebView_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = objective_c_ChromeWebView_LICENSE.html; sourceTree = "<group>"; };
+		781CAE9F2729755300934A27 /* utf8_range_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = utf8_range_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA02729755300934A27 /* icu_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = icu_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA12729755300934A27 /* zlib_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = zlib_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA22729755300934A27 /* address_sorting_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = address_sorting_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA32729755300934A27 /* xxhash_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = xxhash_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA42729755300934A27 /* grpc_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = grpc_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA52729755300934A27 /* grpc_proto_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = grpc_proto_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA62729755300934A27 /* re2_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = re2_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA72729755300934A27 /* oss_licenses_index.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oss_licenses_index.txt; sourceTree = "<group>"; };
+		781CAEA82729755300934A27 /* protobuf_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = protobuf_LICENSE.html; sourceTree = "<group>"; };
+		781CAEA92729755300934A27 /* upb_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = upb_LICENSE.html; sourceTree = "<group>"; };
+		781CAEAA2729755300934A27 /* objective_c_gtm_session_fetcher_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = objective_c_gtm_session_fetcher_LICENSE.html; sourceTree = "<group>"; };
+		781CAEAB2729755300934A27 /* zippy_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = zippy_LICENSE.html; sourceTree = "<group>"; };
+		781CAEAC2729755300934A27 /* crunchy_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = crunchy_LICENSE.html; sourceTree = "<group>"; };
+		781CAEAD2729755300934A27 /* objective_c_Cronet_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = objective_c_Cronet_LICENSE.html; sourceTree = "<group>"; };
+		781CAEAE2729755300934A27 /* objective_c_google_toolbox_for_mac_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = objective_c_google_toolbox_for_mac_LICENSE.html; sourceTree = "<group>"; };
+		781CAEAF2729755300934A27 /* absl_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = absl_LICENSE.html; sourceTree = "<group>"; };
+		781CAEB02729755300934A27 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
+		781CAEB22729755300934A27 /* NutritionLabel.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NutritionLabel.txt; sourceTree = "<group>"; };
 		78C24D422513831C001ED9E3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		78C24D4425138322001ED9E3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		78C24D4625138328001ED9E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -161,7 +236,6 @@
 				78C24D5925138364001ED9E3 /* MediaPlayer.framework in Frameworks */,
 				78C24D5B25138369001ED9E3 /* QuartzCore.framework in Frameworks */,
 				78C24D4725138328001ED9E3 /* AVFoundation.framework in Frameworks */,
-				78C24D11251382FD001ED9E3 /* GoogleCast.framework in Frameworks */,
 				78C24D5F25138373001ED9E3 /* SystemConfiguration.framework in Frameworks */,
 				78C24D532513834D001ED9E3 /* CoreText.framework in Frameworks */,
 				78C24D4D2513833A001ED9E3 /* CoreData.framework in Frameworks */,
@@ -171,6 +245,7 @@
 				78C24D4F25138340001ED9E3 /* CoreGraphics.framework in Frameworks */,
 				78C24D4525138322001ED9E3 /* AudioToolbox.framework in Frameworks */,
 				78C24D4B25138334001ED9E3 /* CoreBluetooth.framework in Frameworks */,
+				781CAED72729755300934A27 /* GoogleCast.framework in Frameworks */,
 				78C24D492513832E001ED9E3 /* CFNetwork.framework in Frameworks */,
 				78C24D5525138353001ED9E3 /* Foundation.framework in Frameworks */,
 			);
@@ -180,6 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				781CAED9272975D900934A27 /* GoogleCast.framework in Frameworks */,
 				7628090E1FD0161D005610DF /* Nimble.framework in Frameworks */,
 				7628090F1FD0161D005610DF /* Quick.framework in Frameworks */,
 				762808E61FD01426005610DF /* Cast.framework in Frameworks */,
@@ -225,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				762808DE1FD01426005610DF /* Cast */,
-				762809151FD0194F005610DF /* GoogleCast */,
+				781CAE892729755300934A27 /* GoogleCast */,
 				762808E91FD01426005610DF /* CastTests */,
 				762808DD1FD01426005610DF /* Products */,
 				7628090C1FD0161D005610DF /* Frameworks */,
@@ -327,14 +403,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		762809151FD0194F005610DF /* GoogleCast */ = {
-			isa = PBXGroup;
-			children = (
-				78C24D10251382FD001ED9E3 /* GoogleCast.framework */,
-			);
-			path = GoogleCast;
-			sourceTree = "<group>";
-		};
 		76FF7664205924F400A82C47 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +410,75 @@
 			);
 			path = Documentation;
 			sourceTree = SOURCE_ROOT;
+		};
+		781CAE892729755300934A27 /* GoogleCast */ = {
+			isa = PBXGroup;
+			children = (
+				781CAE8A2729755300934A27 /* Tools */,
+				781CAE8C2729755300934A27 /* OpenSourceLicenses */,
+				781CAEB02729755300934A27 /* GoogleCast.framework */,
+				781CAEB12729755300934A27 /* NutritionLabel */,
+			);
+			path = GoogleCast;
+			sourceTree = "<group>";
+		};
+		781CAE8A2729755300934A27 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				781CAE8B2729755300934A27 /* strip_unused_archs.sh */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		781CAE8C2729755300934A27 /* OpenSourceLicenses */ = {
+			isa = PBXGroup;
+			children = (
+				781CAE8D2729755300934A27 /* utf_LICENSE.html */,
+				781CAE8E2729755300934A27 /* tcmalloc_LICENSE.html */,
+				781CAE8F2729755300934A27 /* tink_LICENSE.html */,
+				781CAE902729755300934A27 /* libresample_LICENSE.html */,
+				781CAE912729755300934A27 /* brotli_LICENSE.html */,
+				781CAE922729755300934A27 /* chromium_certificate_verifier_LICENSE.html */,
+				781CAE932729755300934A27 /* libxml_LICENSE.html */,
+				781CAE942729755300934A27 /* tz_LICENSE.html */,
+				781CAE952729755300934A27 /* appliance_linux_packages_openssl_LICENSE.html */,
+				781CAE962729755300934A27 /* darts_clone_LICENSE.html */,
+				781CAE972729755300934A27 /* kissfft_LICENSE.html */,
+				781CAE982729755300934A27 /* opencensus_LICENSE.html */,
+				781CAE992729755300934A27 /* eigen3_LICENSE.html */,
+				781CAE9A2729755300934A27 /* riegeli_LICENSE.html */,
+				781CAE9B2729755300934A27 /* audio_to_tactile_LICENSE.html */,
+				781CAE9C2729755300934A27 /* ares_LICENSE.html */,
+				781CAE9D2729755300934A27 /* zstdlib_LICENSE.html */,
+				781CAE9E2729755300934A27 /* objective_c_ChromeWebView_LICENSE.html */,
+				781CAE9F2729755300934A27 /* utf8_range_LICENSE.html */,
+				781CAEA02729755300934A27 /* icu_LICENSE.html */,
+				781CAEA12729755300934A27 /* zlib_LICENSE.html */,
+				781CAEA22729755300934A27 /* address_sorting_LICENSE.html */,
+				781CAEA32729755300934A27 /* xxhash_LICENSE.html */,
+				781CAEA42729755300934A27 /* grpc_LICENSE.html */,
+				781CAEA52729755300934A27 /* grpc_proto_LICENSE.html */,
+				781CAEA62729755300934A27 /* re2_LICENSE.html */,
+				781CAEA72729755300934A27 /* oss_licenses_index.txt */,
+				781CAEA82729755300934A27 /* protobuf_LICENSE.html */,
+				781CAEA92729755300934A27 /* upb_LICENSE.html */,
+				781CAEAA2729755300934A27 /* objective_c_gtm_session_fetcher_LICENSE.html */,
+				781CAEAB2729755300934A27 /* zippy_LICENSE.html */,
+				781CAEAC2729755300934A27 /* crunchy_LICENSE.html */,
+				781CAEAD2729755300934A27 /* objective_c_Cronet_LICENSE.html */,
+				781CAEAE2729755300934A27 /* objective_c_google_toolbox_for_mac_LICENSE.html */,
+				781CAEAF2729755300934A27 /* absl_LICENSE.html */,
+			);
+			path = OpenSourceLicenses;
+			sourceTree = "<group>";
+		};
+		781CAEB12729755300934A27 /* NutritionLabel */ = {
+			isa = PBXGroup;
+			children = (
+				781CAEB22729755300934A27 /* NutritionLabel.txt */,
+			);
+			path = NutritionLabel;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -439,18 +576,55 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				781CAEBA2729755300934A27 /* libxml_LICENSE.html in Resources */,
 				7628090B1FD014F8005610DF /* Cartfile in Resources */,
+				781CAEC32729755300934A27 /* ares_LICENSE.html in Resources */,
+				781CAEC92729755300934A27 /* address_sorting_LICENSE.html in Resources */,
+				781CAEB52729755300934A27 /* tcmalloc_LICENSE.html in Resources */,
+				781CAECE2729755300934A27 /* oss_licenses_index.txt in Resources */,
+				781CAEBE2729755300934A27 /* kissfft_LICENSE.html in Resources */,
+				781CAEC82729755300934A27 /* zlib_LICENSE.html in Resources */,
+				781CAED62729755300934A27 /* absl_LICENSE.html in Resources */,
 				762809041FD014ED005610DF /* LICENSE in Resources */,
+				781CAECA2729755300934A27 /* xxhash_LICENSE.html in Resources */,
 				762809141FD01797005610DF /* CHANGELOG.md in Resources */,
 				762808FE1FD01491005610DF /* Appfile in Resources */,
 				762808FD1FD01491005610DF /* update_dependency_graph.rb in Resources */,
+				781CAEC42729755300934A27 /* zstdlib_LICENSE.html in Resources */,
+				781CAED32729755300934A27 /* crunchy_LICENSE.html in Resources */,
+				781CAECD2729755300934A27 /* re2_LICENSE.html in Resources */,
+				781CAECC2729755300934A27 /* grpc_proto_LICENSE.html in Resources */,
 				762809051FD014ED005610DF /* README.md in Resources */,
+				781CAEB42729755300934A27 /* utf_LICENSE.html in Resources */,
 				7628090A1FD014F8005610DF /* Cartfile.private in Resources */,
+				781CAEB92729755300934A27 /* chromium_certificate_verifier_LICENSE.html in Resources */,
+				781CAEB72729755300934A27 /* libresample_LICENSE.html in Resources */,
+				781CAEC62729755300934A27 /* utf8_range_LICENSE.html in Resources */,
+				781CAEC52729755300934A27 /* objective_c_ChromeWebView_LICENSE.html in Resources */,
+				781CAED22729755300934A27 /* zippy_LICENSE.html in Resources */,
+				781CAEC72729755300934A27 /* icu_LICENSE.html in Resources */,
+				781CAED52729755300934A27 /* objective_c_google_toolbox_for_mac_LICENSE.html in Resources */,
 				762808FF1FD01491005610DF /* Fastfile in Resources */,
 				762809091FD014F8005610DF /* Cartfile.resolved in Resources */,
 				762809031FD014ED005610DF /* UPGRADE_GUIDE.md in Resources */,
+				781CAEB62729755300934A27 /* tink_LICENSE.html in Resources */,
+				781CAED82729755300934A27 /* NutritionLabel.txt in Resources */,
+				781CAEBB2729755300934A27 /* tz_LICENSE.html in Resources */,
+				781CAEBD2729755300934A27 /* darts_clone_LICENSE.html in Resources */,
+				781CAECF2729755300934A27 /* protobuf_LICENSE.html in Resources */,
+				781CAEC22729755300934A27 /* audio_to_tactile_LICENSE.html in Resources */,
+				781CAED02729755300934A27 /* upb_LICENSE.html in Resources */,
+				781CAED42729755300934A27 /* objective_c_Cronet_LICENSE.html in Resources */,
+				781CAEC12729755300934A27 /* riegeli_LICENSE.html in Resources */,
+				781CAEB82729755300934A27 /* brotli_LICENSE.html in Resources */,
 				76FF7666205924F400A82C47 /* chromecast-integration.md in Resources */,
+				781CAECB2729755300934A27 /* grpc_LICENSE.html in Resources */,
 				762808FC1FD01491005610DF /* .env in Resources */,
+				781CAEB32729755300934A27 /* strip_unused_archs.sh in Resources */,
+				781CAEC02729755300934A27 /* eigen3_LICENSE.html in Resources */,
+				781CAEBF2729755300934A27 /* opencensus_LICENSE.html in Resources */,
+				781CAEBC2729755300934A27 /* appliance_linux_packages_openssl_LICENSE.html in Resources */,
+				781CAED12729755300934A27 /* objective_c_gtm_session_fetcher_LICENSE.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,7 +840,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -700,7 +874,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",

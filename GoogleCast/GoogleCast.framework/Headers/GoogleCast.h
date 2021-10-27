@@ -1,6 +1,6 @@
 // GoogleCast Framework
-// Build generated on Sun Sep 13 21:34:10 PDT 2020.
-// Copyright 2013-2020 Google Inc.
+// Build generated on Mon May 24 01:26:58 PDT 2021.
+// Copyright 2013-2021 Google Inc.
 
 
 #import <GoogleCast/GCKAdBreakClipInfo.h>
@@ -23,6 +23,8 @@
 #import <GoogleCast/GCKDynamicDevice.h>
 #import <GoogleCast/GCKError.h>
 #import <GoogleCast/GCKGenericChannel.h>
+#import <GoogleCast/GCKHLSSegmentFormat.h>
+#import <GoogleCast/GCKHLSVideoSegmentFormat.h>
 #import <GoogleCast/GCKImage.h>
 #import <GoogleCast/GCKJSONUtils.h>
 #import <GoogleCast/GCKLaunchOptions.h>

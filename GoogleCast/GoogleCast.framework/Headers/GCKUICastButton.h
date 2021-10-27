@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol GCKUICastButtonDelegate;
+
 /**
  * A subclass of <a href="https://goo.gl/VK61wU"><b>UIButton</b></a> that implements a "Cast"
  * button.
@@ -24,8 +26,21 @@ GCK_EXPORT
  * Cast dialog that is provided by the framework. By default this property is set to
  * <code>YES</code>. If an application wishes to handle touch events itself, it should set the
  * property to <code>NO</code> and register an appropriate target and action for the touch event.
+ * This property cannot be set to NO if @c delegate is set to non-nil value.
+ *
+ * @deprecated Use GCKUICastButtonDelegate methods to respond to user actions on the cast button.
  */
-@property(nonatomic, assign) BOOL triggersDefaultCastDialog;
+@property(nonatomic, assign) BOOL triggersDefaultCastDialog GCK_DEPRECATED(
+    "Use the GCKUICastButtonDelegate methods to respond to the actions on the cast button.");
+
+/**
+ * Set the delegate to respond to the user actions performed on the @c GCKUICastButton. Delegate
+ * should not be set to non-nil value if the deperacated property @c triggersDefaultCastDialog
+ * is set to NO.
+ *
+ * @since 4.6.0
+ */
+@property(nonatomic, weak) id<GCKUICastButtonDelegate> delegate;
 
 /**
  * Constructs a new GCKUICastButton using the given decoder.
@@ -54,6 +69,39 @@ GCK_EXPORT
  */
 - (void)setAccessibilityLabel:(NSString *)label
                  forCastState:(GCKCastState)state;
+
+@end
+
+/**
+ * Use the methods of this protocol to present custom dialog in response to user action.
+ *
+ * @since 4.6.0
+ */
+@protocol GCKUICastButtonDelegate <NSObject>
+
+@optional
+
+/**
+ * Tells the delegate that the cast button is tapped by the user for the first time on iOS14 or
+ * above and cast devices discovery has not started in the current or previous app sessions.
+ * Implement this method to present the custom dialog. If not implmemented, the default dialog is
+ * presented.
+ *
+ * @param castButton Instance of @c GCKUICastButton tapped.
+ */
+- (void)castButtonDidTapToPresentLocalNetworkAccessPermissionDialog:(GCKUICastButton *)castButton;
+
+/**
+ * Tells the delegate that the cast button is tapped by the user after the discovery has been
+ * initiated in current or previous app session. Implement this method to present the custom dialog
+ * as per the cast state. Observe GCKCastContext::castState to update the dialog dynamically as per
+ * changes in the cast state. If not implmemented, the default dialog is presented.
+ *
+ * @param castButton Instance of @c GCKUICastButton tapped.
+ * @param castState Cast state when the cast button is tapped.
+ */
+- (void)castButtonDidTap:(GCKUICastButton *)castButton
+    toPresentDialogForCastState:(GCKCastState)castState;
 
 @end
 

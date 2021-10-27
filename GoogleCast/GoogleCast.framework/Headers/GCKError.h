@@ -392,7 +392,14 @@ typedef NS_ENUM(NSInteger, GCKErrorCode) {
    *
    * @since 4.4.5
    */
-  GCKErrorCodeDeviceAuthenticationTimeoutFailure = 102
+  GCKErrorCodeDeviceAuthenticationTimeoutFailure = 102,
+
+  /**
+   * Error code indicating that an  Application launch request was cancelled.
+   *
+   * @since 4.6.0
+   */
+  GCKErrorCodeLaunchRequestCancelled = 103
 };
 
 /**
