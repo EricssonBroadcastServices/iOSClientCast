@@ -1,0 +1,34 @@
+absl_LICENSE.html/Abseil
+address_sorting_LICENSE.html/address_sorting
+appliance_linux_packages_openssl_LICENSE.html/openssl
+ares_LICENSE.html/c-ares
+audio_to_tactile_LICENSE.html/audio_to_tactile
+brotli_LICENSE.html/Brotli
+chromium_certificate_verifier_LICENSE.html/Chrome Certificate Verifier
+crunchy_LICENSE.html/Crunchy Crypt
+darts_clone_LICENSE.html/Darts-clone
+eigen3_LICENSE.html/Eigen 3
+grpc_LICENSE.html/gRPC
+grpc_proto_LICENSE.html/gRPC Protos
+icu_LICENSE.html/ICU4C
+kissfft_LICENSE.html/Kiss FFT
+libresample_LICENSE.html/libresample
+libxml_LICENSE.html/Libxml2
+objective_c_ChromeWebView_LICENSE.html/ChromeWebView
+objective_c_Cronet_LICENSE.html/Cronet
+objective_c_google_toolbox_for_mac_LICENSE.html/Google Toolbox for Mac
+objective_c_gtm_session_fetcher_LICENSE.html/gtm_session_fetcher
+opencensus_LICENSE.html/OpenCensus
+protobuf_LICENSE.html/Protocol Buffers
+re2_LICENSE.html/RE2
+riegeli_LICENSE.html/Riegeli
+tcmalloc_LICENSE.html/TCMalloc
+tink_LICENSE.html/Tink
+tz_LICENSE.html/tz database
+upb_LICENSE.html/upb
+utf8_range_LICENSE.html/utf8_range
+utf_LICENSE.html/UTF
+xxhash_LICENSE.html/xxhash
+zippy_LICENSE.html/Zippy
+zlib_LICENSE.html/zlib
+zstdlib_LICENSE.html/Zstandard

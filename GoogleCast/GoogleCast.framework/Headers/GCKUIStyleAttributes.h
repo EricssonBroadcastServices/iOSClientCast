@@ -20,74 +20,74 @@ GCK_EXPORT
 /**
  * An image that will be used in "closed captions" buttons in the framework's default views.
  */
-@property(nonatomic, strong) UIImage *closedCaptionsImage;
+@property(nonatomic) UIImage *closedCaptionsImage;
 /**
  * An image that will be used in "forward 30 seconds" buttons in the frameworks default views.
  */
-@property(nonatomic, strong) UIImage *forward30SecondsImage;
+@property(nonatomic) UIImage *forward30SecondsImage;
 /**
  * An image that will be used in "rewind 30 seconds" buttons in the framework's default views.
  */
-@property(nonatomic, strong) UIImage *rewind30SecondsImage;
+@property(nonatomic) UIImage *rewind30SecondsImage;
 /**
  * An image that will be used to indicate that a slider is a volume slider in the framework's
  * default views.
  */
-@property(nonatomic, strong) UIImage *volumeImage;
+@property(nonatomic) UIImage *volumeImage;
 /**
  * An image that will be used in the "mute toggle" button in the framework's default views.
  * This is the image that will be displayed while the receiver is muted.
  */
-@property(nonatomic, strong) UIImage *muteOffImage;
+@property(nonatomic) UIImage *muteOffImage;
 /**
  * An image that will be used in the "mute toggle" button in the framework's default views. This is
  * the image that will be displayed while the receiver is not muted.
  */
-@property(nonatomic, strong) UIImage *muteOnImage;
+@property(nonatomic) UIImage *muteOnImage;
 /**
  * An image that will be used in the "play/pause toggle" button in the framework's default views.
  * This is the image that will be displayed while the receiver is playing.
  */
-@property(nonatomic, strong) UIImage *pauseImage;
+@property(nonatomic) UIImage *pauseImage;
 /**
  * An image that will be used in the "play/pause toggle" button in the framework's default views.
  * This is the image that will be displayed while the receiver is paused.
  */
-@property(nonatomic, strong) UIImage *playImage;
+@property(nonatomic) UIImage *playImage;
 /**
  * An image that will be used in "forward 30 seconds" buttons in the framework's default views.
  */
-@property(nonatomic, strong) UIImage *skipNextImage;
+@property(nonatomic) UIImage *skipNextImage;
 /**
  * An image that will be used in "forward 30 seconds" buttons in the framework's default views.
  */
-@property(nonatomic, strong) UIImage *skipPreviousImage;
+@property(nonatomic) UIImage *skipPreviousImage;
 /**
  * An image that will be used in the track selector, to select the audio track chooser view.
  */
-@property(nonatomic, strong) UIImage *audioTrackImage;
+@property(nonatomic) UIImage *audioTrackImage;
 /**
  * An image that will be used in the track selector, to select the subtitle track chooser view.
  */
-@property(nonatomic, strong) UIImage *subtitlesTrackImage;
+@property(nonatomic) UIImage *subtitlesTrackImage;
 /**
  * An image that will be used in "stop" buttons in the framework's default views.
  */
-@property(nonatomic, strong) UIImage *stopImage;
+@property(nonatomic) UIImage *stopImage;
 /**
  * The UIFont to be used in labels of buttons in the framework's default views.
  */
-@property(nonatomic, strong) UIFont *buttonTextFont;
+@property(nonatomic) UIFont *buttonTextFont;
 /**
  * The color to be used in labels of buttons in the framework's default views.
  *
  * @since 3.4
  */
-@property(nonatomic, strong) UIColor *buttonTextColor;
+@property(nonatomic) UIColor *buttonTextColor;
 /**
  * The shadow color to be used in labels of buttons in the framework's default views.
  */
-@property(nonatomic, strong) UIColor *buttonTextShadowColor;
+@property(nonatomic) UIColor *buttonTextShadowColor;
 /**
  * The offset for the shadow for labels of buttons in the framework's default views.
  */
@@ -95,47 +95,47 @@ GCK_EXPORT
 /**
  * The UIFont to be used in labels of type "body" in the framework's default views.
  */
-@property(nonatomic, strong) UIFont *bodyTextFont;
+@property(nonatomic) UIFont *bodyTextFont;
 /**
  * The UIFont to be used in labels of type "heading" in the framework's default views.
  */
-@property(nonatomic, strong) UIFont *headingTextFont;
+@property(nonatomic) UIFont *headingTextFont;
 /**
  * The font to be used in labels of type "caption" in the framework's default views.
  */
-@property(nonatomic, strong) UIFont *captionTextFont;
+@property(nonatomic) UIFont *captionTextFont;
 /**
  * The color to be used in labels of type "body" in the framework's default views.
  */
-@property(nonatomic, strong) UIColor *bodyTextColor;
+@property(nonatomic) UIColor *bodyTextColor;
 /**
  * The shadow color to be used in labels of type "body" in the framework's default views.
  */
-@property(nonatomic, strong) UIColor *bodyTextShadowColor;
+@property(nonatomic) UIColor *bodyTextShadowColor;
 /**
  * The color to be used in labels of type "heading" in the framework's default views.
  */
-@property(nonatomic, strong) UIColor *headingTextColor;
+@property(nonatomic) UIColor *headingTextColor;
 /**
  * The shadow color to be used in labels of type "heading" in the framework's default views.
  */
-@property(nonatomic, strong) UIColor *headingTextShadowColor;
+@property(nonatomic) UIColor *headingTextShadowColor;
 /**
  * The color to be used in labels of type "caption" in the framework's default views.
  */
-@property(nonatomic, strong) UIColor *captionTextColor;
+@property(nonatomic) UIColor *captionTextColor;
 /**
  * The shadow color to be used in labels of type "caption" in the framework's default views.
  */
-@property(nonatomic, strong) UIColor *captionTextShadowColor;
+@property(nonatomic) UIColor *captionTextShadowColor;
 /**
  * The background color to be used on the framework's default views.
  */
-@property(nonatomic, strong) UIColor *backgroundColor;
+@property(nonatomic) UIColor *backgroundColor;
 /**
  * The color to use as tint color on all buttons and icons on the framework's default views.
  */
-@property(nonatomic, strong) UIColor *iconTintColor;
+@property(nonatomic) UIColor *iconTintColor;
 /**
  * The offset for the shadow for labels of type "body" in the framework's default views.
  */
@@ -198,6 +198,22 @@ GCK_EXPORT
  * @since 4.4.1
  */
 @property(nonatomic) NSNumber *backgroundImageContentMode;
+
+/**
+ * The color used to draw the circular ad marker on the seek bar in the played segment of the
+ * slider. Default is Yellow.
+ *
+ * @since 4.6.0
+ */
+@property(nonatomic) UIColor *playedAdMarkerFillColor;
+
+/**
+ * The color used to draw the circular ad marker on the seek bar in the un-played segment of the
+ * slider. Default is Yellow.
+ *
+ * @since 4.6.0
+ */
+@property(nonatomic) UIColor *unplayedAdMarkerFillColor;
 
 @end
 
@@ -281,15 +297,25 @@ GCK_EXPORT
  *
  * @since 4.3.5
  */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesConnectionNavigation *navigation;
+@property(readonly, nonatomic) GCKUIStyleAttributesConnectionNavigation *navigation;
 
 /**
  * The style attributes for the toolbar of the device connection controller.
  *
  * @since 4.3.5
  */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesConnectionToolbar *toolbar;
+@property(readonly, nonatomic) GCKUIStyleAttributesConnectionToolbar *toolbar;
 
+@end
+
+/**
+ * The style attributes for the view group representing no devices available controller.
+ * Can be accessed as castViews.deviceControl.noDevicesAvailableController
+ *
+ * @since 4.6.0
+ */
+GCK_EXPORT
+@interface GCKUIStyleAttributesNoDevicesAvailableController : GCKUIStyleAttributes
 @end
 
 /**
@@ -300,13 +326,13 @@ GCK_EXPORT
 @interface GCKUIStyleAttributesMediaControl : GCKUIStyleAttributes
 
 /** The style attributes for the expanded controller. */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesExpandedController *expandedController;
+@property(readonly, nonatomic) GCKUIStyleAttributesExpandedController *expandedController;
 
 /** The style attributes for the mini controller. */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesMiniController *miniController;
+@property(readonly, nonatomic) GCKUIStyleAttributesMiniController *miniController;
 
 /** The style attributes for the media track selector. */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesTrackSelector *trackSelector;
+@property(readonly, nonatomic) GCKUIStyleAttributesTrackSelector *trackSelector;
 
 @end
 
@@ -318,14 +344,22 @@ GCK_EXPORT
 @interface GCKUIStyleAttributesDeviceControl : GCKUIStyleAttributes
 
 /** The style attributes for the device chooser. */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesDeviceChooser *deviceChooser;
+@property(readonly, nonatomic) GCKUIStyleAttributesDeviceChooser *deviceChooser;
 
 /** The style attributes for the device connection controller. */
-@property(readonly, nonatomic, strong)
+@property(readonly, nonatomic)
     GCKUIStyleAttributesConnectionController *connectionController;
 
+/**
+ * The style attributes for the no devices available controller.
+ *
+ * @since 4.6.0
+ */
+@property(readonly, nonatomic)
+    GCKUIStyleAttributesNoDevicesAvailableController *noDevicesAvailableController;
+
 /** The style attributes for the Guest Mode pairing dialog. */
-@property(readonly, nonatomic, strong)
+@property(readonly, nonatomic)
     GCKUIStyleAttributesGuestModePairingDialog *guestModePairingDialog;
 
 @end
@@ -338,13 +372,13 @@ GCK_EXPORT
 @interface GCKUIStyleAttributesCastViews : GCKUIStyleAttributes
 
 /** The style attributes for device control UI elements. */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesDeviceControl *deviceControl;
+@property(readonly, nonatomic) GCKUIStyleAttributesDeviceControl *deviceControl;
 
 /** The style attributes for media control UI elements. */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesMediaControl *mediaControl;
+@property(readonly, nonatomic) GCKUIStyleAttributesMediaControl *mediaControl;
 
 /** The style attributes for instructional UI elements. */
-@property(readonly, nonatomic, strong) GCKUIStyleAttributesInstructions *instructions;
+@property(readonly, nonatomic) GCKUIStyleAttributesInstructions *instructions;
 
 @end
 

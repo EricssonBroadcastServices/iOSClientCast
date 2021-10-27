@@ -13,7 +13,7 @@ With recent updates to iOS, the operating system will now enforce new restrictio
 
 
 Please follow the guidelines in this document to support the iOS version your app supports . 
-[`Google Cast`](#https://developers.google.com/cast/docs/ios_sender/ios_permissions_changes)
+[`Google Cast`](#https://developers.google.com/cast/docs/ios_sender/permissions_and_discovery)
 
 ### Sample Integration
 

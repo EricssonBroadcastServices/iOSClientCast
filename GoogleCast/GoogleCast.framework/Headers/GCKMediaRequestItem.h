@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import <GoogleCast/GCKHLSSegmentFormat.h>
+
 /**
  * @file GCKMediaRequestItem.h
  * GCKStreamingProtocolType and GCKHLSSegmentFormat enums.
@@ -24,22 +26,6 @@ typedef NS_ENUM(NSInteger, GCKStreamingProtocolType) {
   GCKStreamingProtocolTypeSmoothStreaming = 3,
 };
 
-/** HLS segment types. */
-typedef NS_ENUM(NSInteger, GCKHLSSegmentFormat) {
-  /** Undefined. Used when streaming protocol is not HLS. */
-  GCKHLSSegmentFormatUndefined = 0,
-  /** HLS segment type AAC. */
-  GCKHLSSegmentFormatAAC = 1,
-  /** HLS segment type AC3. */
-  GCKHLSSegmentFormatAC3 = 2,
-  /** HLS segment type MP3. */
-  GCKHLSSegmentFormatMP3 = 3,
-  /** HLS segment type TS. */
-  GCKHLSSegmentFormatTS = 4,
-  /** HLS segment type TS AAC. */
-  GCKHLSSegmentFormatTS_AAC = 5,
-};
-
 /**
  * A class representing a request item sent to Cast receivers. It can be used for precaching media
  * contents.
@@ -54,14 +40,16 @@ GCK_EXPORT
  *
  * @since 4.1
  */
-+ (NSString *)mapHLSSegmentFormatToString:(GCKHLSSegmentFormat)hlsSegmentFormat;
++ (NSString *)mapHLSSegmentFormatToString:(GCKHLSSegmentFormat)hlsSegmentFormat
+    GCK_DEPRECATED("Use GCKHLSSegment::mapHLSSegmentFormatToString.");
 
 /**
  * Helper to convert from <code>NSString</code> to <code>GCKHLSSegmentFormat</code>
  *
  * @since 4.1
  */
-+ (GCKHLSSegmentFormat)mapHLSSegmentFormatStringToEnum:(NSString *)hlsSegmentFormatString;
++ (GCKHLSSegmentFormat)mapHLSSegmentFormatStringToEnum:(NSString *)hlsSegmentFormatString
+    GCK_DEPRECATED("Use GCKHLSSegment::mapHLSSegmentFormatStringToEnum.");
 
 /**
  * Designated initializer. Initializes a GCKMediaRequestItem with URL, protocol type, initial time,

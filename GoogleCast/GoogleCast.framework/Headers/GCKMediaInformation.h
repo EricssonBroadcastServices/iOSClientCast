@@ -1,10 +1,11 @@
 // Copyright 2013 Google Inc.
 
+#import <Foundation/Foundation.h>
 #import <GoogleCast/GCKAdBreakClipInfo.h>
 #import <GoogleCast/GCKAdBreakInfo.h>
 #import <GoogleCast/GCKDefines.h>
-
-#import <Foundation/Foundation.h>
+#import <GoogleCast/GCKHLSSegmentFormat.h>
+#import <GoogleCast/GCKHLSVideoSegmentFormat.h>
 
 /**
  * @file GCKMediaInformation.h
@@ -120,6 +121,20 @@ GCK_EXPORT
 @property(nonatomic, readonly) NSTimeInterval startAbsoluteTime;
 
 /**
+ * The format of the HLS audio segment.
+ *
+ * @since 4.6.0
+ */
+@property(nonatomic, readonly) GCKHLSSegmentFormat hlsSegmentFormat;
+
+/**
+ * The format of the HLS video segment.
+ *
+ * @since 4.6.0
+ */
+@property(nonatomic, readonly) GCKHLSVideoSegmentFormat hlsVideoSegmentFormat;
+
+/**
  * The custom data, if any.
  */
 @property(nonatomic, readonly, nullable) id customData;
@@ -196,7 +211,7 @@ GCK_EXPORT
  * @code
  * GCKMediaInformationBuilder *builder =
  *     [[GCKMediaInformationBuilder alloc] initWithMediaInformation:originalMediaInfo];
- * builder.contentID = ...; // Change the content ID.
+ * builder.contentURL = ...; // Change the content URL.
  * builder.streamDuration = 100; // Change the stream duration.
  * GCKMediaInformation *derivedMediaInfo = [builder build];
  * @endcode
@@ -294,6 +309,20 @@ GCK_EXPORT
  * @since 4.4.1
  */
 @property(nonatomic) NSTimeInterval startAbsoluteTime;
+
+/**
+ * The format of the HLS audio segment.
+ *
+ * @since 4.6.0
+ */
+@property(nonatomic) GCKHLSSegmentFormat hlsSegmentFormat;
+
+/**
+ * The format of the HLS video segment.
+ *
+ * @since 4.6.0
+ */
+@property(nonatomic) GCKHLSVideoSegmentFormat hlsVideoSegmentFormat;
 
 /**
  * The custom data, if any.

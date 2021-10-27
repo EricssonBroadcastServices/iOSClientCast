@@ -1,5 +1,6 @@
 # CHANGELOG
 
+* `3.0.10` Release - [3.0.10](#3010)
 * `3.0.00` Release - [3.0.00](#3000)
 * `2.2.20` Release - [2.2.20](#2220)
 * `2.2.10` Release - [2.2.10](#2210)
@@ -7,6 +8,10 @@
 * `2.0.82` Release - [2.0.82](#2082)
 * `2.0.79` Release - [2.0.79](#2079)
 * `0.73.x` Releases - [0.73.0](#0730)
+
+## 3.0.100
+#### Features
+* `EMP-17214` Update the cast library to support the latest `Google Cast iOS SDK 4.6.1`
 
 ## 3.0.000
 #### Breaking Changes
