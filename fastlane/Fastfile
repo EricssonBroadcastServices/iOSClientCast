@@ -119,15 +119,18 @@ platform :ios do
     
     desc "Checkout latest dependencies as declared in Cartfile.resolved"
     private_lane :update_graph do
-        carthage(
-                 command: "update",
-                 platform: "iOS",
-                 use_submodules: true,
-                 use_ssh: false,
-                 use_binaries: false,
-                 no_build: true
-                 )
-        update_dependency_graph()
+        
+        sh "carthage.sh update --use-submodules --platform ios --use-xcframeworks"
+#        carthage(
+#                 command: "update",
+#                 platform: "iOS",
+#                 use_submodules: true,
+#                 use_ssh: false,
+#                 use_binaries: false,
+#                 no_build: true
+#                 )
+#        update_dependency_graph()
+        
     end
     
     
