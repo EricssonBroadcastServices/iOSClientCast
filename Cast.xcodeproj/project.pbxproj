@@ -45,7 +45,6 @@
 		76DBCE871FD826F5009C83AE /* ChannelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE861FD826F5009C83AE /* ChannelSpec.swift */; };
 		76DBCE891FD834AF009C83AE /* ChannelSenderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */; };
 		76FF7666205924F400A82C47 /* chromecast-integration.md in Resources */ = {isa = PBXBuildFile; fileRef = 76FF7665205924F400A82C47 /* chromecast-integration.md */; };
-		781CAEB32729755300934A27 /* strip_unused_archs.sh in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE8B2729755300934A27 /* strip_unused_archs.sh */; };
 		781CAEB42729755300934A27 /* utf_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE8D2729755300934A27 /* utf_LICENSE.html */; };
 		781CAEB52729755300934A27 /* tcmalloc_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE8E2729755300934A27 /* tcmalloc_LICENSE.html */; };
 		781CAEB62729755300934A27 /* tink_LICENSE.html in Resources */ = {isa = PBXBuildFile; fileRef = 781CAE8F2729755300934A27 /* tink_LICENSE.html */; };
@@ -168,7 +167,6 @@
 		76DBCE861FD826F5009C83AE /* ChannelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSpec.swift; sourceTree = "<group>"; };
 		76DBCE881FD834AF009C83AE /* ChannelSenderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSenderSpec.swift; sourceTree = "<group>"; };
 		76FF7665205924F400A82C47 /* chromecast-integration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "chromecast-integration.md"; sourceTree = "<group>"; };
-		781CAE8B2729755300934A27 /* strip_unused_archs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = strip_unused_archs.sh; sourceTree = "<group>"; };
 		781CAE8D2729755300934A27 /* utf_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = utf_LICENSE.html; sourceTree = "<group>"; };
 		781CAE8E2729755300934A27 /* tcmalloc_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tcmalloc_LICENSE.html; sourceTree = "<group>"; };
 		781CAE8F2729755300934A27 /* tink_LICENSE.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tink_LICENSE.html; sourceTree = "<group>"; };
@@ -425,7 +423,6 @@
 		781CAE8A2729755300934A27 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				781CAE8B2729755300934A27 /* strip_unused_archs.sh */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -503,6 +500,7 @@
 				762808D91FD01426005610DF /* Headers */,
 				762808DA1FD01426005610DF /* Resources */,
 				76B5FCD71FDE996000607C41 /* CopyFiles */,
+				78F6010C272C284100B535B2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -620,7 +618,6 @@
 				76FF7666205924F400A82C47 /* chromecast-integration.md in Resources */,
 				781CAECB2729755300934A27 /* grpc_LICENSE.html in Resources */,
 				762808FC1FD01491005610DF /* .env in Resources */,
-				781CAEB32729755300934A27 /* strip_unused_archs.sh in Resources */,
 				781CAEC02729755300934A27 /* eigen3_LICENSE.html in Resources */,
 				781CAEBF2729755300934A27 /* opencensus_LICENSE.html in Resources */,
 				781CAEBC2729755300934A27 /* appliance_linux_packages_openssl_LICENSE.html in Resources */,
@@ -651,7 +648,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		78F6010C272C284100B535B2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
