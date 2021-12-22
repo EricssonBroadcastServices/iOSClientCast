@@ -24,16 +24,24 @@ public struct CustomData: Encodable {
     /// Client specific ad params that can be used in server side ad insertion
     public let adParameters: CastAdsOptions?
     
+    /// Default subtitleLanguage to use when casting
+    public let subtitleLanguage: String?
+    
+    /// Default audioLanguage to use when casting
+    public let audioLanguage: String?
+    
     /// X-Adobe-Primetime-MediaToken
     public let adobePrimetimeToken: String?
     
     public init(customer: String, businessUnit: String,
-                locale:String? = nil, adParameters: CastAdsOptions? = nil, adobePrimetimeToken: String? = nil) {
+                locale:String? = nil, adParameters: CastAdsOptions? = nil, adobePrimetimeToken: String? = nil, subtitleLanguage: String? = nil, audioLanguage: String? = nil  ) {
         self.customer = customer
         self.businessUnit = businessUnit
         self.locale = locale
         self.adParameters = adParameters
         self.adobePrimetimeToken = adobePrimetimeToken
+        self.subtitleLanguage = subtitleLanguage
+        self.audioLanguage = audioLanguage
     }
 }
 
@@ -44,6 +52,8 @@ extension CustomData {
         case locale
         case adParameters
         case adobePrimetimeToken
+        case subtitleLanguage
+        case audioLanguage
     }
 }
 
@@ -60,6 +70,12 @@ extension CustomData {
         }
         if let adobePrimetimeToken = adobePrimetimeToken {
             json[CodingKeys.adobePrimetimeToken.rawValue] = adobePrimetimeToken
+        }
+        if let subtitleLanguage = subtitleLanguage {
+            json[CodingKeys.subtitleLanguage.rawValue] = subtitleLanguage
+        }
+        if let audioLanguage = audioLanguage {
+            json[CodingKeys.audioLanguage.rawValue] = audioLanguage
         }
         return json
     }

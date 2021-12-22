@@ -78,6 +78,13 @@ if you are planning to use adobe primetime authentication & required to pass `Ad
 let customData = CustomData(customer: environment.customer, businessUnit: environment.businessUnit, adobePrimetimeToken: "base64EncodedToken").toJson
 ```
 
+#### Add support for default cast subtitle & audio language
+You can pass subtitle & audio language values when start casting by passing them in the `CustomData`. 
+
+```Swift
+let customData = CustomData(customer: environment.customer, businessUnit: environment.businessUnit, subtitleLanguage: "en", audioLanguage: "fr").toJson
+```
+
 ### Version 2.2.00 or below
 
 
