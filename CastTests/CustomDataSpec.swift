@@ -24,13 +24,15 @@ class CustomDataSpec: QuickSpec {
                                       businessUnit: "businessUnit",
                                       locale: "locale",
                                       adParameters: adParameters,
-                                      adobePrimetimeToken: "adobePrimetimeToken").toJson
+                                      adobePrimetimeToken: "adobePrimetimeToken", subtitleLanguage: "en", audioLanguage: "fr").toJson
                 
 
                 expect(data["customer"] as? String).to(equal("customer"))
                 expect(data["businessUnit"] as? String).to(equal("businessUnit"))
                 expect(data["locale"] as? String).to(equal("locale"))
                 expect(data["adobePrimetimeToken"] as? String).to(equal("adobePrimetimeToken"))
+                expect(data["subtitleLanguage"] as? String).to(equal("en"))
+                expect(data["audioLanguage"] as? String).to(equal("fr"))
             }
         }
     }

@@ -9,6 +9,10 @@
 * `2.0.79` Release - [2.0.79](#2079)
 * `0.73.x` Releases - [0.73.0](#0730)
 
+## 3.1.000
+#### Features
+* `EMP-17037` Add support to pass subtitle and audio language when casting.
+
 ## 3.0.100
 #### Features
 * `EMP-17214` Update the cast library to support the latest `Google Cast iOS SDK 4.6.1`
