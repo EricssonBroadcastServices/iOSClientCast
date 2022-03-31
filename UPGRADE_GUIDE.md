@@ -1,5 +1,10 @@
 # Upgrade Guide
 
+## 4.0.00
+- Project is now distributed via Swift package manager , Cocoapods & Carthage.
+- Unit tests have been moved to SPM tests.
+- Module name has been renamed from `Cast` to `iOSClientCast`.
+
 ## 0.73.0 to 2.0.79
 
 The `Cast` reference implementation has been updated to the new *Receiver 2.0* [api](https://github.com/EricssonBroadcastServices/chromecast-receiver-2). Please consult the [receiver documentation](https://github.com/EricssonBroadcastServices/chromecast-receiver-2/blob/master/sdk/tutorials/chromecast.md), [receiver upgrade guide](https://github.com/EricssonBroadcastServices/chromecast-receiver-2/blob/master/sdk/tutorials/upgrade-guide.md) and the [sender documentation](https://github.com/EricssonBroadcastServices/iOSClientCast/blob/master/Documentation/chromecast-integration.md) for more information.
