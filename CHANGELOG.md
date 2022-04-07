@@ -1,5 +1,6 @@
 # CHANGELOG
 
+* `4.0.10` Release - [4.0.100](#40100)
 * `4.0.00` Release - [4.0.000](#40000)
 * `3.0.10` Release - [3.0.100](#30100)
 * `3.0.00` Release - [3.0.000](#30000)
@@ -9,6 +10,11 @@
 * `2.0.82` Release - [2.0.820](#20820)
 * `2.0.79` Release - [2.0.790](#20790)
 * `0.73.x` Releases - [0.73.0](#07300)
+
+
+## 4.0.100
+#### Features
+* `EMP-17961` Remove duplicate google cast dependency
 
 ## 4.0.000
 #### Features

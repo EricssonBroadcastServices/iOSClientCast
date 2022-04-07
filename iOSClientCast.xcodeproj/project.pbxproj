@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		786027A927F59FBC00503DF3 /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA598E27F436FF00D9B008 /* GoogleCast.framework */; };
+		781A85BC27FEE0D300BB741D /* GoogleCast.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781A85BA27FEE0CD00BB741D /* GoogleCast.xcframework */; };
+		781A85BD27FEE0D300BB741D /* GoogleCast.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 781A85BA27FEE0CD00BB741D /* GoogleCast.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78BA595927F432C100D9B008 /* Cast.h in Headers */ = {isa = PBXBuildFile; fileRef = 78BA594627F432C100D9B008 /* Cast.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78BA595A27F432C100D9B008 /* CastAdsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA594927F432C100D9B008 /* CastAdsOptions.swift */; };
 		78BA595C27F432C100D9B008 /* CustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA594A27F432C100D9B008 /* CustomData.swift */; };
@@ -49,9 +50,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		781A85BE27FEE0D300BB741D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				781A85BD27FEE0D300BB741D /* GoogleCast.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		781A85B827FEE0BB00BB741D /* GoogleCast */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GoogleCast; path = Sources/GoogleCast; sourceTree = "<group>"; };
+		781A85BA27FEE0CD00BB741D /* GoogleCast.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleCast.xcframework; path = Sources/GoogleCast/GoogleCast.xcframework; sourceTree = "<group>"; };
 		78BA594627F432C100D9B008 /* Cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cast.h; sourceTree = "<group>"; };
 		78BA594927F432C100D9B008 /* CastAdsOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastAdsOptions.swift; sourceTree = "<group>"; };
 		78BA594A27F432C100D9B008 /* CustomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomData.swift; sourceTree = "<group>"; };
@@ -83,7 +97,6 @@
 		78BA598927F435A700D9B008 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		78BA598B27F435AD00D9B008 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		78BA598D27F4366000D9B008 /* iOSClientCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSClientCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		78BA598E27F436FF00D9B008 /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleCast.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +118,7 @@
 				78BA597A27F4357800D9B008 /* CoreGraphics.framework in Frameworks */,
 				78BA597027F4355D00D9B008 /* AudioToolbox.framework in Frameworks */,
 				78BA597627F4356C00D9B008 /* CoreBluetooth.framework in Frameworks */,
-				786027A927F59FBC00503DF3 /* GoogleCast.framework in Frameworks */,
+				781A85BC27FEE0D300BB741D /* GoogleCast.xcframework in Frameworks */,
 				78BA597427F4356600D9B008 /* CFNetwork.framework in Frameworks */,
 				78BA598027F4358900D9B008 /* Foundation.framework in Frameworks */,
 			);
@@ -117,7 +130,6 @@
 		762808D21FD01426005610DF = {
 			isa = PBXGroup;
 			children = (
-				78BA598E27F436FF00D9B008 /* GoogleCast.framework */,
 				78BA594727F432C100D9B008 /* iOSClientCast */,
 				78BA594527F432C100D9B008 /* iOSClientCastObjc */,
 				78BA596927F4341F00D9B008 /* Frameworks */,
@@ -182,6 +194,8 @@
 		78BA596927F4341F00D9B008 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				781A85BA27FEE0CD00BB741D /* GoogleCast.xcframework */,
+				781A85B827FEE0BB00BB741D /* GoogleCast */,
 				78BA598B27F435AD00D9B008 /* UIKit.framework */,
 				78BA598927F435A700D9B008 /* SystemConfiguration.framework */,
 				78BA598727F435A300D9B008 /* Security.framework */,
@@ -226,6 +240,7 @@
 				762808DA1FD01426005610DF /* Resources */,
 				76B5FCD71FDE996000607C41 /* CopyFiles */,
 				78F6010C272C284100B535B2 /* ShellScript */,
+				781A85BE27FEE0D300BB741D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -448,7 +463,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -480,8 +496,12 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/iOSClientCast/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 4.0.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0.100;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.Cast;
 				PRODUCT_NAME = iOSClientCast;
@@ -518,8 +538,12 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/iOSClientCast/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 4.0.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0.100;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.Cast;
 				PRODUCT_NAME = iOSClientCast;
