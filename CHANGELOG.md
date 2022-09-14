@@ -1,5 +1,6 @@
 # CHANGELOG
 
+* `4.0.20` Release - [4.0.200](#40200)
 * `4.0.10` Release - [4.0.100](#40100)
 * `4.0.00` Release - [4.0.000](#40000)
 * `3.0.10` Release - [3.0.100](#30100)
@@ -11,6 +12,10 @@
 * `2.0.79` Release - [2.0.790](#20790)
 * `0.73.x` Releases - [0.73.0](#07300)
 
+
+## 4.0.200
+#### Features
+* `EMP-18456` Update Google Cast libraries to support M1 macbooks
 
 ## 4.0.100
 #### Features
