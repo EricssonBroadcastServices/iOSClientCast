@@ -116,12 +116,25 @@ GCK_EXPORT
 - (BOOL)endSession;
 
 /**
- * Ends the current session, optionally stopping Casting. This is an asynchronous operation.
+ * Ends the current session and stops casting if one sender device is connected; otherwise,
+ * optionally stops casting if multiple sender devices are connected.
  *
- * @param stopCasting Whether Casting of content on the receiver should be stopped when the session
- * is ended.
- * @return <code>YES</code> if the operation has been started successfully, <code>NO</code> if
- * there is no session currently established or if the operation could not be started.
+ * Use the <code>stopCasting</code> parameter to indicate whether casting on the receiver should stop
+ * when the session ends. This parameter only applies when multiple sender devices are connected. For
+ * example, the same app is open on multiple sender devices and each sender device has an active Cast
+ * session with the same receiver device.
+ * *   If you set <code>stopCasting</code> to <code>YES</code>, the receiver app stops casting when
+ *     multiple devices are connected.
+ * *   If <code>stopCasting</code> is <code>NO</code> and other devices have an active session,
+ *     the receiver keeps playing.
+ * *   If only one sender device is connected, the receiver app stops casting the media and ignores
+ *     the <code>stopCasting</code> value, even if it's set to <code>NO</code>.
+ *
+ * @param stopCasting Whether casting on the receiver should stop when the session ends. Only used
+ * when multiple sender devices are connected.
+ *
+ * @return <code>YES</code> if the operation to end the session started successfully, <code>NO</code>
+ * if there is no session currently established or if the operation could not be started.
  */
 - (BOOL)endSessionAndStopCasting:(BOOL)stopCasting;
 

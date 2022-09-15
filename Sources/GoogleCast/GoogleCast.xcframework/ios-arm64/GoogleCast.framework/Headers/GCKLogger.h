@@ -75,7 +75,7 @@ GCK_EXPORT
  * @since 3.0
  * @deprecated Specify minimum logging level in GCKLoggerFilter.
  */
-@property(nonatomic, assign) GCKLoggerLevel minimumLevel DEPRECATED_ATTRIBUTE;
+@property(nonatomic, assign) GCKLoggerLevel minimumLevel GCK_DEPRECATED("Use minimumLevel property of GCKLoggerFilter class");
 
 /**
  * Returns the GCKLogger singleton instance.

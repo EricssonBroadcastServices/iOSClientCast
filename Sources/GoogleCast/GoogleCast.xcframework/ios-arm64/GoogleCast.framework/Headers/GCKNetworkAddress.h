@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @since 4.2
  */
 GCK_EXPORT
-@interface GCKNetworkAddress : NSObject <NSCopying, NSCoding>
+@interface GCKNetworkAddress : NSObject <NSCopying, NSSecureCoding>
 
 /** The address type. */
 @property(nonatomic, assign, readonly) GCKNetworkAddressType type;

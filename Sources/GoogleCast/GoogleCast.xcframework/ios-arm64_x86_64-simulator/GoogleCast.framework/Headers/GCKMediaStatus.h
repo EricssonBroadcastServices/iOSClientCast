@@ -293,7 +293,7 @@ GCK_EXPORT
 /**
  * The current queue item, if any.
  */
-@property(nonatomic, assign, readonly, nullable) GCKMediaQueueItem *currentQueueItem;
+@property(nonatomic, weak, readonly, nullable) GCKMediaQueueItem *currentQueueItem;
 
 /**
  * Checks if there is an item after the currently playing item in the queue.
@@ -303,7 +303,7 @@ GCK_EXPORT
 /**
  * The next queue item, if any.
  */
-@property(nonatomic, assign, readonly, nullable) GCKMediaQueueItem *nextQueueItem;
+@property(nonatomic, weak, readonly, nullable) GCKMediaQueueItem *nextQueueItem;
 
 /**
  * Whether there is an item before the currently playing item in the queue.
