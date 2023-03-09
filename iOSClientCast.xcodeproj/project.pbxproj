@@ -507,7 +507,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.200;
+				MARKETING_VERSION = 4.0.300;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.Cast;
 				PRODUCT_NAME = iOSClientCast;
@@ -549,7 +549,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.0.200;
+				MARKETING_VERSION = 4.0.300;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emp.Cast;
 				PRODUCT_NAME = iOSClientCast;

@@ -38,7 +38,7 @@ Once you have your Swift package set up, adding `iOSClientCast` as a dependency 
 
 ```sh
 dependencies: [
-    .package(url: "https://github.com/EricssonBroadcastServices/iOSClientCast", from: "4.0.1")
+    .package(url: "https://github.com/EricssonBroadcastServices/iOSClientCast", from: "4.0.3")
 ]
 ```
 
@@ -46,7 +46,7 @@ dependencies: [
 CocoaPods is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate `iOSClientCast` into your Xcode project using CocoaPods, specify it in your Podfile:
 
 ```sh
-pod 'iOSClientCast', '~>  4.0.1'
+pod 'iOSClientCast', '~>  4.0.3'
 ```
 
 
