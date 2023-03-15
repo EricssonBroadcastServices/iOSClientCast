@@ -33,8 +33,11 @@ public struct CustomData: Encodable {
     /// X-Adobe-Primetime-MediaToken
     public let adobePrimetimeToken: String?
     
+    /// If custom images should be used for the current playing asset.
+    public let customImages: [CustomImage]?
+    
     public init(customer: String, businessUnit: String,
-                locale:String? = nil, adParameters: CastAdsOptions? = nil, adobePrimetimeToken: String? = nil, subtitleLanguage: String? = nil, audioLanguage: String? = nil  ) {
+                locale:String? = nil, adParameters: CastAdsOptions? = nil, adobePrimetimeToken: String? = nil, subtitleLanguage: String? = nil, audioLanguage: String? = nil, customImages: [CustomImage]? = nil   ) {
         self.customer = customer
         self.businessUnit = businessUnit
         self.locale = locale
@@ -42,6 +45,7 @@ public struct CustomData: Encodable {
         self.adobePrimetimeToken = adobePrimetimeToken
         self.subtitleLanguage = subtitleLanguage
         self.audioLanguage = audioLanguage
+        self.customImages = customImages
     }
 }
 
@@ -54,6 +58,7 @@ extension CustomData {
         case adobePrimetimeToken
         case subtitleLanguage
         case audioLanguage
+        case customImages
     }
 }
 
@@ -76,6 +81,14 @@ extension CustomData {
         }
         if let audioLanguage = audioLanguage {
             json[CodingKeys.audioLanguage.rawValue] = audioLanguage
+        }
+        
+        if let customImages = customImages {
+            var convertedImageObjects:[Any] = []
+            for customImage in customImages {
+                convertedImageObjects.append(customImage.toJson)
+            }
+            json[CodingKeys.customImages.rawValue] = convertedImageObjects
         }
         return json
     }
