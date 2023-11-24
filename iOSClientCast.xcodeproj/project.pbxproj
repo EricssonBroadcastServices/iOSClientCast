@@ -65,7 +65,6 @@
 
 /* Begin PBXFileReference section */
 		683CD7672887ED0700A3FE26 /* iOSClientCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSClientCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		68F22E7C28D1FFC900525D7C /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		68F22E7D28D1FFCF00525D7C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		68F22E7E28D1FFD600525D7C /* iOSClientCast.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = iOSClientCast.podspec; sourceTree = "<group>"; };
 		781A85B827FEE0BB00BB741D /* GoogleCast */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GoogleCast; path = Sources/GoogleCast; sourceTree = "<group>"; };
@@ -135,7 +134,6 @@
 			children = (
 				68F22E7E28D1FFD600525D7C /* iOSClientCast.podspec */,
 				68F22E7D28D1FFCF00525D7C /* CHANGELOG.md */,
-				68F22E7C28D1FFC900525D7C /* Documentation */,
 				78BA594727F432C100D9B008 /* iOSClientCast */,
 				78BA594527F432C100D9B008 /* iOSClientCastObjc */,
 				78BA596927F4341F00D9B008 /* Frameworks */,
