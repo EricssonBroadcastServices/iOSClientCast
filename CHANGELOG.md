@@ -1,5 +1,6 @@
 # CHANGELOG
 
+* `4.0.30` Release - [4.0.300](#40300)
 * `4.0.20` Release - [4.0.200](#40200)
 * `4.0.10` Release - [4.0.100](#40100)
 * `4.0.00` Release - [4.0.000](#40000)
@@ -12,6 +13,9 @@
 * `2.0.79` Release - [2.0.790](#20790)
 * `0.73.x` Releases - [0.73.0](#07300)
 
+## 4.0.300
+#### Features
+* `EMP-19565`  Allow passing custom image info for assets to cast receiver/sender
 
 ## 4.0.200
 #### Features
