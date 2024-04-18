@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,7 @@
 		78BA598827F435A300D9B008 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA598727F435A300D9B008 /* Security.framework */; };
 		78BA598A27F435A700D9B008 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA598927F435A700D9B008 /* SystemConfiguration.framework */; };
 		78BA598C27F435AD00D9B008 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA598B27F435AD00D9B008 /* UIKit.framework */; };
+		DC0D6C6D2BD10F1400D8E3F7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DC0D6C6C2BD10F1400D8E3F7 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,6 +100,7 @@
 		78BA598727F435A300D9B008 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		78BA598927F435A700D9B008 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		78BA598B27F435AD00D9B008 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC0D6C6C2BD10F1400D8E3F7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		78BA594727F432C100D9B008 /* iOSClientCast */ = {
 			isa = PBXGroup;
 			children = (
+				DC0D6C6C2BD10F1400D8E3F7 /* PrivacyInfo.xcprivacy */,
 				78BA594827F432C100D9B008 /* Configuration */,
 				78BA594B27F432C100D9B008 /* Channel.swift */,
 				78BA594C27F432C100D9B008 /* Internal */,
@@ -294,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC0D6C6D2BD10F1400D8E3F7 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
