@@ -31,11 +31,6 @@ let package = Package(
             dependencies: ["GoogleCast"],
             resources: [.copy("PrivacyInfo.xcprivacy")]
         ),
-        .target(
-            name: "iOSClientCastObjc",
-            dependencies: [],
-            exclude: ["Info.plist"]
-        ),
         .binaryTarget(
             name: "GoogleCast",
             path: "Sources/GoogleCast/GoogleCast.xcframework"
