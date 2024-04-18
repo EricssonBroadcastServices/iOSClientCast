@@ -13,4 +13,5 @@ spec.static_framework = true
 spec.ios.vendored_frameworks = 'Sources/GoogleCast/GoogleCast.xcframework'
 spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+spec.resource_bundles = { "iOSClientCast.git" => ["Sources/iOSClientCast/PrivacyInfo.xcprivacy"]
 end
