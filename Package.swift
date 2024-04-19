@@ -10,7 +10,11 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "iOSClientCast",
-            targets: ["iOSClientCast", "GoogleCast"]),
+            targets: [
+                "iOSClientCast",
+                "GoogleCast",
+            ]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -24,16 +28,17 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "iOSClientCast",
-            dependencies: ["GoogleCast"]),
-        .target(
-            name: "iOSClientCastObjc",
-            dependencies: [] , exclude: ["Info.plist"]),
+            dependencies: ["GoogleCast"],
+            resources: [.copy("PrivacyInfo.xcprivacy")]
+        ),
         .binaryTarget(
-                    name: "GoogleCast",
-                    path: "Sources/GoogleCast/GoogleCast.xcframework"
-                ),
+            name: "GoogleCast",
+            path: "Sources/GoogleCast/GoogleCast.xcframework"
+        ),
         .testTarget(
             name: "iOSClientCastTests",
-            dependencies: ["iOSClientCast", "GoogleCast", "Quick", "Nimble"], exclude: ["Info.plist"]),
+            dependencies: ["iOSClientCast", "GoogleCast", "Quick", "Nimble"],
+            exclude: ["Info.plist"]
+        ),
     ]
 )
