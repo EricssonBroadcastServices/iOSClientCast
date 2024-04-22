@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 spec.name         = "iOSClientCast"
-spec.version      = "4.0.300"
+spec.version      = "4.1.0"
 spec.summary      = "RedBeeMedia iOS SDK Google Cast Module"
 spec.homepage     = "https://github.com/EricssonBroadcastServices"
 spec.license      = { :type => "Apache", :file => "LICENSE" }
