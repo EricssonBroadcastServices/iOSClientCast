@@ -10,7 +10,7 @@
  *
  * @ingroup Networking
  */
-typedef NS_ENUM(NSInteger, GCKNetworkAddressType) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKNetworkAddressType) {
   /** Unknown address type. */
   GCKNetworkAddressTypeUnknown = 0,
   /** IPv4 address. */

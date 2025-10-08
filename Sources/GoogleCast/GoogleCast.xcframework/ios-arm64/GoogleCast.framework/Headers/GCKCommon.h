@@ -33,7 +33,7 @@ GCK_EXTERN NSString *const kGCKThreadException;
  * @enum GCKConnectionState
  * Enum defining Cast connection states.
  */
-typedef NS_ENUM(NSInteger, GCKConnectionState) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKConnectionState) {
   /** Disconnected from the device or application. */
   GCKConnectionStateDisconnected = 0,
   /** Connecting to the device or application. */
@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger, GCKConnectionSuspendReason) {
  * An enum describing the active input status states. This status indicates whether a receiver
  * device is currently the active input on its connected TV or AVR.
  */
-typedef NS_ENUM(NSInteger, GCKActiveInputStatus) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKActiveInputStatus) {
   /** The active input status is unknown. */
   GCKActiveInputStatusUnknown = -1,
   /** The input is inactive. */
@@ -80,7 +80,7 @@ typedef NS_ENUM(NSInteger, GCKActiveInputStatus) {
  * An enum describing the standby status states. This status indicates whether a receiver device's
  * connected TV or AVR is currently in "standby" mode.
  */
-typedef NS_ENUM(NSInteger, GCKStandbyStatus) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKStandbyStatus) {
   /** The standby status is unknown.  */
   GCKStandbyStatusUnknown = -1,
   /** The device is not in standby mode.  */
@@ -94,7 +94,7 @@ typedef NS_ENUM(NSInteger, GCKStandbyStatus) {
  *
  * An enum describing the possible casting states for the sender application.
  */
-typedef NS_ENUM(NSUInteger, GCKCastState) {
+typedef NS_CLOSED_ENUM(NSUInteger, GCKCastState) {
   /** No Cast session is established, and no Cast devices are available. */
   GCKCastStateNoDevicesAvailable = 0,
   /** No Cast session is establishd, and Cast devices are available. */

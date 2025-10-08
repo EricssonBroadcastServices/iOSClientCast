@@ -15,7 +15,7 @@
  *
  * @since 3.1
  */
-typedef NS_ENUM(NSInteger, GCKLoggerLevel) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKLoggerLevel) {
   /** No logging level (for backward compatibility). */
   GCKLoggerLevelNone = 0,
   /** Verbose messages. */

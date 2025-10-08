@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @enum GCKMediaTrackType
  * Media track types.
  */
-typedef NS_ENUM(NSInteger, GCKMediaTrackType) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKMediaTrackType) {
   /** Unknown track type. */
   GCKMediaTrackTypeUnknown = 0,
   /** Text. */
