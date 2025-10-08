@@ -177,7 +177,7 @@ GCK_EXTERN const NSInteger kGCKMediaCommandStreamTransfer;
  * @enum GCKMediaPlayerState
  * Media player states.
  */
-typedef NS_ENUM(NSInteger, GCKMediaPlayerState) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKMediaPlayerState) {
   /** Constant indicating unknown player state. */
   GCKMediaPlayerStateUnknown = 0,
   /** Constant indicating that the media player is idle. */

@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger, GCKSessionEndAction) {
  *
  * @param error The error that occurred.
  */
-- (void)notifyDidFailToStartWithError:(NSError *)error;
+- (void)notifyDidFailToStartWithError:(GCKError *)error;
 
 /**
  * Called by subclasses to notify the framework that the session has ended.

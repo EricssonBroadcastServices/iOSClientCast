@@ -54,7 +54,6 @@ GCK_EXPORT
 @property(nonatomic, assign, readonly) BOOL suspended GCK_DEPRECATED(
     "GCKSession no longer supports being in a suspended state. If needed, move this functionality "
     "to a subclass.");
-;
 
 /** The current device status text. */
 @property(nonatomic, copy, readonly, nullable) NSString *deviceStatusText;

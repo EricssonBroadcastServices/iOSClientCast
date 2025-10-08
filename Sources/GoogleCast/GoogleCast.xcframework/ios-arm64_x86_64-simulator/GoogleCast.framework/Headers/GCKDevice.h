@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @enum GCKDeviceStatus
  * Enum defining the device status at the time the device was scanned.
  */
-typedef NS_ENUM(NSInteger, GCKDeviceStatus) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKDeviceStatus) {
   /** Unknown status. */
   GCKDeviceStatusUnknown = -1,
   /** Idle device status. */

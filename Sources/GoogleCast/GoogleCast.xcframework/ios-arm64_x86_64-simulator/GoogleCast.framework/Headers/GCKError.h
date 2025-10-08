@@ -399,7 +399,34 @@ typedef NS_ENUM(NSInteger, GCKErrorCode) {
    *
    * @since 4.6.0
    */
-  GCKErrorCodeLaunchRequestCancelled = 103
+  GCKErrorCodeLaunchRequestCancelled = 103,
+
+  /**
+   * Error code indicating that a requested application is not currently running due to a mismatched
+   * namespace.
+   */
+  GCKErrorCodeApplicationNotRunningWithNamespaceMismatched = 104,
+
+  /**
+   * Error code indicating that a requested application is not currently running when resumed.
+   */
+  GCKErrorCodeApplicationNotRunningWhenResumed = 105,
+
+  /**
+   * Error code indicating that a request application can not be joined.
+   */
+  GCKErrorCodeApplicationNotRunningForJoin = 106,
+
+  /**
+   * Error code indicating that a requested application can not be joined when reconnecting.
+   */
+  GCKErrorCodeApplicationNotRunningForJoinWhenReconnecting = 107,
+
+  /**
+   * Error code indicating that a requested application is not currently running due to a mismatched
+   * applicationID.
+   */
+  GCKErrorCodeApplicationNotRunningWithApplicationIDMismatch = 108,
 };
 
 /**

@@ -60,7 +60,7 @@ GCK_EXPORT
  * A flag indicating whether the discovery of Cast devices should start automatically at
  * context initialization time. If set to <code>NO</code>, discovery can be started and stopped
  * on-demand by using the methods GCKDiscoveryManager::startDiscovery and
- * GCKDiscoveryManager::stopDiscovery.
+ * GCKDiscoveryManager::stopDiscovery. By default this option is set to @c NO.
  *
  * @since 3.4
  */
@@ -113,8 +113,8 @@ GCK_EXPORT
  * If set to <code>YES</code>, @c GCKUICastButton is displayed until a user taps on the cast button
  * the first time. On the first tap, an interstitial is presented to explain why local network
  * access permission is required for the cast to work. Discovery starts once the interstitial is
- * dismissed. The cast button is shown again when a cast device is discovered on the local network.
- * In successive App launches, @c GCKUICastButton is shown only when any cast device is discovered.
+ * dismissed. The cast button is shown again only when the device is connected to a Wi-Fi network.
+* When a Wi-Fi network connection is not present, the cast button is hidden.
  * If set to <code>NO</code>, discovery starts based on the flag @c disableDiscoveryAutoStart. This
  * flag comes into effect only on iOS 14 and above if the flag @c disableDiscoveryAutoStart is set
  * to <code>NO</code>. Default value is <code>YES</code>.

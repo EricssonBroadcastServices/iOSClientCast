@@ -481,6 +481,32 @@ GCK_EXPORT
 - (void)bindImageView:(UIImageView *)imageView toImageHints:(GCKUIImageHints *)imageHints;
 
 /**
+ * Binds a @c UIControl to rewind playback of the current item by the passed value as seconds.
+ * The view will be updated based on @c GCKCastSession state, the remote playback state and whether
+ * it is a livestream. A target is also added to the @c UIControl to capture @c
+ * UIControlEventTouchUpInside event. Do not add target of this type on the @c UIControl. To capture
+ * the event use the @c GCKUIMediaControllerDelegate methods instead.
+ *
+ * @param control The UI element that the user interacts with. Typically this would be an instance
+ * of @c UIButton.
+ * @param rewindSeconds The number of seconds to rewind the media.
+ */
+- (void)bindControlView:(UIControl *)control toRewindForTime:(NSTimeInterval)rewindSeconds;
+
+/**
+ * Binds a @c UIControl to forward playback of the current item by the passed value as seconds.
+ * The view will be updated based on @c GCKCastSession state, the remote playback state and whether
+ * it is a livestream. A target is also added to the @c UIControl to capture @c
+ * UIControlEventTouchUpInside event. Do not add target of this type on the @c UIControl. To capture
+ * the event use the @c GCKUIMediaControllerDelegate methods instead.
+ *
+ * @param control The UI element that the user interacts with. Typically this would be an instance
+ * of @c UIButton.
+ * @param forwardSeconds The number of seconds to skip the media.
+ */
+- (void)bindControlView:(UIControl *)control toForwardForTime:(NSTimeInterval)forwardSeconds;
+
+/**
  * Unbinds the specified view.
  *
  * @param view The view to unbind.

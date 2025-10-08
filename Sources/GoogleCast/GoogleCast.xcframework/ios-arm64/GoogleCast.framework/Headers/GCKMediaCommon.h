@@ -13,7 +13,7 @@
  * @enum GCKMediaResumeState
  * Enum defining the media control channel resume state.
  */
-typedef NS_ENUM(NSInteger, GCKMediaResumeState) {
+typedef NS_CLOSED_ENUM(NSInteger, GCKMediaResumeState) {
   /** A resume state indicating that the player state should be left unchanged. */
   GCKMediaResumeStateUnchanged = 0,
 
